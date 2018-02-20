@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src *; style-src *  'unsafe-inline'; script-src *  'unsafe-inline'; media-src *"> -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="theme-color" content="#1e2327">
+    <meta name="description" content="web app description">
+    <meta property="og:url" content="">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="">
+    <meta property="og:description" content="">
+    <meta property="og:image" content="">
+    
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+    
+    <!-- Import rate css -->
+    <link type="text/css" rel="stylesheet" href="css/jquery.rateyo.css"  media="screen,projection"/>
+    
+    <!-- Import map-icons css -->
+    <link type="text/css" rel="stylesheet" href="dist/css/map-icons.css"  media="screen,projection"/>
+    
+    <!-- Import fontawesome css -->
+    <link type="text/css" rel="stylesheet" href="css/font-awesome.min.css"  media="screen,projection"/>
+    
+    <!-- Import Custom css -->
+    <link type="text/css" rel="stylesheet" href="css/style.css"  media="screen,projection"/>
+    <style>
+        #map{
+            height: 300px;
+        }
+        #emap{
+            height: 300px;
+        }
+        
+        #dmap{
+            height: 300px;
+        }
+        #locmap{
+            height: 300px;
+        }
+    </style>
+    <title>Home - Mtourist</title>
+</head>
+<body class="grey lighten-4">
+    <header id="" class="">
+        <nav class="light-blue darken-4 z-depth-0" role="navigation">
+            <div class="nav-wrapper container">
+                <a href="#" class="brand-logo fix-text text-shadow-1">Zambales Tour</a>
+                <ul id="nav-item" class="right hide-on-med-and-down">
+                    <li>
+                        <a href="index.html">
+                            <!-- <i class="fas fa-user"></i> -->
+                            Home
+                        </a>
+                    </li>
+                    <li><a href="#regModal" class="modal-trigger">Sign up</a></li>
+                    <li><a href="#loginModal" class="modal-trigger">Log in</a></li>
+                </ul>
+                
+                <ul id="nav-mobile" class="side-nav">
+                    <li><h1><a href="#" class="center blue-text">Zambales Tour</a></h1></li>
+                    <li>
+                        <a href="index.html">
+                            <i class="fa fa-home"></i>
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#regModal" class="modal-trigger">
+                            <i class="fa fa-user-plus" aria-hidden="true"></i>
+                            Sign up
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#loginModal" class="modal-trigger">
+                            <i class="fa fa-sign-in" aria-hidden="true"></i>
+                            Log in
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-facebook-f"></i>
+                            /ZambalesTour
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-twitter"></i>
+                            /ZambalesTour
+                        </a>
+                    </li>
+                </ul>
+                <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+            </div>
+        </nav>
+    </header>
+    
+    <div class="main">
+        <div id="destination" class="row">
+            <br>
+            <div class="col l2 s12  border-left white">
+                <ul class="collapsible collapsible-main" data-collapsible="accordion">
+                    <li>
+                        <div class="collapsible-header active">
+                            <h5 class="light-blue-text text-darken-4">View By</h5>
+                        </div>
+                        <div class="collapsible-body">
+                            <ul class="collapsible collapsible-child" data-collapsible="expandable">
+                                <li>
+                                    <div class="collapsible-header">
+                                        <p class="bold range-field light-blue-text text-darken-4">
+                                            Price:
+                                        </p>
+                                    </div>
+                                    <div class="collapsible-body">
+                                        <div class="price-range">
+                                            <form action="#">
+                                                <p class="range-field">
+                                                    <input type="range" id="filterPrice" min="0" max="10000" />
+                                                </p>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </li>
+                                <!-- <li>
+                                    <div class="collapsible-header">
+                                        <p class="bold light-blue-text text-darken-4">Rating:</p>
+                                    </div>
+                                    <div class="collapsible-body">
+                                        <div class="ratings-range">
+                                            <input name="rating-group" type="radio" id="rating-5" />
+                                            <label for="rating-5">
+                                                <i class="fa fa-star checked"></i>
+                                                <i class="fa fa-star checked"></i>
+                                                <i class="fa fa-star checked"></i>
+                                                <i class="fa fa-star checked"></i>
+                                                <i class="fa fa-star checked"></i>
+                                            </label>
+                                            <input name="rating-group" type="radio" id="rating-4" />
+                                            <label for="rating-4">
+                                                <i class="fa fa-star checked"></i>
+                                                <i class="fa fa-star checked"></i>
+                                                <i class="fa fa-star checked"></i>
+                                                <i class="fa fa-star checked"></i>
+                                                <i class="fa fa-star"></i>
+                                            </label>
+                                            <input name="rating-group" type="radio" id="rating-3" />
+                                            <label for="rating-3">
+                                                <i class="fa fa-star checked"></i>
+                                                <i class="fa fa-star checked"></i>
+                                                <i class="fa fa-star checked"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                            </label>
+                                            <input name="rating-group" type="radio" id="rating-2" />
+                                            <label for="rating-2">
+                                                <i class="fa fa-star checked"></i>
+                                                <i class="fa fa-star checked"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                            </label>
+                                            <input name="rating-group" type="radio" id="rating-1" />
+                                            <label for="rating-1">
+                                                <i class="fa fa-star checked"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </li> -->
+                                <li>
+                                    <div class="collapsible-header">
+                                        <p class="bold light-blue-text text-darken-4">Category:</p>
+                                    </div>
+                                    <div class="collapsible-body">
+                                        <div class="categories">
+                                            <div class="input-field">
+                                                <input type="text" id="autocomplete-input" class="autocomplete">
+                                                <label for="autocomplete-input">Category</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="collapsible-header">
+                                        <p class="bold light-blue-text text-darken-4">Municipality:</p>
+                                    </div>
+                                    <div class="collapsible-body">
+                                        <ul class="municipality">
+                                            <li><a href="destination.html?dest=Iba">Iba</a></li>
+                                            <li><a href="destination.html?dest=Subic">Subic</a></li>
+                                            <li><a href="destination.html?dest=Castillejos">Castillejos</a></li>
+                                            <li><a href="destination.html?dest=San Marcelino">San Marcelino</a></li>
+                                            <li><a href="destination.html?dest=Botolan">Botolan</a></li>
+                                            <li><a href="destination.html?dest=Cabangan">Cabangan</a></li>
+                                            <li><a href="destination.html?dest=Candelaria">Candelaria</a></li>
+                                            <li><a href="destination.html?dest=Masinloc">Masinloc</a></li>
+                                            <li><a href="destination.html?dest=Palauig">Palauig</a></li>
+                                            <li><a href="destination.html?dest=San Antonio">San Antonio</a></li>
+                                            <li><a href="destination.html?dest=San Felipe">San Felipe</a></li>
+                                            <li><a href="destination.html?dest=San Narciso">San Narciso</a></li>
+                                            <li><a href="destination.html?dest=Santa Cruz">Santa Cruz</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="col l10">
+                <nav class="light-blue darken-4 nav-search">
+                    <div class="nav-wrapper">
+                        <div class="input-field">
+                            <input id="search" type="search" required placeholder="Zambales Tour">
+                            <label class="label-icon" for="search"><i class="fa fa-search"></i></label>
+                            <i class="material-icons">close</i>
+                        </div>
+                    </div>
+                </nav>
+                <div id="destPlaceList">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="page-footer light-blue darken-4">
+        <div class="page-copyright center">
+            <div class="container">
+                © 2018 Zambales Tour, All rights reserved.
+            </div>
+        </div>
+    </footer>
+    <!-- loginModal Structure -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content container">
+            <form id="login_form" method="post" name="login_form">
+                <!-- <br> -->
+                <h4 class="center light">Welcome back!</h4>
+                <p class="center thin">Please login your account.</p>
+                <p id="err-msg" class="red-text center thin"></p>
+                <div class="">
+                    <div class="input-field">
+                        <i class="fa fa-user prefix"></i>
+                        <input id="usrnm" type="email" class="validate" name="username" placeholder="Email">
+                    </div>
+                    <div class="input-field">
+                        <i class="fa fa-key prefix"></i>
+                        <input id="psswrd" type="password" class="validate" name="password" placeholder="Password">
+                    </div>
+                </div>
+                <button id="btn-login" type="submit" name="login" value="log in" class="waves-effect waves-light btn block light-blue darken-4">Log in</button>
+                <br>
+                <br>
+                
+                <br>
+            </form>  
+        </div>
+    </div>
+    
+    <!-- regModal Structure -->
+    <div id="regModal" class="modal">
+        <div class="modal-content container">
+            <form id="reg_form" method="post" name="reg_form">
+                <!-- <br> -->
+                <h4 class="center thin">Create an account!</h4>
+                <p id="err-msg2" class="red-text center thin"></p>
+                <p id="scc-msg" class="green-text center thin"></p>
+                <div class="">
+                    <div class="input-field">
+                        <i class="fa fa-user prefix"></i>
+                        <input id="usrnm2" type="email" class="validate" name="username2" placeholder="Email">
+                    </div>
+                    <div class="input-field">
+                        <i class="fa fa-key prefix"></i>
+                        <input id="psswrd2" type="password" class="validate" name="password2" placeholder="Password">
+                    </div>
+                    <div class="input-field">
+                        <i class="fa fa-key prefix"></i>
+                        <input id="psswrd3" type="password" class="validate" name="password3" placeholder="Repeat password">
+                    </div>
+                </div>
+                <a id="btn-register" name="register" class="waves-effect waves-light btn block light-blue darken-4"  onclick="signupform()">Sign up</a>
+                
+            </form>  
+        </div>
+    </div>
+    
+    <!-- Place Detail Structure -->
+    <div id="placeDetails" class="modal">
+        <div class="modal-content">
+            <div class="card">
+                <div class="card-image waves-effect waves-block waves-light">
+                    <img id="imgplace" class="" src="img/default.jpeg">
+                </div>
+                <div class="card-content">
+                    <h4 class="center light" id="pDTitle">Title</h4>
+                    <p>
+                        <span id="pDCategory" class="left">Category</span>
+                        <span id="pDPrice" class="right">Price</span>
+                    </p><br>
+                    <p>
+                        <span id="pDWebsite" class="left">Website</span>
+                        <span id="pDCnum" class="right">Contact No</span>
+                    </p><br>
+                    <p>
+                        <span id="pDAddress">Address</span>
+                    </p><br>
+                    <p id="toAppend">
+                        
+                    </p>
+                    
+                    <p id="pDLongDesc">I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+                </div>
+                <div class="card-tabs">
+                    <ul class="tabs tabs-fixed-width">
+                        <li class="tab"><a href="#pReviews">Reviews</a></li>
+                    </ul>
+                </div>
+                <div class="card-content">
+                    <div id="pReviews">
+                        <div class="row">
+                            <div class="col l6">
+                                <div class="col l12">
+                                    <h5 class="center">Users Rating</h5>
+                                    <br>
+                                </div>
+                                <div class="col l12">
+                                    <p class="center">
+                                        <div id="rateYo" data-rateyo-rating="0" data-rateyo-num-stars="5"></div>
+                                    </p>
+                                    <h5 class='result center'></h5>
+                                </div>
+                                <div class="col l12 center">
+                                    <br>
+                                    <a href="#addReviews" class="center bold modal-trigger modal-close" onclick="passData();">
+                                        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                                        WRITE A REVIEW
+                                    </a>
+                                    <input type="hidden" name="" id="pRId">
+                                    <input type="hidden" name="" id="pRUId">
+                                </div>
+                            </div>
+                            <div class="col l6">
+                                <div class="rrow">
+                                    <div class="side">
+                                        <div>5</div>
+                                    </div>
+                                    <div class="middle">
+                                        <div class="bar-container">
+                                            <div class="bar-5"></div>
+                                        </div>
+                                    </div>
+                                    <div class="side rright">
+                                        <div id="five-total">0</div>
+                                    </div>
+                                    <div class="side">
+                                        <div>4</div>
+                                    </div>
+                                    <div class="middle">
+                                        <div class="bar-container">
+                                            <div class="bar-4"></div>
+                                        </div>
+                                    </div>
+                                    <div class="side rright">
+                                        <div id="four-total">0</div>
+                                    </div>
+                                    <div class="side">
+                                        <div>3</div>
+                                    </div>
+                                    <div class="middle">
+                                        <div class="bar-container">
+                                            <div class="bar-3"></div>
+                                        </div>
+                                    </div>
+                                    <div class="side rright">
+                                        <div id="three-total">0</div>
+                                    </div>
+                                    <div class="side">
+                                        <div>2</div>
+                                    </div>
+                                    <div class="middle">
+                                        <div class="bar-container">
+                                            <div class="bar-2"></div>
+                                        </div>
+                                    </div>
+                                    <div class="side rright">
+                                        <div id="two-total">0</div>
+                                    </div>
+                                    <div class="side">
+                                        <div>1</div>
+                                    </div>
+                                    <div class="middle">
+                                        <div class="bar-container">
+                                            <div class="bar-1"></div>
+                                        </div>
+                                    </div>
+                                    <div class="side rright">
+                                        <div id="one-total">0</div>
+                                    </div>
+                                </div>
+                            </div><br/><br/>
+                            <br/><br/>
+                            <div class="col l12">
+                                <br>
+                                <br>
+                                <ul id="reviewData" class="collection">
+                                    
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- ADD REVIEWS MODAL -->
+    <div id="addReviews" class="modal modal-fixed-footer">
+        <div class="modal-content">
+            <h5 class="center light grey-text text-darken-4">Rate and Review</h5>
+            <div class="divider"></div>
+            <br>
+            <div class="row">
+                <div class="col l12 center">
+                    <h5 id="rTitle" class="blue-text">Place Name Here</h5>
+                </div>
+                <div class="col l12">
+                    <h6 id="rName"></h6>
+                    <p class="light grey-text">Your review will be posted publicly on the web.</p>
+                    <div id="rateYo2" data-rateyo-rating="0" data-rateyo-num-stars="5"></div>
+                    <input id="result" type="text" />
+                    <br>
+                    <textarea name="" id="exp" cols="" rows="" placeholder="Share details of your own experience at this place" class="materialize-textarea"></textarea>
+                    <input type="hidden" name="" id="rUId">
+                    <input type="hidden" name="" id="rPId">
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat blue-text ">Cancel</a>
+            <a href="#!" class="modal-action waves-effect waves-green btn-flat blue-text" onclick="reviewForm();">Post</a>
+        </div>
+    </div>
+    
+    <!-- Direction MODAL -->
+    <div id="directionModal" class="modal modal-fixed-footer">
+        <div class="modal-content">
+            <div id="locmap"></div>
+        </div>
+        
+    </div>
+    <!--Import jQuery before materialize.js-->
+    <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+    
+    <!-- Import rateyo js -->
+    <script type="text/javascript" src="js/jquery.rateyo.js"></script>
+    
+    <!-- Import map-icon js -->
+    <script type="text/javascript" src="dist/js/map-icons.min.js"></script>
+    
+    <!-- Import Materialize js -->
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+    
+    <!-- Import Validation js -->
+    <script type="text/javascript" src="js/validation.min.js"></script>
+    <script type="text/javascript" src="js/validation.js"></script>
+    <script type="text/javascript" src="js/loader.js"></script>
+    <script type="text/javascript" src="js/map.js"></script>
+    
+    <!-- Import Init js -->
+    <script type="text/javascript" src="js/init.js"></script>
+    <!-- Import Google Map API -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBjx7ontRXXlAspApYcMXNJaRCk_Ykdxdg&libraries=places&callback=initMap"
+    async defer></script>
+    <script type="text/javascript">
+        $(function () {
+            
+            $("#rateYo").rateYo({
+                rating: 0,
+                fullStar: true,
+                readOnly: true
+            });
+            $("#rateYo1").rateYo({
+                fullStar: true,
+                readOnly: true
+            });
+            $("#rateYo2").rateYo({
+                rating: 0,
+                fullStar: true
+            });
+            $("#rateYo3").rateYo({
+                rating: 5,
+                fullStar: true,
+                readOnly: true
+            });
+            $("#rateYo1").rateYo("option", "starWidth", "12px");
+            $("#rateYo3").rateYo("option", "starWidth", "12px");
+            $("#rateYo2").rateYo().on("rateyo.change", function (e, data) {
+                var rating = data.rating;
+                // $(this).parent().find('.score').text('score :'+ $(this).attr('data-rateyo-score'));
+                $(this).parent().find('#result').val(rating);
+            });
+        });
+    </script>
+</body>
+</html>

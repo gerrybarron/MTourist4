@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src *; style-src *  'unsafe-inline'; script-src *  'unsafe-inline'; media-src *"> -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="theme-color" content="#1e2327">
+    <meta name="description" content="web app description">
+    <meta property="og:url" content="">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="">
+    <meta property="og:description" content="">
+    <meta property="og:image" content="">
+    
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+    <!--Croppie Plugins CSS-->
+    <link rel="stylesheet" type="text/css" href="css/croppie.css" />
+    <link rel="stylesheet" type="text/css" href="css/demo.css" />
+    <link rel="stylesheet" type="text/css" href="css/sweetalert.css" />
+    
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+    
+    <!-- Import rate css -->
+    <link type="text/css" rel="stylesheet" href="css/jquery.rateyo.css"  media="screen,projection"/>
+    
+    <!-- Import map-icons css -->
+    <link type="text/css" rel="stylesheet" href="dist/css/map-icons.css"  media="screen,projection"/>
+    
+    <!-- Import fontawesome css -->
+    <link type="text/css" rel="stylesheet" href="css/font-awesome.min.css"  media="screen,projection"/>
+    
+    <!-- Import Custom css -->
+    <link type="text/css" rel="stylesheet" href="css/style.css"  media="screen,projection"/>
+    <style>
+        #map{
+            height: 300px;
+        }
+        #emap{
+            height: 300px;
+        }
+        
+        #dmap{
+            height: 300px;
+        }
+    </style>
+    <title>Profile - Mtourist</title>
+</head>
+<body class="gradient-background2">
+    <header>
+        <nav class="transparent z-depth-0" role="navigation">
+            <div class="nav-wrapper container">
+                <a href="#" class="brand-logo fix-text">Profile</a>
+                <ul id="nav-item" class="right hide-on-med-and-down">
+                    
+                </ul>
+                <ul id="nav-mobile" class="side-nav">
+                    
+                </ul>
+                <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="fa fa-bars"></i></a>
+            </div>
+        </nav>
+    </header>
+    
+    <main>
+        <br>
+        <div class="container">
+            <div class="row">
+                <div class="col s12">
+                    <div class="col s12 l3 center">
+                        <img id="propic" src="img/user.png" alt="" class="circle responsive-img outline">
+                    </div>
+                    
+                    <div class="profile-nav">
+                        <h5 class="thin white-text center" id="profileName"></h5>
+                        
+                        <nav class="transparent z-depth-0">
+                            <div class="nav-wrapper">
+                                <a href="#updateInfo" class="right btn-edit modal-trigger">Edit Profile</a>
+                                <ul id="nav-profile" class="left">
+                                    <li>
+                                        <a href=#>
+                                            <span class="profile-label">Posts</span>
+                                            <span class="profile-value" id="postNum">0</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <span class="profile-label">Reviews</span>
+                                            <span class="profile-value" id="reviewNum">0</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#myPlace" class="modal-trigger">
+                                            <span class="profile-label">My Place</span>
+                                            <span class="profile-value" id="reviewNum">0</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </nav>
+                        <p class="white-text thin" id="profileBio"></p>
+                    </div>
+                </div>
+                <div class="col s12 l9">
+                    
+                </div>
+                <div class="col l12">
+                    <div class="divider"></div>
+                </div>
+                
+                <div class="col l12">
+                    <div class="post container">
+                        <div class="col l12">
+                            <div class="col l12">
+                                <p id="staticInput" class="grey-text text-lighten-2" onclick="$('#addPost').modal('open')">Share your experience.</p>
+                            </div>
+                            
+                            
+                        </div>
+                        
+                        <div id="post-list" class="col l12">
+                            <!-- <div class="col l12"> -->
+                                <!-- <div class="card"> -->
+                                    <!-- <div class="card-image"> -->
+                                        <!-- <img src="img/default.jpeg"> -->
+                                        <!-- <span class="card-title">Card Title</span> -->
+                                    <!-- </div> -->
+                                    <!-- <div class="card-content"> -->
+                                        <!-- <p> -->
+                                            <!-- I am a very simple card. I am good at containing small bits of information. -->
+                                            <!-- I am convenient because I require little markup to use effectively. -->
+                                        <!-- </p> -->
+                                    <!-- </div> -->
+                                <!-- </div> -->
+                            <!-- </div> -->
+                            
+                        </div>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                    </div>                    
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <footer class="page-footer transparent">
+        <div class="page-copyright center">
+            <div class="container">
+                © 2018 Zambales Tour, All rights reserved.
+            </div>
+        </div>
+    </footer>
+    
+    <!-- loginModal Structure -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content container">
+            <form id="login_form" method="post" name="login_form">
+                <!-- <br> -->
+                <h4 class="center light">Welcome back!</h4>
+                <p class="center thin">Please login your account.</p>
+                <p id="err-msg" class="red-text center thin"></p>
+                <div class="">
+                    <div class="input-field">
+                        <i class="fa fa-user prefix"></i>
+                        <input id="usrnm" type="email" class="validate" name="username" placeholder="Email">
+                    </div>
+                    <div class="input-field">
+                        <i class="fa fa-key prefix"></i>
+                        <input id="psswrd" type="password" class="validate" name="password" placeholder="Password">
+                    </div>
+                </div>
+                <button id="btn-login" type="submit" name="login" value="log in" class="waves-effect waves-light btn block light-blue darken-4">Log in</button>
+                <br>
+                <br>
+                
+                <br>
+            </form>  
+        </div>
+    </div>
+    
+    <!-- regModal Structure -->
+    <div id="regModal" class="modal">
+        <div class="modal-content container">
+            <form id="reg_form" method="post" name="reg_form">
+                <!-- <br> -->
+                <h4 class="center thin">Create an account!</h4>
+                <p id="err-msg2" class="red-text center thin"></p>
+                <p id="scc-msg" class="green-text center thin"></p>
+                <div class="">
+                    <div class="input-field">
+                        <i class="fa fa-user prefix"></i>
+                        <input id="usrnm2" type="email" class="validate" name="username2" placeholder="Email">
+                    </div>
+                    <div class="input-field">
+                        <i class="fa fa-key prefix"></i>
+                        <input id="psswrd2" type="password" class="validate" name="password2" placeholder="Password">
+                    </div>
+                    <div class="input-field">
+                        <i class="fa fa-key prefix"></i>
+                        <input id="psswrd3" type="password" class="validate" name="password3" placeholder="Repeat password">
+                    </div>
+                </div>
+                
+                <button id="btn-register" type="submit" name="register" class="waves-effect waves-light btn block light-blue darken-4">Sign up</button>
+                
+            </form>  
+        </div>
+    </div>
+    
+    <!-- FOR UPDATE INFO MODAL -->
+    <div id="updateInfo" class="modal">
+        <div class="modal-content">
+            <h5 class="center light grey-text text-darken-4">Update Info</h5>
+            <div class="divider"></div>
+            <br>
+            <div class="container">
+                <div class="row">
+                    <div class="col l12 upload-demo">
+                        <div class="col l12">
+                            <div class="upload-msg">
+                                Upload a file to start cropping
+                            </div>
+                            <div class="upload-demo-wrap">
+                                <div id="upload-demo"></div>
+                            </div>
+                        </div>
+                        <div class="col l12">
+                            <div class="actions center">
+                                <a class="btn file-btn light-blue darken-4">
+                                    <span>Upload</span>
+                                    <input type="file" id="upload" value="Choose a file" accept="image/*" />
+                                </a>
+                                <button class="btn upload-result">Save</button>
+                            </div>
+                        </div>
+                        <br>
+                        <br>
+                        <br>
+                    </div>
+                    <div class="col l6 s12">
+                        <input type="text" name="" id="fname" placeholder="First Name" />
+                    </div>
+                    <div class="col l6 s12">
+                        <input type="text" name="" id="lname" placeholder="Last Name" />
+                    </div>
+                    <div class="col l6 s12">
+                        <input type="text" name="" id="cnum" placeholder="Contact No" />
+                    </div>
+                    <div class="col l6 s12">
+                        <select id="ugen" class="browser-default">
+                            <option value="" disabled selected>Gender</option>
+                            <option value="Female">Female</option>
+                            <option value="Male">Male</option>
+                        </select>
+                    </div>
+                    <div class="col s12 l12">
+                        <input type="text" name="" id="uadd" placeholder="Address" />
+                    </div>
+                    <div class="col s12 l12">
+                        <input type="text" name="" id="ubio" placeholder="Bio" />
+                    </div>
+                    <div class="col s12 l12">
+                        <a class="btn light-blue darken-4 block" onclick="infoUpdateForm()">Save</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- FOR MY PLACE MODAL -->
+    <div id="myPlace" class="modal">
+        <div class="modal-content">
+            <h5 class="center light grey-text text-darken-4">My Place</h5>
+            <div class="divider"></div>
+            <div class="container">
+                <div id="toConfirm" class="row">
+                    <div class="col l12 s12">
+                        <p id="placeModalTitle" class="center thin grey-text text-darken-3">Promote your business!</p>
+                        <p id="placeModalSub" class="center thin grey-text text-darken-3">Please send us your email adddress and contact number to confirm your account. </p>
+                    </div>
+                    <div class="col l12 s12">
+                        <input class="validate" type="email" name="userEmail" id="userEmail" placeholder="Email">
+                        <input class="validate" type="text" name="userCnum" id="userCnum" placeholder="Contact No.">
+                        <a id="btnSend" onclick="sendDetails();" class="btn block">Send</a>
+                    </div>
+                </div>
+                <div id="hasConfirmed" class="row hide">
+                    <div class="col l12 s12">
+                        <br>
+                        <a href="#addPlace" class="btn right modal-trigger modal-close" onclick="enewmap();">Add Place</a>
+                        
+                    </div>
+                    <ul id="myplace-list" class="col l12 s12">
+                        <li id="tohide2" class="grey-text">
+                            <p class="center grey-text">No data to display.</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- ADD PLACES MODAL -->
+    <div id="addPlace" class="modal">
+        <div class="modal-content">
+            <h5 class="center light grey-text text-darken-4">Add Place</h5>
+            <div class="divider"></div>
+            <br>
+            <div class="container">
+                <div class="row">
+                    <div class="col l6 s12">
+                        <input type="text" name="" id="placeName" placeholder="Name" />
+                    </div>
+                    <div class="col l6 s12">
+                        <input type="text" id="autocomplete-input" class="autocomplete" placeholder="Category">
+                    </div>
+                    <div class="col s12 l6">
+                        <input type="text" name="" id="placeMun" class="autocomplete" placeholder="Municipality" />
+                    </div>
+                    <div class="col s12 l6">
+                        <input type="text" name="" id="placePrice" placeholder="Starting Price" />
+                    </div>
+                    <div class="col s12 l12">
+                        <input type="text" name="" id="placeAdd" placeholder="Address" />
+                    </div>
+                    <div class="col s12 l6">
+                        <input type="text" name="" id="pLat" placeholder="Latitude" />
+                    </div>
+                    <div class="col s12 l6">
+                        <input type="text" name="" id="pLng" placeholder="Longitude" />
+                    </div>
+                    <div class="col s12 l12">
+                        <div id="floating-panel">
+                            <input onclick="showMarkers2();" type=button value="Show All Markers">
+                            <input onclick="deleteMarkers2();" type=button value="Delete Markers">
+                        </div>
+                        <p class="center grey-text text-darken-1">Please toggle the fullscreen to get the exact location.</p>
+                        <div id="emap"></div>
+                    </div>
+                    <div class="col l6 s12">
+                        <input type="text" name="" id="placeCnum" placeholder="Contact No" />
+                    </div>
+                    <div class="col l6 s12">
+                        <input type="text" name="" id="placeWeb" placeholder="Website" />
+                    </div>
+                    <div class="col l12 s12">
+                        <input type="text" name="" id="placeShort" placeholder="Short Description" />
+                    </div>
+                    <div class="col l12 s12">
+                        <input type="text" name="" id="placeLong" placeholder="Long Description" />
+                    </div>
+                    <div class="col l12 s12">
+                        <input type="text" name="" id="placePax" placeholder="Other Details" />
+                    </div>
+                    <div class="col s12 l12">
+                        <a class="btn green" style="width:100%" onclick="placeForm()">Save</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- View Reviews MODAL -->
+    <div id="viewReview" class="modal">
+        <div class="modal-content">
+            <h5 class="center light grey-text text-darken-4">Add Place</h5>
+            <div class="divider"></div>
+            <br>
+            <div class="container">
+                <div class="row">
+                    <div id="pReviews">
+                        <div class="row">
+                            <div class="col l6">
+                                <div class="col l12">
+                                    <h5 class="center">Users Rating</h5>
+                                    <br>
+                                </div>
+                                <div class="col l12">
+                                    <p class="center">
+                                        <div id="rateYo" data-rateyo-rating="0" data-rateyo-num-stars="5"></div>
+                                    </p>
+                                    <h5 class='result center'></h5>
+                                </div>
+                                
+                            </div>
+                            <div class="col l6">
+                                <div class="rrow">
+                                    <div class="side">
+                                        <div>5</div>
+                                    </div>
+                                    <div class="middle">
+                                        <div class="bar-container">
+                                            <div class="bar-5"></div>
+                                        </div>
+                                    </div>
+                                    <div class="side rright">
+                                        <div id="five-total">0</div>
+                                    </div>
+                                    <div class="side">
+                                        <div>4</div>
+                                    </div>
+                                    <div class="middle">
+                                        <div class="bar-container">
+                                            <div class="bar-4"></div>
+                                        </div>
+                                    </div>
+                                    <div class="side rright">
+                                        <div id="four-total">0</div>
+                                    </div>
+                                    <div class="side">
+                                        <div>3</div>
+                                    </div>
+                                    <div class="middle">
+                                        <div class="bar-container">
+                                            <div class="bar-3"></div>
+                                        </div>
+                                    </div>
+                                    <div class="side rright">
+                                        <div id="three-total">0</div>
+                                    </div>
+                                    <div class="side">
+                                        <div>2</div>
+                                    </div>
+                                    <div class="middle">
+                                        <div class="bar-container">
+                                            <div class="bar-2"></div>
+                                        </div>
+                                    </div>
+                                    <div class="side rright">
+                                        <div id="two-total">0</div>
+                                    </div>
+                                    <div class="side">
+                                        <div>1</div>
+                                    </div>
+                                    <div class="middle">
+                                        <div class="bar-container">
+                                            <div class="bar-1"></div>
+                                        </div>
+                                    </div>
+                                    <div class="side rright">
+                                        <div id="one-total">0</div>
+                                    </div>
+                                </div>
+                            </div><br/><br/>
+                            <br/><br/>
+                            <div class="col l12">
+                                <br>
+                                <br>
+                                <ul id="reviewData" class="collection">
+                                    
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- EDIT Place MODAL -->
+    <div id="editPlace" class="modal">
+        <div class="modal-content">
+            <h5 class="center light grey-text text-darken-4">Edit Place</h5>
+            <div class="divider"></div>
+            <br>
+            <div class="container">
+                <div class="row">
+                    <div id="upload-place" class="col l12 upload-demo">
+                        <div class="col l12">
+                            <div class="upload-msg">
+                                Upload a file to start cropping
+                            </div>
+                            <div class="upload-demo-wrap">
+                                <div id="upload-place2"></div>
+                            </div>
+                        </div>
+                        <div class="col l12">
+                            <div class="actions center">
+                                <a class="btn file-btn light-blue darken-4">
+                                    <span>Upload</span>
+                                    <input type="file" id="upload2" value="Choose a file" accept="image/*" />
+                                </a>
+                                <button id="upload-place-result" class="btn">Save</button>
+                            </div>
+                        </div>
+                        <br>
+                        <br>
+                        <br>
+                    </div>
+                    <div class="col l6 s12">
+                        <input type="hidden" name="" id="eplaceId">
+                        <input type="text" name="" id="eplaceName" placeholder="Name" />
+                    </div>
+                    <div class="col l6 s12">
+                        <input type="text" id="autocomplete-input2" class="autocomplete" placeholder="Category">
+                    </div>
+                    <div class="col s12 l6">
+                        <input type="text" name="" id="eplaceMun" class="autocomplete" placeholder="Municipality" />
+                    </div>
+                    <div class="col s12 l6">
+                        <input type="text" name="" id="eplacePrice" placeholder="Starting Price" />
+                    </div>
+                    <div class="col s12 l12">
+                        <input type="text" name="" id="eplaceAdd" placeholder="Address" />
+                    </div>
+                    <div class="col s12 l6">
+                        <input type="text" name="" id="epLat" placeholder="Latitude" />
+                    </div>
+                    <div class="col s12 l6">
+                        <input type="text" name="" id="epLng" placeholder="Longitude" />
+                    </div>
+                    <div class="col s12 l12">
+                        <div id="floating-panel2">
+                            <input onclick="showMarkers3();" type=button value="Show All Markers">
+                            <input onclick="deleteMarkers3();" type=button value="Delete Markers">
+                        </div>
+                        <p class="center grey-text text-darken-1">Please toggle the fullscreen to get the exact location.</p>
+                        <div id="dmap"></div>
+                    </div>
+                    <div class="col l6 s12">
+                        <input type="text" name="" id="eplaceCnum" placeholder="Contact No" />
+                    </div>
+                    <div class="col l6 s12">
+                        <input type="text" name="" id="eplaceWeb" placeholder="Website" />
+                    </div>
+                    <div class="col l12 s12">
+                        <input type="text" name="" id="eplaceShort" placeholder="Short Description" />
+                    </div>
+                    <div class="col l12 s12">
+                        <input type="text" name="" id="eplaceLong" placeholder="Long Description" />
+                    </div>
+                    <div class="col l12 s12">
+                        <input type="text" name="" id="eplacePax" placeholder="Other Details" />
+                    </div>
+                    <div class="col s12 l12">
+                        <a id="place-upload-result" class="btn green" style="width:100%" onclick="placeEditForm()">Save</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- ADD POST MODAL -->
+    <div id="addPost" class="modal">
+        <div class="modal-content">
+            <h5 class="center light grey-text text-darken-4">Create Post</h5>
+            <div class="divider"></div>
+            <br>
+            <div class="container">
+                <div class="row">
+                    <div id="upload-post" class="col l12 upload-demo">
+                        <div class="col l12">
+                            <div class="upload-msg">
+                                Upload a file to start cropping
+                            </div>
+                            <div class="upload-demo-wrap">
+                                <div id="upload-post2"></div>
+                            </div>
+                        </div>
+                        <div class="col l12">
+                            <div class="actions center">
+                                <a class="btn file-btn light-blue darken-4">
+                                    <span>Upload</span>
+                                    <input type="file" id="upload3" value="Choose a file" accept="image/*" />
+                                </a>
+                                <!-- <button id="upload-place-result" class="btn">Save</button> -->
+                            </div>
+                        </div>
+                        <br>
+                        <br>
+                        <br>
+                    </div>
+                    <div class="col l6 s12">
+                        <input type="text" name="" id="postPlaceName" placeholder="Place" />
+                    </div>
+                    <div class="col l6 s12">
+                        <input type="text" id="placeMun2" class="autocomplete" placeholder="Municipality">
+                    </div>
+                    <div class="col l12 s12">
+                        <textarea name="" id="placePost" cols="30" rows="10" placeholder="Your Post" class="materialize-textarea"></textarea>
+                    </div>
+                    <div class="col s12 l12">
+                        <a id="upload-post-result" class="btn green" style="width:100%">Post</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!--Import jQuery before materialize.js-->
+    <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+    
+    <!-- Import Uploader js -->
+    <script type="text/javascript" src="js/sweetalert.min.js"></script>
+    <script type="text/javascript" src="js/croppie.js"></script>
+    <script type="text/javascript" src="js/demo.js"></script>
+    <script type="text/javascript" src="js/uploader.js"></script>
+    <script type="text/javascript" src="js/exif.js"></script>
+    
+    <!-- Import rateyo js -->
+    <script type="text/javascript" src="js/jquery.rateyo.js"></script>
+    
+    <!-- Import Materialize js -->
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+    
+    <!-- Import Validation js -->
+    <script type="text/javascript" src="js/validation.min.js"></script>
+    <script type="text/javascript" src="js/validation.js"></script>
+    <script type="text/javascript" src="js/api.js"></script>
+    <script type="text/javascript" src="js/map.js"></script>
+    
+    <!-- Import Init js -->
+    <script type="text/javascript" src="js/init.js"></script>
+    
+    <!-- Import Google Map API -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBjx7ontRXXlAspApYcMXNJaRCk_Ykdxdg&libraries=places&callback=initMap"
+    async defer></script>
+    
+    <script type="text/javascript">
+        var validUser = localStorage.getItem("validation");
+        if(validUser == null || validUser == ""){
+            setTimeout(' window.location.href = "index.html"; ',100);
+        }
+        Demo.init();
+    </script>
+    <script type="text/javascript">
+        $(function () {
+            
+            $("#rateYo").rateYo({
+                rating: 0,
+                fullStar: true,
+                readOnly: true
+            });
+            $("#rateYo1").rateYo({
+                fullStar: true,
+                readOnly: true
+            });
+            $("#rateYo2").rateYo({
+                rating: 0,
+                fullStar: true
+            });
+            $("#rateYo3").rateYo({
+                rating: 5,
+                fullStar: true,
+                readOnly: true
+            });
+            $("#rateYo1").rateYo("option", "starWidth", "12px");
+            $("#rateYo3").rateYo("option", "starWidth", "12px");
+            $("#rateYo2").rateYo().on("rateyo.change", function (e, data) {
+                var rating = data.rating;
+                // $(this).parent().find('.score').text('score :'+ $(this).attr('data-rateyo-score'));
+                $(this).parent().find('#result').val(rating);
+            });
+        });
+    </script>
+</body>
+</html>

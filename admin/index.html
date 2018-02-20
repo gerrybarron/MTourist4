@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src *; style-src *  'unsafe-inline'; script-src *  'unsafe-inline'; media-src *"> -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="theme-color" content="#1e2327">
+    <meta name="description" content="web app description">
+    <meta property="og:url" content="">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="">
+    <meta property="og:description" content="">
+    <meta property="og:image" content="">
+    
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="../css/materialize.min.css"  media="screen,projection"/>
+    
+    <!-- Import rate css -->
+    <link type="text/css" rel="stylesheet" href="../css/jquery.rateyo.css"  media="screen,projection"/>
+    
+    <!-- Import map-icons css -->
+    <link type="text/css" rel="stylesheet" href="../dist/css/map-icons.css"  media="screen,projection"/>
+    
+    <!-- Import fontawesome css -->
+    <link type="text/css" rel="stylesheet" href="../css/font-awesome.min.css"  media="screen,projection"/>
+    
+    <!-- Import Custom css -->
+    <link type="text/css" rel="stylesheet" href="../css/style.css"  media="screen,projection"/>
+    
+    <title>Login</title>
+</head>
+<body class="white poly-background">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="row container">
+        <div class="col l12">
+            <h4 class="white-text center">Welcome back!</h4>
+            
+            <div class="login-form container">
+                <p class="err-msg"></p>
+                <form id="login_form3" method="post" name="login_form3">
+                    <p class="center thin">Please login your account.</p>
+                    <p id="err-msg" class="red-text center thin"></p>
+                    <div class="">
+                        <div class="input-field">
+                            <i class="fa fa-user prefix"></i>
+                            <input id="usrnm" type="email" class="validate" name="username" placeholder="Email">
+                        </div>
+                        <div class="input-field">
+                            <i class="fa fa-key prefix"></i>
+                            <input id="psswrd" type="password" class="validate" name="password" placeholder="Password">
+                        </div>
+                    </div>
+                    <button id="btn-login" type="submit" name="login" value="log in" class="waves-effect waves-light btn block light-blue darken-4">Log in</button>
+                    <br>
+                    <br>
+                    
+                    <br>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!--Import jQuery before materialize.js-->
+    <script type="text/javascript" src="../js/jquery-2.1.1.min.js"></script>
+    
+    <!-- Import rateyo js -->
+    <script type="text/javascript" src="../js/jquery.rateyo.js"></script>
+    
+    <!-- Import map-icon js -->
+    <!-- <script type="text/javascript" src="../dist/js/map-icons.min.js"></script> -->
+    
+    <!-- Import Materialize js -->
+    <script type="text/javascript" src="../js/materialize.min.js"></script>
+    
+    <!-- Import Validation js -->
+    <script type="text/javascript" src="../js/validation.min.js"></script>
+    <script type="text/javascript" src="../js/validation.js"></script>
+    
+    <!-- Import Init js -->
+    <script type="text/javascript" src="../js/init.js"></script>
+</body>
+</html>

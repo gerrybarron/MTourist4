@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src *; style-src *  'unsafe-inline'; script-src *  'unsafe-inline'; media-src *"> -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="theme-color" content="#1e2327">
+    <meta name="description" content="web app description">
+    <meta property="og:url" content="">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="">
+    <meta property="og:description" content="">
+    <meta property="og:image" content="">
+
+    <script type="text/javascript">
+        // $(document).ready(function(){
+            var validUser = localStorage.getItem("validation");
+            if(validUser == null || validUser == ""){
+                setTimeout(' window.location.href = "index.html"; ',1);
+            }
+        // });
+    </script>
+
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="../css/materialize.min.css"  media="screen,projection"/>
+    
+    <!-- Import rate css -->
+    <link type="text/css" rel="stylesheet" href="../css/jquery.rateyo.css"  media="screen,projection"/>
+    
+    <!-- Import map-icons css -->
+    <link type="text/css" rel="stylesheet" href="../dist/css/map-icons.css"  media="screen,projection"/>
+    
+    <!-- Import fontawesome css -->
+    <link type="text/css" rel="stylesheet" href="../css/font-awesome.min.css"  media="screen,projection"/>
+    
+    <!-- Import Custom css -->
+    <link type="text/css" rel="stylesheet" href="../css/admin.css"  media="screen,projection"/>
+    
+    <title>Dashboard | Admin</title>
+</head>
+<body class="grey lighten-4">
+    <ul id="slide-out" class="side-nav fixed midnight-blue">
+        <li>
+            <h5 class="white-text light center padding-top-bottom">Zambales Tour</h5>
+        </li>
+        <li><div class="divider"></div></li>
+        <li><a class="subheader grey-text">Main</a></li>
+        <li><a href="#dashboard" class="white-text"><i class="fa fa-tachometer" aria-hidden="true"></i>Dashboard</a></li>
+        <!-- <li><a href="#!" class="white-text"><i class="fa fa-user" aria-hidden="true"></i>Profile</a></li> -->
+        <li><a href="#users" class="white-text"><i class="fa fa-users" aria-hidden="true"></i>Users</a></li>
+        <li><a href="#places" class="white-text"><i class="fa fa-map-marker" aria-hidden="true"></i>Places</a></li>
+        <!-- <li><a href="#reviews" class="white-text"><i class="fa fa-pencil" aria-hidden="true"></i>Reviews</a></li> -->
+        <li><div class="divider"></div></li>
+        <li><a class="subheader grey-text">Option</a></li>
+        <li><a href="#!" onclick="logout();"  class="white-text"><i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a></li>
+        <li><div class="divider"></div></li>
+    </ul>
+    <a href="#" data-activates="slide-out" class="button-collapse"><i class="fa fa-bars" aria-hidden="true"></i></a>
+    <header class="to-fix">
+        <nav class="transparent grey-text">
+            <div class="nav-wrapper padding-rigt-left">
+                <a href="#" class="brand-logo grey-text text-darken-4 thin">Dashboard</a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="#!" class="grey-text text-darken-4"><i class="fa fa-bell" aria-hidden="true"></i></a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div id="dashboard" class="row">
+            <!-- <div class="col s12 m4 l4">
+                <div class="card-panel white grey-text">
+                    <span class="pull-left">
+                        <i class="fa fa-users" aria-hidden="true"></i>
+                    </span>
+                    <p class="grey-text">
+                        24 Users
+                    </p>
+                </div>
+            </div>
+            <div class="col s12 m4 l4">
+                <div class="card-panel white grey-text">
+                    <span class="pull-left">
+                        <i class="fa fa-location-arrow" aria-hidden="true"></i>
+                    </span>
+                    <p class="grey-text">
+                        13 Places
+                    </p>
+                </div>
+            </div>
+            <div class="col s12 m4 l4">
+                <div class="card-panel white grey-text">
+                    <span class="pull-left">
+                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                    </span>
+                    <p class="grey-text">
+                        100 Reviews
+                    </p>
+                </div>
+            </div> -->
+            <div class="col s12 m6 l6">
+                <div class="card">
+                    <div class="card-content">
+                        <p class="center">Promotional Caption Slider - Home Page</p>
+                    </div>
+                    <div class="card-tabs">
+                        <ul class="tabs tabs-fixed-width">
+                            <li class="tab"><a class="active" href="#test1">Center</a></li>
+                            <li class="tab"><a href="#test2">Left</a></li>
+                            <li class="tab"><a href="#test3">Right  </a></li>
+                        </ul>
+                    </div>
+                    <div class="card-content">
+                        <div id="test1">
+                            <input type="text" name="pTagline1" id="pTagline1" placeholder="Center Tagline">
+                            <input type="text" name="pSlogan1" id="pSlogan1" placeholder="Center Slogan">
+                            <a onclick="promoSliderCenter();" class="btn blue darken-4">Save</a>
+                        </div>
+                        <div id="test2">
+                            <input type="text" name="pTagline2" id="pTagline2" placeholder="Left Tagline">
+                            <input type="text" name="pSlogan2" id="pSlogan2" placeholder="Left Slogan">
+                            <a onclick="promoSliderLeft();" class="btn blue darken-4">Save</a>
+                        </div>
+                        <div id="test3">
+                            <input type="text" name="pTagline3" id="pTagline3" placeholder="Right Tagline">
+                            <input type="text" name="pSlogan3" id="pSlogan3" placeholder="Right Slogan">
+                            <a onclick="promoSliderRight();" class="btn blue darken-4">Save</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col s12 m6 l6">
+                <div class="card">
+                    <div class="card-content">
+                        <p class="center">Promotional Caption Municipalities - Home Page</p>
+                    </div>
+                    <div class="card-tabs">
+                        <ul class="tabs tabs-fixed-width">
+                            <li class="tab"><a class="active" href="#test4">Center</a></li>
+                            
+                        </ul>
+                    </div>
+                    <div class="card-content">
+                        <div id="test4">
+                            <input type="text" name="pTagline4" id="pTagline4" placeholder="Center Tagline">
+                            <input type="text" name="pSlogan4" id="pSlogan4" placeholder="Center Slogan">
+                            <a onclick="promoMain();" class="btn blue darken-4">Save</a>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="col s12 l12">
+                <div class="card">
+                    <div class="card-content">
+                        <p class="center">Municipalities</p>
+                    </div>
+                    <div class="card-tabs">
+                        <ul class="tabs tabs-fixed-width">
+                            <li class="tab"><a href="#munShortTab">Short Description</a></li>
+                            <li class="tab"><a href="#munLongTab">Long Description</a></li>
+                        </ul>
+                    </div>
+                    <div class="card-content">
+                        <div id="munShortTab">
+                            <div class="row">
+                                <div class="input-field col s6">
+                                    <textarea id="short_mun1" placeholder="Short Description" class="materialize-textarea" data-length="120"></textarea>
+                                    <label for="short_mun1">Botolan</label>
+                                </div>
+                                <div class="input-field col s6">
+                                    <textarea id="short_mun2" placeholder="Short Description" class="materialize-textarea" data-length="120"></textarea>
+                                    <label for="short_mun2">Cabangan</label>
+                                </div>
+                                <div class="input-field col s6">
+                                    <textarea id="short_mun3" placeholder="Short Description" class="materialize-textarea" data-length="120"></textarea>
+                                    <label for="short_mun3">Candelaria</label>
+                                </div>
+                                <div class="input-field col s6">
+                                    <textarea id="short_mun4" placeholder="Short Description" class="materialize-textarea" data-length="120"></textarea>
+                                    <label for="short_mun4">Castillejos</label>
+                                </div>
+                                <div class="input-field col s6">
+                                    <textarea id="short_mun5" placeholder="Short Description" class="materialize-textarea" data-length="120"></textarea>
+                                    <label for="short_mun5">Iba</label>
+                                </div>
+                                <div class="input-field col s6">
+                                    <textarea id="short_mun6" placeholder="Short Description" class="materialize-textarea" data-length="120"></textarea>
+                                    <label for="short_mun6">Masinloc</label>
+                                </div>
+                                <div class="input-field col s6">
+                                    <textarea id="short_mun7" placeholder="Short Description" class="materialize-textarea" data-length="120"></textarea>
+                                    <label for="short_mun7">Palauig</label>
+                                </div>
+                                <div class="input-field col s6">
+                                    <textarea id="short_mun8" placeholder="Short Description" class="materialize-textarea" data-length="120"></textarea>
+                                    <label for="short_mun8">San Antonio</label>
+                                </div>
+                                <div class="input-field col s6">
+                                    <textarea id="short_mun9" placeholder="Short Description" class="materialize-textarea" data-length="120"></textarea>
+                                    <label for="short_mun9">San Felipe</label>
+                                </div>
+                                <div class="input-field col s6">
+                                    <textarea id="short_mun10" placeholder="Short Description" class="materialize-textarea" data-length="120"></textarea>
+                                    <label for="short_mun10">San Marcelino</label>
+                                </div>
+                                <div class="input-field col s6">
+                                    <textarea id="short_mun11" placeholder="Short Description" class="materialize-textarea" data-length="120"></textarea>
+                                    <label for="short_mun11">San Narciso</label>
+                                </div>
+                                <div class="input-field col s6">
+                                    <textarea id="short_mun12" placeholder="Short Description" class="materialize-textarea" data-length="120"></textarea>
+                                    <label for="short_mun12">Santa Cruz</label>
+                                </div>
+                                <div class="input-field col s6">
+                                    <textarea id="short_mun13" placeholder="Short Description" class="materialize-textarea" data-length="120"></textarea>
+                                    <label for="short_mun13">Subic</label>
+                                </div>
+                            </div>
+                            <p class="center">
+                                <a onclick="munShortDesc();" class="btn blue darken-4">Save</a>
+                            </p>
+                        </div>
+                        <div id="munLongTab">
+                            <div class="row">
+                                <div class="input-field col s6">
+                                    <textarea id="long_mun1" placeholder="Long Description" class="materialize-textarea" data-length="450"></textarea>
+                                    <label for="long_mun1">Botolan</label>
+                                </div>
+                                <div class="input-field col s6">
+                                    <textarea id="long_mun2" placeholder="Long Description" class="materialize-textarea" data-length="450"></textarea>
+                                    <label for="long_mun2">Cabangan</label>
+                                </div>
+                                <div class="input-field col s6">
+                                    <textarea id="long_mun3" placeholder="Long Description" class="materialize-textarea" data-length="450"></textarea>
+                                    <label for="long_mun3">Candelaria</label>
+                                </div>
+                                <div class="input-field col s6">
+                                    <textarea id="long_mun4" placeholder="Long Description" class="materialize-textarea" data-length="450"></textarea>
+                                    <label for="long_mun4">Castillejos</label>
+                                </div>
+                                <div class="input-field col s6">
+                                    <textarea id="long_mun5" placeholder="Long Description" class="materialize-textarea" data-length="450"></textarea>
+                                    <label for="long_mun5">Iba</label>
+                                </div>
+                                <div class="input-field col s6">
+                                    <textarea id="long_mun6" placeholder="Long Description" class="materialize-textarea" data-length="450"></textarea>
+                                    <label for="long_mun6">Masinloc</label>
+                                </div>
+                                <div class="input-field col s6">
+                                    <textarea id="long_mun7" placeholder="Long Description" class="materialize-textarea" data-length="450"></textarea>
+                                    <label for="long_mun7">Palauig</label>
+                                </div>
+                                <div class="input-field col s6">
+                                    <textarea id="long_mun8" placeholder="Long Description" class="materialize-textarea" data-length="450"></textarea>
+                                    <label for="long_mun8">San Antonio</label>
+                                </div>
+                                <div class="input-field col s6">
+                                    <textarea id="long_mun9" placeholder="Long Description" class="materialize-textarea" data-length="450"></textarea>
+                                    <label for="long_mun9">San Felipe</label>
+                                </div>
+                                <div class="input-field col s6">
+                                    <textarea id="long_mun10" placeholder="Long Description" class="materialize-textarea" data-length="450"></textarea>
+                                    <label for="long_mun10">San Marcelino</label>
+                                </div>
+                                <div class="input-field col s6">
+                                    <textarea id="long_mun11" placeholder="Long Description" class="materialize-textarea" data-length="450"></textarea>
+                                    <label for="long_mun11">San Narciso</label>
+                                </div>
+                                <div class="input-field col s6">
+                                    <textarea id="long_mun12" placeholder="Long Description" class="materialize-textarea" data-length="450"></textarea>
+                                    <label for="long_mun12">Santa Cruz</label>
+                                </div>
+                                <div class="input-field col s6">
+                                    <textarea id="long_mun13" placeholder="Long Description" class="materialize-textarea" data-length="450"></textarea>
+                                    <label for="long_mun13">Subic</label>
+                                </div>
+                            </div>
+                            <p class="center">
+                                <a onclick="munLongDesc();" class="btn blue darken-4">Save</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" id="users">
+            <!-- <div class="col l6 s12">
+                <div class="card">
+                    <div class="card-content">
+                        <p class="center">Confirmed Users</p>
+                    </div>
+                    <div class="card-tabs">
+                        <ul class="tabs tabs-fixed-width">
+                            <li class="tab"><a class="active" href="#tabTourist">Tourist</a></li>
+                            <li class="tab"><a class="active" href="#tabOwner">Owner</a></li>
+                            
+                        </ul>
+                    </div>
+                    <div class="card-content">
+                        <div id="tabTourist">
+                            <table class="centered bordered responsive-table" id="tourist-table">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Email</th>
+                                        <th>Date</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tourist-list">
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+                        <div id="tabOwner">
+                            <table class="centered bordered responsive-table" id="owner-table">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Email</th>
+                                        <th>Date</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="owner-list">
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+            <div class="col l12 s12">
+                <div class="card">
+                    <div class="card-content">
+                        <p class="center">Owners</p>
+                    </div>
+                    <div class="card-tabs">
+                        <ul class="tabs tabs-fixed-width">
+                            <li class="tab"><a class="active" href="#tabConfirm">Confirmed</a></li>
+                            <li class="tab"><a class="active" href="#tabUnconfirm">Unconfirmed</a></li>
+                        </ul>
+                    </div>
+                    <div class="card-content">
+                        <div id="tabConfirm">
+                            <table class="centered bordered responsive-table" id="owner-table">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Email</th>
+                                        <th>Contact No</th>
+                                        <th>Date</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="owner-list">
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+                        <div id="tabUnconfirm">
+                            <table class="centered bordered responsive-table" id="uncon-owner-table">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Email</th>
+                                        <th>Contact No</th>
+                                        <th>Date</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="unconfirmed-list">
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" id="places">
+            <div class="col l12 s12">
+                <div class="card">
+                    <div class="card-content">
+                        <p class="center">Places</p>
+                    </div>
+                    <div class="card-tabs">
+                        <ul class="tabs tabs-fixed-width">
+                            <li class="tab"><a class="active" href="#tabPCon">Confirmed</a></li>
+                            <li class="tab"><a class="active" href="#tabPUncon">Unconfirmed</a></li>
+                            
+                        </ul>
+                    </div>
+                    <div class="card-content">
+                        <div id="tabPCon">
+                            <table class="centered bordered responsive-table" id="con-place-table">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Name</th>
+                                        <th>Category</th>
+                                        <th>Owner</th>
+                                        <th>Address</th>
+                                        <th>Location</th>
+                                        <th>Contact</th>
+                                        <th>Website</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="place-list">
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+                        <div id="tabPUncon">
+                            <table class="centered bordered responsive-table" id="uncon-place-table">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Name</th>
+                                        <th>Category</th>
+                                        <th>Owner</th>
+                                        <th>Address</th>
+                                        <th>Location</th>
+                                        <th>Contact</th>
+                                        <th>Website</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="place-unconfirm-list">
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="row" id="reviews">
+            <div class="col l12 s12">
+                <div class="card">
+                    <div class="card-content">
+                        <p class="center">Reviews</p>
+                    </div>
+                    <div class="card-tabs">
+                        <ul class="tabs tabs-fixed-width">
+                            <li class="tab"><a class="active" href="#tabRCon">Confirmed</a></li>
+                            <li class="tab"><a class="active" href="#tabRUncon">Unconfirmed</a></li>
+                            
+                        </ul>
+                    </div>
+                    <div class="card-content">
+                        <div id="tabRCon">
+                            <ul id="review-list">
+                                
+                            </ul>
+                        </div>
+                        <div id="tabRUncon">
+                            <ul id="review-unconfirm-list">
+                                
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+    </main>
+    <footer></footer>
+    
+    <!--Import jQuery before materialize.js-->
+    <script type="text/javascript" src="../js/jquery-2.1.1.min.js"></script>
+    
+    <!-- Import rateyo js -->
+    <script type="text/javascript" src="../js/jquery.rateyo.js"></script>
+    
+    <!-- Import map-icon js -->
+    <!-- <script type="text/javascript" src="../dist/js/map-icons.min.js"></script> -->
+    
+    <!-- Import Materialize js -->
+    <script type="text/javascript" src="../js/materialize.min.js"></script>
+    
+    <!-- Import Validation js -->
+    <script type="text/javascript" src="../js/validation.min.js"></script>
+    <script type="text/javascript" src="../js/admin-val.js"></script>
+    
+    <!-- Import Init js -->
+    <script type="text/javascript" src="../js/init.js"></script>
+
+    
+</body>
+</html>

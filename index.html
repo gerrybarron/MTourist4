@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src *; style-src *  'unsafe-inline'; script-src *  'unsafe-inline'; media-src *"> -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="theme-color" content="#1e2327">
+    <meta name="description" content="web app description">
+    <meta property="og:url" content="">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="">
+    <meta property="og:description" content="">
+    <meta property="og:image" content="">
+    
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+    
+    <!-- Import rate css -->
+    <link type="text/css" rel="stylesheet" href="css/jquery.rateyo.css"  media="screen,projection"/>
+    
+    <!-- Import map-icons css -->
+    <link type="text/css" rel="stylesheet" href="dist/css/map-icons.css"  media="screen,projection"/>
+    
+    <!-- Import fontawesome css -->
+    <link type="text/css" rel="stylesheet" href="css/font-awesome.min.css"  media="screen,projection"/>
+    
+    <!-- Import Custom css -->
+    <link type="text/css" rel="stylesheet" href="css/style.css"  media="screen,projection"/>
+    
+    <title>Home - Mtourist</title>
+</head>
+<body class="gradient-background">
+    <header id="header" class="">
+        <nav class="transparent z-depth-0" role="navigation">
+            <div class="nav-wrapper container">
+                <a href="#" class="brand-logo fix-text text-shadow-1">Zambales Tour</a>
+                <ul id="nav-item" class="right hide-on-med-and-down">
+                    
+                </ul>
+                <ul id="nav-mobile" class="side-nav">
+                    
+                </ul>
+                <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="fa fa-bars"></i></a>
+            </div>
+        </nav>
+    </header>
+    
+    <div class="slider fullscreen">
+        <div class="slider-fixed-item center">
+            <a href="#home" class="btn-get text-shadow-1">Get Started</a>
+        </div>
+        <ul class="slides">
+            <li>
+                <img src="img/anawangin.jpg"> <!-- random image -->
+                <div class="caption center-align">
+                    <h3 id="sliderTagline1" class="text-shadow-1">This is our big Tagline!</h3>
+                    <h5 id="sliderSlogan1" class="light white-text text-shadow-1">Here's our small slogan.</h5>
+                </div>
+            </li>
+            <li>
+                <img src="img/whiterock-beach.jpg"> <!-- random image -->
+                <div class="caption left-align">
+                    <h3 id="sliderTagline2" class="text-shadow-1">Left Aligned Caption</h3>
+                    <h5 id="sliderSlogan2" class="light white-text text-shadow-1">Here's our small slogan.</h5>
+                </div>
+            </li>
+            <li>
+                <img src="img/crystal-beach.jpg"> <!-- random image -->
+                <div class="caption right-align">
+                    <h3 id="sliderTagline3" class="text-shadow-1">Right Aligned Caption</h3>
+                    <h5 id="sliderSlogan3" class="light white-text text-shadow-1">Here's our small slogan.</h5>
+                </div>
+            </li>
+        </ul>
+    </div>
+    
+    <div class="main container">
+        
+        <div id="home" class="row">
+            <div class="col s12 l12 center">
+                <h2 id="mainTagline">TITLE</h2>
+                <p id="mainSlogan">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae, quo. Esse debitis incidunt nostrum magni, rem non nihil! Id amet eum placeat, sapiente sed sint consequatur dolor fugiat similique quasi.</p>
+            </div>
+            <br>
+            <div class="col l4">
+                <div class="card">
+                    <div class="card-image waves-effect waves-block waves-light">
+                        <img class="activator" src="img/poly.jpg">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title activator grey-text text-darken-4">Botolan<i class="fa fa-bars right"></i></span>
+                        <p><a href="destination.html?dest=Botolan">View Place</a></p>
+                    </div>
+                    <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4">Botolan<i class="fa fa-times right"></i></span>
+                        <p id="placeLongDesc1">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque a, praesentium, quidem sequi minus facere sunt cupiditate consectetur culpa, quisquam quibusdam laboriosam reiciendis aliquam nobis eum est? Eius, fugit quia?</p>
+                        <div class="col s12 l12 center">
+                            <a href="destination.html?dest=Botolan" class="btn-rounded">View Places</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col l4">
+                <div class="card">
+                    <div class="card-image waves-effect waves-block waves-light">
+                        <img class="activator" src="img/poly.jpg">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title activator grey-text text-darken-4">Cabangan<i class="fa fa-bars right"></i></span>
+                        <p><a href="destination.html?dest=Cabangan">View Place</a></p>
+                    </div>
+                    <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4">Cabangan<i class="fa fa-times right"></i></span>
+                        <p id="placeLongDesc2">Here is some more information about this place that is only revealed once clicked on.</p>
+                        <div class="col s12 l12 center">
+                            <a href="destination.html?dest=Cabangan" class="btn-rounded">View Places</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col l4">
+                <div class="card">
+                    <div class="card-image waves-effect waves-block waves-light">
+                        <img class="activator" src="img/poly.jpg">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title activator grey-text text-darken-4">Candelaria<i class="fa fa-bars right"></i></span>
+                        <p><a href="destination.html?dest=Candelaria">View Place</a></p>
+                    </div>
+                    <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4">Candelaria<i class="fa fa-times right"></i></span>
+                        <p id="placeLongDesc3">Here is some more information about this place that is only revealed once clicked on.</p>
+                        <div class="col s12 l12 center">
+                            <a href="destination.html?dest=Candelaria" class="btn-rounded">View Places</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col l4">
+                <div class="card">
+                    <div class="card-image waves-effect waves-block waves-light">
+                        <img class="activator" src="img/poly.jpg">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title activator grey-text text-darken-4">Castillejos<i class="fa fa-bars right"></i></span>
+                        <p><a href="destination.html?dest=Castillejos">View Place</a></p>
+                    </div>
+                    <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4">Castillejos<i class="fa fa-times right"></i></span>
+                        <p id="placeLongDesc4">Here is some more information about this place that is only revealed once clicked on.</p>
+                        <div class="col s12 l12 center">
+                            <a href="destination.html?dest=Castillejos" class="btn-rounded">View Places</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col l4">
+                <div class="card">
+                    <div class="card-image waves-effect waves-block waves-light">
+                        <img class="activator" src="img/poly.jpg">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title activator grey-text text-darken-4">Iba<i class="fa fa-bars right"></i></span>
+                        <p><a href="destination.html?dest=Iba">View Place</a></p>
+                    </div>
+                    <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4">Iba<i class="fa fa-times right"></i></span>
+                        <p id="placeLongDesc5">Here is some more information about this place that is only revealed once clicked on.</p>
+                        <div class="col s12 l12 center">
+                            <a href="destination.html?dest=Iba" class="btn-rounded">View Places</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col l4">
+                <div class="card">
+                    <div class="card-image waves-effect waves-block waves-light">
+                        <img class="activator" src="img/poly.jpg">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title activator grey-text text-darken-4">Masinloc<i class="fa fa-bars right"></i></span>
+                        <p><a href="destination.html?dest=Masinloc">View Place</a></p>
+                    </div>
+                    <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4">Masinloc<i class="fa fa-times right"></i></span>
+                        <p id="placeLongDesc6">Here is some more information about this place that is only revealed once clicked on.</p>
+                        <div class="col s12 l12 center">
+                            <a href="destination.html?dest=Masinloc" class="btn-rounded">View Places</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col l4">
+                <div class="card">
+                    <div class="card-image waves-effect waves-block waves-light">
+                        <img class="activator" src="img/poly.jpg">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title activator grey-text text-darken-4">Palauig<i class="fa fa-bars right"></i></span>
+                        <p><a href="destination.html?dest=Palauig">View Place</a></p>
+                    </div>
+                    <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4">Palauig<i class="fa fa-times right"></i></span>
+                        <p id="placeLongDesc7">Here is some more information about this place that is only revealed once clicked on.</p>
+                        <div class="col s12 l12 center">
+                            <a href="destination.html?dest=Palauig" class="btn-rounded">View Places</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col l4">
+                <div class="card">
+                    <div class="card-image waves-effect waves-block waves-light">
+                        <img class="activator" src="img/poly.jpg">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title activator grey-text text-darken-4">San Antonio<i class="fa fa-bars right"></i></span>
+                        <p><a href="destination.html?dest=San Antonio">View Place</a></p>
+                    </div>
+                    <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4">San Antonio<i class="fa fa-times right"></i></span>
+                        <p id="placeLongDesc8">Here is some more information about this place that is only revealed once clicked on.</p>
+                        <div class="col s12 l12 center">
+                            <a href="destination.html?dest=San Antonio" class="btn-rounded">View Places</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col l4">
+                <div class="card">
+                    <div class="card-image waves-effect waves-block waves-light">
+                        <img class="activator" src="img/poly.jpg">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title activator grey-text text-darken-4">San Felipe<i class="fa fa-bars right"></i></span>
+                        <p><a href="destination.html?dest=San Felipe">View Place</a></p>
+                    </div>
+                    <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4">San Felipe<i class="fa fa-times right"></i></span>
+                        <p id="placeLongDesc9">Here is some more information about this place that is only revealed once clicked on.</p>
+                        <div class="col s12 l12 center">
+                            <a href="destination.html?dest=San Felipe" class="btn-rounded">View Places</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col l4">
+                <div class="card">
+                    <div class="card-image waves-effect waves-block waves-light">
+                        <img class="activator" src="img/poly.jpg">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title activator grey-text text-darken-4">San Marcelino<i class="fa fa-bars right"></i></span>
+                        <p><a href="destination.html?dest=San Marcelino">View Place</a></p>
+                    </div>
+                    <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4">San Marcelino<i class="fa fa-times right"></i></span>
+                        <p id="placeLongDesc10">Here is some more information about this place that is only revealed once clicked on.</p>
+                        <div class="col s12 l12 center">
+                            <a href="destination.html?dest=San Marcelino" class="btn-rounded">View Places</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col l4">
+                <div class="card">
+                    <div class="card-image waves-effect waves-block waves-light">
+                        <img class="activator" src="img/poly.jpg">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title activator grey-text text-darken-4">San Narciso<i class="fa fa-bars right"></i></span>
+                        <p><a href="destination.html?dest=San Narciso">View Place</a></p>
+                    </div>
+                    <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4">San Narciso<i class="fa fa-times right"></i></span>
+                        <p id="placeLongDesc11">Here is some more information about this place that is only revealed once clicked on.</p>
+                        <div class="col s12 l12 center">
+                            <a href="destination.html?dest=San Narciso" class="btn-rounded">View Places</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col l4">
+                <div class="card">
+                    <div class="card-image waves-effect waves-block waves-light">
+                        <img class="activator" src="img/poly.jpg">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title activator grey-text text-darken-4">Santa Cruz<i class="fa fa-bars right"></i></span>
+                        <p><a href="destination.html?dest=Santa Cruz">View Place</a></p>
+                    </div>
+                    <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4">Santa Cruz<i class="fa fa-times right"></i></span>
+                        <p id="placeLongDesc12">Here is some more information about this place that is only revealed once clicked on.</p>
+                        <div class="col s12 l12 center">
+                            <a href="destination.html?dest=Santa Cruz" class="btn-rounded">View Places</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col l4">
+                <div class="card">
+                    <div class="card-image waves-effect waves-block waves-light">
+                        <img class="activator" src="img/poly.jpg">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title activator grey-text text-darken-4">Subic<i class="fa fa-bars right"></i></span>
+                        <p><a href="destination.html?dest=Subic">View Place</a></p>
+                    </div>
+                    <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4">Subic<i class="fa fa-times right"></i></span>
+                        <p id="placeLongDesc13">Here is some more information about this place that is only revealed once clicked on.</p>
+                        <div class="col s12 l12 center">
+                            <a href="destination.html?dest=Subic" class="btn-rounded">View Places</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="page-footer">
+        <div class="page-copyright center">
+            <div class="container">
+                © 2018 Zambales Tour, All rights reserved.
+            </div>
+        </div>
+    </footer>
+    
+    <!-- loginModal Structure -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content white">
+            <div class="card z-depth-0">
+                <div class="card-content">
+                    <!-- <br> -->
+                    <h4 class="center light">Welcome back!</h4>
+                    <p class="center thin">Please login your account.</p>
+                    <p id="err-msg" class="red-text center thin"></p>
+                </div>
+                <div class="card-tabs container">
+                    <ul class="tabs tabs-fixed-width">
+                        <li class="tab"><a class="active" href="#tabTourist2">Tourist</a></li>
+                        <li class="tab"><a href="#tabOwner2">Owner</a></li>
+                    </ul>
+                </div>
+                <div class="card-content container">
+                    <div id="tabTourist2">
+                        <form id="login_form" method="post" name="login_form">
+                            <div class="">
+                                <div class="input-field">
+                                    <i class="fa fa-user prefix"></i>
+                                    <input id="usrnm" type="email" class="validate" name="username" placeholder="Email">
+                                </div>
+                                <div class="input-field">
+                                    <i class="fa fa-key prefix"></i>
+                                    <input id="psswrd" type="password" class="validate" name="password" placeholder="Password">
+                                </div>
+                            </div>
+                            <button id="btn-login" type="submit" name="login" value="log in" class="waves-effect waves-light btn block light-blue darken-4">Log in</button>
+                        </form>
+                    </div>
+                    <div id="tabOwner2">
+                        <form id="login_form2" method="post" name="login_form2">
+                            <div class="">
+                                <div class="input-field">
+                                    <i class="fa fa-user prefix"></i>
+                                    <input id="owner_email2" type="email" class="validate" name="owner_email2" placeholder="Email">
+                                </div>
+                                <div class="input-field">
+                                    <i class="fa fa-key prefix"></i>
+                                    <input id="owner_password3" type="password" class="validate" name="owner_password3" placeholder="Password">
+                                </div>
+                            </div>
+                            <button id="btn-owner-login" type="submit" name="owner-login" value="log in" class="waves-effect waves-light btn block light-blue darken-4">Log in</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    
+    <!-- regModal Structure -->
+    <div id="regModal" class="modal">
+        <div class="modal-content white">
+            <div class="card z-depth-0">
+                <div class="card-content">
+                    <!-- <br> -->
+                    <h4 class="center thin">Create an account!</h4>
+                    <hr>
+                    <p id="err-msg2" class="red-text center thin"></p>
+                    <p id="scc-msg" class="green-text center thin"></p>
+                </div>
+                <div class="card-tabs">
+                    <ul class="tabs tabs-fixed-width">
+                        <li class="tab"><a class="active" href="#tabTourist">Tourist</a></li>
+                        <li class="tab"><a href="#tabOwner">Owner</a></li>
+                    </ul>
+                </div>
+                <div class="card-content">
+                    <div id="tabTourist">
+                        <form id="reg_form" method="post" name="reg_form">
+                            <div class="row">
+                                <div class="input-field col l6 s12">
+                                    <i class="fa fa-user prefix"></i>
+                                    <input id="fname2" type="text" class="validate" name="fname2" placeholder="First name">
+                                </div>
+                                <div class="input-field col l6 s12">
+                                    <i class="fa fa-user prefix"></i>
+                                    <input id="lname2" type="text" class="validate" name="lname2" placeholder="Last name">
+                                </div>
+                                <div class="input-field col l6 s12">
+                                    <i class="fa fa-envelope prefix"></i>
+                                    <input id="usrnm2" type="email" class="validate" name="username2" placeholder="Email">
+                                </div>
+                                <div class="input-field col l6 s12">
+                                    <i class="fa fa-phone prefix"></i>
+                                    <input id="cnum2" type="text" class="validate" name="cnum2" placeholder="Contact No.">
+                                </div>
+                                <div class="input-field col l6 s12">
+                                    <i class="fa fa-key prefix"></i>
+                                    <input id="psswrd2" type="password" class="validate" name="password2" placeholder="Password">
+                                </div>
+                                <div class="input-field col l6 s12">
+                                    <i class="fa fa-key prefix"></i>
+                                    <input id="psswrd3" type="password" class="validate" name="password3" placeholder="Repeat password">
+                                </div>
+                            </div>
+                            
+                            <button id="btn-register" type="submit" name="register" class="waves-effect waves-light btn block light-blue darken-4">Sign up</button>
+                        </form>
+                    </div>
+                    <div id="tabOwner">
+                        <form id="reg_form_owner" method="post" name="reg_form_owner">
+                            <div class="row">
+                                <div class="input-field col l6 s12">
+                                    <i class="fa fa-user prefix"></i>
+                                    <input id="owner_username" type="text" class="validate" name="owner_username" placeholder="Username">
+                                </div>
+                                <div class="input-field col l6 s12">
+                                    <i class="fa fa-envelope prefix"></i>
+                                    <input id="owner_email" type="email" class="validate" name="owner_email" placeholder="Email">
+                                </div>
+                                <div class="input-field col l6 s12">
+                                    <i class="fa fa-user prefix"></i>
+                                    <input id="owner_name" type="text" class="validate" name="owner_name" placeholder="Full name">
+                                </div>
+                                <div class="input-field col l6 s12">
+                                    <i class="fa fa-phone prefix"></i>
+                                    <input id="owner_contact" type="text" class="validate" name="owner_contact" placeholder="Contact No.">
+                                </div>
+                                <div class="input-field col l6 s12">
+                                    <i class="fa fa-building prefix"></i>
+                                    <input id="owner_bName" type="text" class="validate" name="owner_bName" placeholder="Business Name">
+                                </div>
+                                <div class="input-field col l6 s12">
+                                    <i class="fa fa-building prefix"></i>
+                                    <input id="owner_bAddress" type="text" class="validate" name="owner_bAddress" placeholder="Business Address">
+                                </div>
+                                <div class="input-field col l6 s12">
+                                    <i class="fa fa-key prefix"></i>
+                                    <input id="owner_password" type="password" class="validate" name="owner_password" placeholder="Password">
+                                </div>
+                                <div class="input-field col l6 s12">
+                                    <i class="fa fa-key prefix"></i>
+                                    <input id="owner_password2" type="password" class="validate" name="owner_password2" placeholder="Repeat password">
+                                </div>
+                            </div>
+                            
+                            <button id="owner_btn_register" type="submit" name="register" class="waves-effect waves-light btn block light-blue darken-4">Sign up</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    <!--Import jQuery before materialize.js-->
+    <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+    
+    <!-- Import rateyo js -->
+    <script type="text/javascript" src="js/jquery.rateyo.js"></script>
+    
+    <!-- Import map-icon js -->
+    <!-- <script type="text/javascript" src="dist/js/map-icons.min.js"></script> -->
+    <script type="text/javascript" src="js/loader.js"></script>
+    
+    <!-- Import Materialize js -->
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+    
+    <!-- Import Validation js -->
+    <script type="text/javascript" src="js/validation.min.js"></script>
+    <script type="text/javascript" src="js/validation.js"></script>
+    
+    <!-- Import Init js -->
+    <script type="text/javascript" src="js/init.js"></script>
+</body>
+</html>

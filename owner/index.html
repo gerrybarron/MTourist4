@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src *; style-src *  'unsafe-inline'; script-src *  'unsafe-inline'; media-src *"> -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="theme-color" content="#1e2327">
+    <meta name="description" content="web app description">
+    <meta property="og:url" content="">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="">
+    <meta property="og:description" content="">
+    <meta property="og:image" content="">
+    
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="../css/materialize.min.css"  media="screen,projection"/>
+    
+    <!--Croppie Plugins CSS-->
+    <link rel="stylesheet" type="text/css" href="../css/croppie.css" />
+    <link rel="stylesheet" type="text/css" href="../css/demo.css" />
+    <link rel="stylesheet" type="text/css" href="../css/sweetalert.css" />
+    
+    <!-- Import rate css -->
+    <link type="text/css" rel="stylesheet" href="../css/jquery.rateyo.css"  media="screen,projection"/>
+    
+    <!-- Import map-icons css -->
+    <link type="text/css" rel="stylesheet" href="../dist/css/map-icons.css"  media="screen,projection"/>
+    
+    <!-- Import fontawesome css -->
+    <link type="text/css" rel="stylesheet" href="../css/font-awesome.min.css"  media="screen,projection"/>
+    
+    <!-- Import Custom css -->
+    <link type="text/css" rel="stylesheet" href="../css/admin.css"  media="screen,projection"/>
+    
+    <title>Dashboard</title>
+    
+    <style>
+        #map{
+            height: 300px;
+        }
+        #emap{
+            height: 300px;
+        }
+        
+        #dmap{
+            height: 300px;
+        }
+        .currencySymbol{
+            position: relative;
+        }
+        .currencySymbol > span {
+            position: absolute;
+            display: block;
+            transform: translate(0, -50%);
+            top: 34%;
+            pointer-events: none;
+            width: 7px;
+            text-align: center;
+            font-style: normal;
+        }
+        .currencySymbol > input {
+            padding-left: 15px !important;
+            padding-right: 0;
+            width: 94% !important;
+        }
+    </style>
+</head>
+<body class="grey lighten-4">
+    <ul id="slide-out" class="side-nav fixed midnight-blue">
+        <li>
+            <h5 class="white-text light center padding-top-bottom">Zambales Tour</h5>
+        </li>
+        <li><div class="divider"></div></li>
+        <li><a class="subheader grey-text">Main</a></li>
+        <li><a href="#dashboard" class="white-text"><i class="fa fa-tachometer" aria-hidden="true"></i>Dashboard</a></li>
+        <!-- <li><a href="#!" class="white-text"><i class="fa fa-user" aria-hidden="true"></i>Profile</a></li> -->
+        <li><a href="#users" class="white-text"><i class="fa fa-users" aria-hidden="true"></i>Users</a></li>
+        <li><a href="#addPlace" class="white-text modal-trigger" onclick="enewmap();"><i class="fa fa-map-marker" aria-hidden="true"></i>Add Places</a></li>
+        <!-- <li><a href="#reviews" class="white-text"><i class="fa fa-pencil" aria-hidden="true"></i>Reviews</a></li> -->
+        <li><div class="divider"></div></li>
+        <li><a class="subheader grey-text">Option</a></li>
+        <li><a href="#!" class="white-text"><i class="fa fa-sign-out" aria-hidden="true"></i>Deactivate Account</a></li>
+        <li><a href="#!" onclick="logout();" class="white-text"><i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a></li>
+        <li><div class="divider"></div></li>
+    </ul>
+    <a href="#" data-activates="slide-out" class="button-collapse"><i class="fa fa-bars" aria-hidden="true"></i></a>
+    <header class="to-fix">
+        <nav class="transparent grey-text">
+            <div class="nav-wrapper padding-rigt-left">
+                <a href="#" class="brand-logo grey-text text-darken-4 thin">Dashboard</a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="#!" class="grey-text text-darken-4"><i class="fa fa-bell" aria-hidden="true"></i></a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        
+        <div class="row" id="places">
+            <div class="col l12 s12">
+                <div class="card">
+                    <div class="card-content">
+                        <h4 class="center">Your Places</h4>
+                    </div>
+                    <div class="card-tabs">
+                        <ul class="tabs tabs-fixed-width">
+                            <li class="tab"><a class="active" href="#tabPCon">Confirmed</a></li>
+                            <li class="tab"><a class="active" href="#tabPUncon">Unconfirmed</a></li>
+                            
+                        </ul>
+                    </div>
+                    <div class="card-content">
+                        <div id="tabPCon">
+                            <table class="centered bordered responsive-table" id="uncon-place-table">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Category</th>
+                                        <th>Address</th>
+                                        <th>Location</th>
+                                        <th>Contact</th>
+                                        <th>Website</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="place-list">
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+                        <div id="tabPUncon">
+                            <table class="centered bordered responsive-table" id="uncon-place-table">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Category</th>
+                                        <th>Address</th>
+                                        <th>Location</th>
+                                        <th>Contact</th>
+                                        <th>Website</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="place-unconfirm-list">
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="row" id="reviews">
+            <div class="col l12 s12">
+                <div class="card">
+                    <div class="card-content">
+                        <p class="center">Reviews</p>
+                    </div>
+                    <div class="card-tabs">
+                        <ul class="tabs tabs-fixed-width">
+                            <li class="tab"><a class="active" href="#tabRCon">Confirmed</a></li>
+                            <li class="tab"><a class="active" href="#tabRUncon">Unconfirmed</a></li>
+                            
+                        </ul>
+                    </div>
+                    <div class="card-content">
+                        <div id="tabRCon">
+                            <ul id="review-list">
+                                
+                            </ul>
+                        </div>
+                        <div id="tabRUncon">
+                            <ul id="review-unconfirm-list">
+                                
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+    </main>
+    <footer></footer>
+    
+    <!-- ADD PLACES MODAL -->
+    <div id="addPlace" class="modal">
+        <div class="modal-content">
+            <h5 class="center light grey-text text-darken-4">Add Place</h5>
+            <div class="divider"></div>
+            <br>
+            <div class="container">
+                <div class="row">
+                    <div class="col l6 s12">
+                        <input type="text" name="" id="placeName" placeholder="Name" />
+                    </div>
+                    <div class="col l6 s12">
+                        <input type="text" id="autocomplete-input" class="autocomplete" placeholder="Category">
+                    </div>
+                    <div class="col s12 l6">
+                        <input type="text" name="" id="placeMun" class="autocomplete" placeholder="Municipality" />
+                    </div>
+                    <div class="col s12 l6 currencySymbol">
+                        <span class="">₱</span>
+                        <input type="text" name="" id="placePrice" placeholder="Starting Price" />
+                    </div>
+                    <div class="col s12 l12">
+                        <input type="text" name="" id="placeAdd" placeholder="Address" />
+                    </div>
+                    <div class="col s12 l6">
+                        <input type="text" name="" id="pLat" placeholder="Latitude" disabled />
+                    </div>
+                    <div class="col s12 l6">
+                        <input type="text" name="" id="pLng" placeholder="Longitude" disabled />
+                    </div>
+                    <div class="col s12 l12">
+                        <div id="floating-panel">
+                            <input onclick="showMarkers2();" type=button value="Show All Markers">
+                            <input onclick="deleteMarkers2();" type=button value="Delete Markers">
+                        </div>
+                        <p class="center grey-text text-darken-1">Please toggle the fullscreen to get the exact location.</p>
+                        <div id="emap"></div>
+                    </div>
+                    <div class="col l6 s12">
+                        <input type="text" name="" id="placeCnum" placeholder="Contact No" />
+                    </div>
+                    <div class="col l6 s12">
+                        <input type="text" name="" id="placeWeb" placeholder="Website" />
+                    </div>
+                    <div class="col l12 s12">
+                        <!-- <input type="text" name="" id="placeShort" placeholder="Short Description" /> -->
+                        <textarea id="placeShort" placeholder="Short Description" class="materialize-textarea" data-length="120"></textarea>
+                    </div>
+                    <div class="col l12 s12">
+                        <!-- <input type="text" name="" id="placeLong" placeholder="Long Description" /> -->
+                        <textarea id="placeLong" placeholder="Long Description" class="materialize-textarea" data-length="450"></textarea>
+                    </div>
+                    <div class="col l12 s12">
+                        <input type="text" name="" id="placePax" placeholder="Other Details" />
+                    </div>
+                    <div class="col s12 l12">
+                        <a class="btn green" style="width:100%" onclick="placeForm()">Save</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- EDIT Place MODAL -->
+    <div id="editPlace" class="modal">
+        <div class="modal-content">
+            <h5 class="center light grey-text text-darken-4">Edit Place</h5>
+            <div class="divider"></div>
+            <br>
+            <div class="container">
+                <div class="row">
+                    <div id="upload-place" class="col l12 upload-demo">
+                        <div class="col l12">
+                            <div class="upload-msg">
+                                Upload a file to start cropping
+                            </div>
+                            <div class="upload-demo-wrap">
+                                <div id="upload-place2"></div>
+                            </div>
+                        </div>
+                        <div class="col l12">
+                            <div class="actions center">
+                                <a class="btn file-btn light-blue darken-4">
+                                    <span>Upload</span>
+                                    <input type="file" id="upload2" value="Choose a file" accept="image/*" />
+                                </a>
+                                <button id="upload-place-result" class="btn">Save</button>
+                            </div>
+                        </div>
+                        <br>
+                        <br>
+                        <br>
+                    </div>
+                    <div class="col l6 s12">
+                        <input type="hidden" name="" id="eplaceId">
+                        <input type="text" name="" id="eplaceName" placeholder="Name" />
+                    </div>
+                    <div class="col l6 s12">
+                        <input type="text" id="autocomplete-input2" class="autocomplete" placeholder="Category">
+                    </div>
+                    <div class="col s12 l6">
+                        <input type="text" name="" id="eplaceMun" class="autocomplete" placeholder="Municipality" />
+                    </div>
+                    <div class="col s12 l6 currencySymbol">
+                        <span class="">₱</span>
+                        <input type="text" name="" id="eplacePrice" placeholder="Starting Price" />
+                    </div>
+                    <div class="col s12 l12">
+                        <input type="text" name="" id="eplaceAdd" placeholder="Address" />
+                    </div>
+                    <div class="col s12 l6">
+                        <input type="text" name="" id="epLat" placeholder="Latitude" />
+                    </div>
+                    <div class="col s12 l6">
+                        <input type="text" name="" id="epLng" placeholder="Longitude" />
+                    </div>
+                    <div class="col s12 l12">
+                        <div id="floating-panel2">
+                            <input onclick="showMarkers3();" type=button value="Show All Markers">
+                            <input onclick="deleteMarkers3();" type=button value="Delete Markers">
+                        </div>
+                        <p class="center grey-text text-darken-1">Please toggle the fullscreen to get the exact location.</p>
+                        <div id="dmap"></div>
+                    </div>
+                    <div class="col l6 s12">
+                        <input type="text" name="" id="eplaceCnum" placeholder="Contact No" />
+                    </div>
+                    <div class="col l6 s12">
+                        <input type="text" name="" id="eplaceWeb" placeholder="Website" />
+                    </div>
+                    <div class="col l12 s12">
+                        <!-- <input type="text" name="" id="eplaceShort" placeholder="Short Description" /> -->
+                        <textarea id="eplaceShort" placeholder="Short Description" class="materialize-textarea" data-length="120"></textarea>
+                    </div>
+                    <div class="col l12 s12">
+                        <!-- <input type="text" name="" id="eplaceLong" placeholder="Long Description" /> -->
+                        <textarea id="eplaceLong" placeholder="Long Description" class="materialize-textarea" data-length="450"></textarea>
+                    </div>
+                    <div class="col l12 s12">
+                        <input type="text" name="" id="eplacePax" placeholder="Other Details" />
+                    </div>
+                    <div class="col s12 l12">
+                        <a id="place-upload-result" class="btn green" style="width:100%" onclick="placeEditForm()">Save</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!--Import jQuery before materialize.js-->
+    <script type="text/javascript" src="../js/jquery-2.1.1.min.js"></script>
+    
+    <!-- Import Uploader js -->
+    <script type="text/javascript" src="../js/sweetalert.min.js"></script>
+    <script type="text/javascript" src="../js/croppie.js"></script>
+    <script type="text/javascript" src="../js/demo.js"></script>
+    <script type="text/javascript" src="../js/uploader.js"></script>
+    <script type="text/javascript" src="../js/exif.js"></script>
+    
+    <!-- Import rateyo js -->
+    <script type="text/javascript" src="../js/jquery.rateyo.js"></script>
+    
+    <!-- Import map-icon js -->
+    <!-- <script type="text/javascript" src="../dist/js/map-icons.min.js"></script> -->
+    
+    <!-- Import Materialize js -->
+    <script type="text/javascript" src="../js/materialize.min.js"></script>
+    
+    <!-- Import Validation js -->
+    <script type="text/javascript" src="../js/validation.min.js"></script>
+    <script type="text/javascript" src="../js/owner-val.js"></script>
+    <!-- <script type="text/javascript" src="../js/api.js"></script> -->
+    
+    <!-- Import Init js -->
+    <script type="text/javascript" src="../js/init.js"></script>
+    
+    <!-- Import Google Map API -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBjx7ontRXXlAspApYcMXNJaRCk_Ykdxdg&libraries=places&callback=initMap"
+    async defer></script>
+    
+    <script type="text/javascript">
+        var validUser = localStorage.getItem("owner_validation");
+        if(validUser == null || validUser == ""){
+            setTimeout(' window.location.href = "index.html"; ',100);
+        }
+        Demo.init();
+    </script>
+</body>
+</html>

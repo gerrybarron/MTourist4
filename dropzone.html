@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="dist/min/dropzone.min.css"> -->
+    <style>
+        .container{
+            margin: 30px auto;
+            width: 80%;
+        }
+        #dropZone{
+            border: 3px dashed #cecece;
+            padding: 50px;
+            width: 80%;
+            margin: 10px auto;
+        }
+        #files{
+            border: 3px dashed #cecece;
+            padding: 20px;
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- <form action="server/upload.php" method="post" class="dropzone"></form> -->
+        <div id="dropZone">
+            <h1>Upload your image here.</h1>
+            <input type="file" id="fileupload" name="attachments[]" multiple>
+        </div>
+        
+        <h1 id="progress"></h1>
+        <div id="files"></div>
+    </div>
+    <!--Import jQuery before materialize.js-->
+    <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="js/js/vendor/jquery.ui.widget.js"></script>
+    <script type="text/javascript" src="js/js/jquery.iframe-transport.js"></script>
+    <script type="text/javascript" src="js/js/jquery.fileupload.js"></script>
+    <!-- <script src="dist/min/dropzone.min.js"></script> -->
+    <script type="text/javascript">
+        $(function(){
+            var files = $("#files");
+            
+            $("#fileupload").fileupload({
+                url: 'server/upload.php',
+                dropZone: '#dropZone',
+                dataType: 'json',
+                autoupload: false
+            }).on('fileuploadadd', function(e, data) {
+                var fileTypeAllowed = /.\.(gif|png|jpg|jpeg)$/i;
+                var fileName = data.originalFiles[0]["name"];
+                var fileSize = data.originalFiles[0]["size"];
+                if(!fileTypeAllowed.test(fileName)){
+                    console.log("only image");
+                }
+                else if (fileSize > 40000000){
+                    console.log("max allowed file size is 5mb");
+                }
+                else{
+                    data.submit();
+                }
+            }).on('fileuploaddone', function(e, data) {
+                var status = data.jqXHR.responseJSON.status;
+                var msg = data.jqXHR.responseJSON.msg;
+                
+                if (status == 1) {
+                    var path = data.jqXHR.responseJSON.path;
+                    console.log(path);
+                    $("#files").fadeIn().append('<p><img style="width: 100px; height: 100px;" src="'+path+'" /></p>');
+                } else {
+                    console.log(msg);
+                }
+                
+            }).on('fileuploadprogressall', function(e, data) {
+                var progress = parseInt(data.loaded / data.total * 100, 10);
+                $("#progress").html(progress + "%");
+            });
+        });
+    </script>
+</body>
+</html>
