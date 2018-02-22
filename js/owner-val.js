@@ -34,6 +34,7 @@ function getAllConfirmedPlace(){
             $("#place-list").append('<tr><td>'+result[i].pName+
             '</td><td>'+result[i].pCat+
             '</td><td>'+result[i].pAdd+
+            '</td><td>'+result[i].pStartPrice+
             '</td><td>'+result[i].pLat+', '+ result[i].pLng+
             '</td><td>'+result[i].pContact+
             '</td><td>'+result[i].pWebsite+
@@ -52,7 +53,8 @@ function getAllUnconfirmedPlace(){
             $("#place-unconfirm-list").append('<tr><td>'+result[i].pName+
             '</td><td>'+result[i].pCat+
             '</td><td>'+result[i].pAdd+
-            '</td><td>'+result[i].pLat+', '+ result[i].pLng+
+            '</td><td>'+result[i].pStartPrice+
+            // '</td><td>'+result[i].pLat+', '+ result[i].pLng+
             '</td><td>'+result[i].pContact+
             '</td><td>'+result[i].pWebsite+
             '</td><td><a href="#editPlace" id="'+result[i].place_id+'" onclick="getId(this.id);editmap();" class="text-blue modal-trigger">Edit</a></td></tr>');

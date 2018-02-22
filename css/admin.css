@@ -84,3 +84,7 @@ main{
 .tabs .indicator {
     background-color: rgba(41, 128, 185,1.0);
 }
+
+.tabs.tabs-fixed-width {
+    overflow-x: hidden;
+}

@@ -18,7 +18,7 @@ var compute2;
 var dest = getUrlParameter('dest');
 
 $(document).ready(function(){
-    if(window.location.pathname == "/MTourist3/destination.html"){
+    // if(window.location.pathname == "/MTourist4/destination.html"){
         getDestPlaceData();
         $("#search").change(function(){
             var searched = $("#search").val();
@@ -34,11 +34,11 @@ $(document).ready(function(){
             var searched = $("#autocomplete-input").val();
             getFilterPlaceDataByCat(searched);
         });
-    }
-    else{
+    // }
+    // else{
         getPromoData();
         getMunicipalityData();
-    }
+    // }
     
 });
 
