@@ -18,7 +18,7 @@ function getUrlParameter(sParam) {
 $(document).ready(function(){
     // FOR USER INFO
     getUserData();
-    getOwnerData();
+    // getOwnerData();
     loadPost();
     //To save loading time
     //console.log(window.location.pathname);
@@ -73,102 +73,102 @@ function getUserData(){
     });
 }
 
-function getOwnerData(){
-    $.getJSON("server/view.php?ownerId="+localUserID, function(result){
-        console.log(result);
-        if(result[0].fld_placeId == null || result[0].fld_placeId == ""){
-            $("#tohide2").removeClass("hide");
-        }
-        else{
-            $("#tohide2").addClass("hide");
-            var propic;
-            var trimpic;
-            for (i = 0; i < result.length; i++) {
-                if(result[i].fld_img1 == "" || result[i].fld_img1 == null){
-                    $("#myplace-list").append('<div class="col l12">'+
-                    '<div class="card">'+
-                    '<div class="card-image waves-effect waves-block waves-light">'+
-                    '<img class="activator" src="img/img-295-218.png">'+
-                    '</div>'+
-                    '<div class="card-content">'+
-                    '<span class="card-title activator grey-text text-darken-4">'+result[i].fld_name+'<i class="material-icons right">more_vert</i></span>'+
-                    '<p>'+
-                    '<i class="fa fa-star checked"></i>'+
-                    '<i class="fa fa-star checked"></i>'+
-                    '<i class="fa fa-star checked"></i>'+
-                    '<i class="fa fa-star checked"></i>'+
-                    '<i class="fa fa-star checked"></i>'+
-                    '<span class="pull-right">₱'+result[i].fld_startPrice+'</span>'+
-                    '</p>'+
-                    '</div>'+
-                    '<div class="card-reveal">'+
-                    '<span class="card-title grey-text text-darken-4">'+result[i].fld_name+'<i class="material-icons right">close</i></span>'+
-                    '<p>'+
-                    '<i class="fa fa-star checked"></i>'+
-                    '<i class="fa fa-star checked"></i>'+
-                    '<i class="fa fa-star checked"></i>'+
-                    '<i class="fa fa-star checked"></i>'+
-                    '<i class="fa fa-star checked"></i>'+
-                    '<span class="pull-right">'+result[i].fld_category+'</span>'+
-                    '</p>'+
-                    '<p>'+result[i].fld_contact+'</p>'+
-                    '<p>'+result[i].fld_website+'</p>'+
-                    '<p>'+result[i].fld_address+'</p>'+
-                    '<p>'+result[i].fld_shortDesc+'</p>'+
-                    '<div class="col l12 center">'+
-                    '<a id="'+result[i].fld_placeId+'" onclick="getClickedId2(this.id);editmap();" href="#editPlace" class="btn modal-trigger">Edit</a>'+
-                    '<a id="'+result[i].fld_placeId+'" onclick="getClickedId(this.id);" href="#viewReview" class="btn modal-trigger modal-close">Reviews</a>'+
-                    '</div>'+
-                    '</div>'+
-                    '</div>'+
-                    '</div>');
-                }else {
-                    propic = result[i].fld_img1;
-                    trimpic = propic.split(' ').join('+');
-                    $("#myplace-list").append('<div class="col l12">'+
-                    '<div class="card">'+
-                    '<div class="card-image waves-effect waves-block waves-light">'+
-                    '<img class="activator" src="'+trimpic+'">'+
-                    '</div>'+
-                    '<div class="card-content">'+
-                    '<span class="card-title activator grey-text text-darken-4">'+result[i].fld_name+'<i class="material-icons right">more_vert</i></span>'+
-                    '<p>'+
-                    '<i class="fa fa-star checked"></i>'+
-                    '<i class="fa fa-star checked"></i>'+
-                    '<i class="fa fa-star checked"></i>'+
-                    '<i class="fa fa-star checked"></i>'+
-                    '<i class="fa fa-star checked"></i>'+
-                    '<span class="pull-right">₱'+result[i].fld_startPrice+'</span>'+
-                    '</p>'+
-                    '</div>'+
-                    '<div class="card-reveal">'+
-                    '<span class="card-title grey-text text-darken-4">'+result[i].fld_name+'<i class="material-icons right">close</i></span>'+
-                    '<p>'+
-                    '<i class="fa fa-star checked"></i>'+
-                    '<i class="fa fa-star checked"></i>'+
-                    '<i class="fa fa-star checked"></i>'+
-                    '<i class="fa fa-star checked"></i>'+
-                    '<i class="fa fa-star checked"></i>'+
-                    '<span class="pull-right">'+result[i].fld_category+'</span>'+
-                    '</p>'+
-                    '<p>'+result[i].fld_contact+'</p>'+
-                    '<p>'+result[i].fld_website+'</p>'+
-                    '<p>'+result[i].fld_address+'</p>'+
-                    '<p>'+result[i].fld_shortDesc+'</p>'+
-                    '<div class="col l12 center">'+
-                    '<a id="'+result[i].fld_placeId+'" onclick="getClickedId2(this.id);editmap();" href="#editPlace" class="btn modal-trigger">Edit</a>'+
-                    '<a id="'+result[i].fld_placeId+'" onclick="getClickedId(this.id);" href="#viewReview" class="btn modal-trigger modal-close">Reviews</a>'+
-                    '</div>'+
-                    '</div>'+
-                    '</div>'+
-                    '</div>');
-                }
+// function getOwnerData(){
+//     $.getJSON("server/view.php?ownerId="+localUserID, function(result){
+//         console.log(result);
+//         if(result[0].fld_placeId == null || result[0].fld_placeId == ""){
+//             $("#tohide2").removeClass("hide");
+//         }
+//         else{
+//             $("#tohide2").addClass("hide");
+//             var propic;
+//             var trimpic;
+//             for (i = 0; i < result.length; i++) {
+//                 if(result[i].fld_img1 == "" || result[i].fld_img1 == null){
+//                     $("#myplace-list").append('<div class="col l12">'+
+//                     '<div class="card">'+
+//                     '<div class="card-image waves-effect waves-block waves-light">'+
+//                     '<img class="activator" src="img/img-295-218.png">'+
+//                     '</div>'+
+//                     '<div class="card-content">'+
+//                     '<span class="card-title activator grey-text text-darken-4">'+result[i].fld_name+'<i class="material-icons right">more_vert</i></span>'+
+//                     '<p>'+
+//                     '<i class="fa fa-star checked"></i>'+
+//                     '<i class="fa fa-star checked"></i>'+
+//                     '<i class="fa fa-star checked"></i>'+
+//                     '<i class="fa fa-star checked"></i>'+
+//                     '<i class="fa fa-star checked"></i>'+
+//                     '<span class="pull-right">₱'+result[i].fld_startPrice+'</span>'+
+//                     '</p>'+
+//                     '</div>'+
+//                     '<div class="card-reveal">'+
+//                     '<span class="card-title grey-text text-darken-4">'+result[i].fld_name+'<i class="material-icons right">close</i></span>'+
+//                     '<p>'+
+//                     '<i class="fa fa-star checked"></i>'+
+//                     '<i class="fa fa-star checked"></i>'+
+//                     '<i class="fa fa-star checked"></i>'+
+//                     '<i class="fa fa-star checked"></i>'+
+//                     '<i class="fa fa-star checked"></i>'+
+//                     '<span class="pull-right">'+result[i].fld_category+'</span>'+
+//                     '</p>'+
+//                     '<p>'+result[i].fld_contact+'</p>'+
+//                     '<p>'+result[i].fld_website+'</p>'+
+//                     '<p>'+result[i].fld_address+'</p>'+
+//                     '<p>'+result[i].fld_shortDesc+'</p>'+
+//                     '<div class="col l12 center">'+
+//                     '<a id="'+result[i].fld_placeId+'" onclick="getClickedId2(this.id);editmap();" href="#editPlace" class="btn modal-trigger">Edit</a>'+
+//                     '<a id="'+result[i].fld_placeId+'" onclick="getClickedId(this.id);" href="#viewReview" class="btn modal-trigger modal-close">Reviews</a>'+
+//                     '</div>'+
+//                     '</div>'+
+//                     '</div>'+
+//                     '</div>');
+//                 }else {
+//                     propic = result[i].fld_img1;
+//                     trimpic = propic.split(' ').join('+');
+//                     $("#myplace-list").append('<div class="col l12">'+
+//                     '<div class="card">'+
+//                     '<div class="card-image waves-effect waves-block waves-light">'+
+//                     '<img class="activator" src="'+trimpic+'">'+
+//                     '</div>'+
+//                     '<div class="card-content">'+
+//                     '<span class="card-title activator grey-text text-darken-4">'+result[i].fld_name+'<i class="material-icons right">more_vert</i></span>'+
+//                     '<p>'+
+//                     '<i class="fa fa-star checked"></i>'+
+//                     '<i class="fa fa-star checked"></i>'+
+//                     '<i class="fa fa-star checked"></i>'+
+//                     '<i class="fa fa-star checked"></i>'+
+//                     '<i class="fa fa-star checked"></i>'+
+//                     '<span class="pull-right">₱'+result[i].fld_startPrice+'</span>'+
+//                     '</p>'+
+//                     '</div>'+
+//                     '<div class="card-reveal">'+
+//                     '<span class="card-title grey-text text-darken-4">'+result[i].fld_name+'<i class="material-icons right">close</i></span>'+
+//                     '<p>'+
+//                     '<i class="fa fa-star checked"></i>'+
+//                     '<i class="fa fa-star checked"></i>'+
+//                     '<i class="fa fa-star checked"></i>'+
+//                     '<i class="fa fa-star checked"></i>'+
+//                     '<i class="fa fa-star checked"></i>'+
+//                     '<span class="pull-right">'+result[i].fld_category+'</span>'+
+//                     '</p>'+
+//                     '<p>'+result[i].fld_contact+'</p>'+
+//                     '<p>'+result[i].fld_website+'</p>'+
+//                     '<p>'+result[i].fld_address+'</p>'+
+//                     '<p>'+result[i].fld_shortDesc+'</p>'+
+//                     '<div class="col l12 center">'+
+//                     '<a id="'+result[i].fld_placeId+'" onclick="getClickedId2(this.id);editmap();" href="#editPlace" class="btn modal-trigger">Edit</a>'+
+//                     '<a id="'+result[i].fld_placeId+'" onclick="getClickedId(this.id);" href="#viewReview" class="btn modal-trigger modal-close">Reviews</a>'+
+//                     '</div>'+
+//                     '</div>'+
+//                     '</div>'+
+//                     '</div>');
+//                 }
                 
-            }
-        }
+//             }
+//         }
         
-    });
-}
+//     });
+// }
 
 function getClickedId(item_id){
     $("#reviewData").html("");

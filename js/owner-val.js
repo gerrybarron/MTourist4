@@ -22,6 +22,16 @@ $(document).ready(function(){
 function getDashboardData() {
     getAllConfirmedPlace();
     getAllUnconfirmedPlace();
+    getOwnerData();
+}
+
+// Owner Profile
+function getOwnerData(){
+    var validUser = localStorage.getItem("owner_validation");
+    $.getJSON("../server/owner-data.php?ownerId="+validUser, function(result){
+        console.log(result);
+        $("#owner_name").text(result.fld_fName);
+    });
 }
 
 // List of confirmed places

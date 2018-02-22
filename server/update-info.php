@@ -38,11 +38,11 @@ if(isset($_POST["userId2"])){
 if(isset($_POST["userId3"])){
     //$level = "owner";
     $status = "confirmed";
-    $userId = $_POST["userId3"];
+    $ownerId = $_POST["userId3"];
     
-    $info = $dbh->prepare("UPDATE tbl_users SET fld_confirm = :fld_confirm WHERE fld_userId = :fld_userId");
-    $info->bindParam(":fld_confirm", $status);
-    $info->bindParam(":fld_userId", $userId);
+    $info = $dbh->prepare("UPDATE tbl_owner SET fld_status = :fld_status WHERE fld_ownerId = :fld_ownerId");
+    $info->bindParam(":fld_status", $status);
+    $info->bindParam(":fld_ownerId", $ownerId);
     $info->execute(); 
 }
 ?>

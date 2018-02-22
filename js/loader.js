@@ -192,7 +192,7 @@ function getDestPlaceData(){
                 '<span class="card-title activator grey-text text-darken-4">'+result[i].fld_name+'<i class="fa fa-bars right"></i></span>'+
                 '<p id="rating1">'+
                 '</p>'+
-                '<span class="pull-right">₱'+result[i].fld_startPrice+'</span>'+
+                '<span class="pull-left">₱'+result[i].fld_startPrice+'</span>'+
                 '</div>'+
                 '<div class="card-reveal">'+
                 '<span class="card-title grey-text text-darken-4">'+result[i].fld_name+'<i class="fa fa-times right"></i></span>'+

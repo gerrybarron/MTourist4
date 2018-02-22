@@ -62,10 +62,11 @@ if(isset($_GET["status"])) {
 //list of owner
 if(isset($_GET["status2"])) {
     $status = $_GET["status2"];
-    $level = $_GET["level"];
-    $users = $dbh->prepare("SELECT * FROM tbl_users WHERE fld_confirm = :fld_confirm AND fld_level = :fld_level");
-    $users->bindParam(":fld_confirm", $status);
-    $users->bindParam(":fld_level", $level);
+    // $level = $_GET["level"];
+    $users = $dbh->prepare("SELECT * FROM tbl_owner WHERE fld_status = :fld_status");
+    // $users = $dbh->prepare("SELECT * FROM tbl_owner WHERE fld_confirm = :fld_confirm AND fld_level = :fld_level");
+    $users->bindParam(":fld_status", $status);
+    // $users->bindParam(":fld_level", $level);
     $users->execute();
     $data = $users->fetchAll(PDO::FETCH_ASSOC);
     
@@ -77,10 +78,11 @@ if(isset($_GET["status2"])) {
 //list of unconfirmed owner
 if(isset($_GET["status3"])) {
     $status = $_GET["status3"];
-    $level = $_GET["level"];
-    $users = $dbh->prepare("SELECT * FROM tbl_users WHERE fld_confirm = :fld_confirm AND fld_level = :fld_level");
-    $users->bindParam(":fld_confirm", $status);
-    $users->bindParam(":fld_level", $level);
+    // $level = $_GET["level"];
+    $users = $dbh->prepare("SELECT * FROM tbl_owner WHERE fld_status = :fld_status");
+    // $users = $dbh->prepare("SELECT * FROM tbl_owner WHERE fld_confirm = :fld_confirm AND fld_level = :fld_level");
+    $users->bindParam(":fld_status", $status);
+    // $users->bindParam(":fld_level", $level);
     $users->execute();
     $data = $users->fetchAll(PDO::FETCH_ASSOC);
     

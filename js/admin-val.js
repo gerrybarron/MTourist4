@@ -224,25 +224,25 @@ function getAllUsers() {
 
 function getAllOwner(){
     // List of confirmed business owner
-    $.getJSON("../server/admin-data.php?status2=confirmed&level=owner", function(result){
+    $.getJSON("../server/admin-data.php?status2=confirmed", function(result){
         for (i = 0; i < result.length; i++) { 
-            $("#owner-list").append('<tr><td>'+result[i].fld_userId+
+            $("#owner-list").append('<tr><td>'+result[i].fld_ownerId+
             '</td><td>'+result[i].fld_email+
             '</td><td>'+result[i].fld_cNum+
-            '</td><td>'+result[i].fld_dateCreated+'</td></tr>');
+            '</td><td>'+result[i].fld_created_at+'</td></tr>');
         }
     });
 }
 
 function getAllUnconfirmedOwner(){
     // List of unconfirmed business owner
-    $.getJSON("../server/admin-data.php?status3=unconfirmed&level=owner", function(result){
+    $.getJSON("../server/admin-data.php?status3=unconfirmed", function(result){
         for (i = 0; i < result.length; i++) { 
-            $("#unconfirmed-list").append('<tr><td>'+result[i].fld_userId+
+            $("#unconfirmed-list").append('<tr><td>'+result[i].fld_ownerId+
             '</td><td>'+result[i].fld_email+
             '</td><td>'+result[i].fld_cNum+
-            '</td><td>'+result[i].fld_dateCreated+
-            '</td><td><a id="'+result[i].fld_userId+'" onclick="getId(this.id);" class="text-blue">Confirm</a></td></tr>');
+            '</td><td>'+result[i].fld_created_at+
+            '</td><td><a id="'+result[i].fld_ownerId+'" onclick="getId(this.id);" class="text-blue">Confirm</a></td></tr>');
         }
     });
 }

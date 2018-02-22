@@ -79,4 +79,18 @@ if(isset($_GET["status1"])) {
     //echo json_encode($return);
     echo json_encode($return, JSON_NUMERIC_CHECK);
 }
+
+//Owner Profile
+if(isset($_GET["ownerId"])) {
+    $ownerId = $_GET["ownerId"];
+
+    $owner = $dbh->prepare("SELECT * FROM tbl_owner WHERE fld_ownerId = :fld_ownerId");
+    $owner->bindParam(":fld_ownerId", $ownerId);
+    $owner->execute();
+    $data = $owner->fetch(PDO::FETCH_ASSOC);
+    
+    header('Content-type: application/json');
+    //echo json_encode($return);
+    echo json_encode($data, JSON_NUMERIC_CHECK);
+}
 ?>
