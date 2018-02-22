@@ -200,7 +200,7 @@ function getDestPlaceData(){
                 '</p>'+
                 '<span class="pull-right">'+result[i].fld_category+'</span>'+
                 '<p>'+result[i].fld_contact+'</p>'+
-                '<p>'+result[i].fld_website+'</p>'+
+                '<a href="http://'+result[i].fld_website+'" target="_blank">'+result[i].fld_website+'</a>'+
                 '<p>'+result[i].fld_address+'</p>'+
                 '<p>'+result[i].fld_shortDesc+'</p>'+
                 '<div class="col l12 center">'+
@@ -229,7 +229,7 @@ function getDestPlaceData(){
                 '</p>'+
                 '<span class="pull-right">'+result[i].fld_category+'</span>'+
                 '<p>'+result[i].fld_contact+'</p>'+
-                '<p>'+result[i].fld_website+'</p>'+
+                '<a href="http://'+result[i].fld_website+'" target="_blank">'+result[i].fld_website+'</a>'+
                 '<p>'+result[i].fld_address+'</p>'+
                 '<p>'+result[i].fld_shortDesc+'</p>'+
                 '<div class="col l12 center">'+
@@ -278,7 +278,7 @@ function getSearchPlaceData(searchValue){
                 '<span class="pull-right">'+result[i].fld_category+'</span>'+
                 '</p>'+
                 '<p>'+result[i].fld_contact+'</p>'+
-                '<p>'+result[i].fld_website+'</p>'+
+                '<a href="http://'+result[i].fld_website+'" target="_blank">'+result[i].fld_website+'</a>'+
                 '<p>'+result[i].fld_address+'</p>'+
                 '<p>'+result[i].fld_shortDesc+'</p>'+
                 '<div class="col l12 center">'+
@@ -318,7 +318,7 @@ function getSearchPlaceData(searchValue){
                 '<span class="pull-right">'+result[i].fld_category+'</span>'+
                 '</p>'+
                 '<p>'+result[i].fld_contact+'</p>'+
-                '<p>'+result[i].fld_website+'</p>'+
+                '<a href="http://'+result[i].fld_website+'" target="_blank">'+result[i].fld_website+'</a>'+
                 '<p>'+result[i].fld_address+'</p>'+
                 '<p>'+result[i].fld_shortDesc+'</p>'+
                 '<div class="col l12 center">'+
@@ -367,7 +367,7 @@ function getSearchPriceData(searchValue){
                 '<span class="pull-right">'+result[i].fld_category+'</span>'+
                 '</p>'+
                 '<p>'+result[i].fld_contact+'</p>'+
-                '<p>'+result[i].fld_website+'</p>'+
+                '<a href="http://'+result[i].fld_website+'" target="_blank">'+result[i].fld_website+'</a>'+
                 '<p>'+result[i].fld_address+'</p>'+
                 '<p>'+result[i].fld_shortDesc+'</p>'+
                 '<div class="col l12 center">'+
@@ -406,7 +406,7 @@ function getSearchPriceData(searchValue){
                 '<span class="pull-right">'+result[i].fld_category+'</span>'+
                 '</p>'+
                 '<p>'+result[i].fld_contact+'</p>'+
-                '<p>'+result[i].fld_website+'</p>'+
+                '<a href="http://'+result[i].fld_website+'" target="_blank">'+result[i].fld_website+'</a>'+
                 '<p>'+result[i].fld_address+'</p>'+
                 '<p>'+result[i].fld_shortDesc+'</p>'+
                 '<div class="col l12 center">'+
@@ -455,7 +455,7 @@ function getFilterPlaceDataByCat(searchValue){
                 '<span class="pull-right">'+result[i].fld_category+'</span>'+
                 '</p>'+
                 '<p>'+result[i].fld_contact+'</p>'+
-                '<p>'+result[i].fld_website+'</p>'+
+                '<a href="http://'+result[i].fld_website+'" target="_blank">'+result[i].fld_website+'</a>'+
                 '<p>'+result[i].fld_address+'</p>'+
                 '<p>'+result[i].fld_shortDesc+'</p>'+
                 '<div class="col l12 center">'+
@@ -494,7 +494,7 @@ function getFilterPlaceDataByCat(searchValue){
                 '<span class="pull-right">'+result[i].fld_category+'</span>'+
                 '</p>'+
                 '<p>'+result[i].fld_contact+'</p>'+
-                '<p>'+result[i].fld_website+'</p>'+
+                '<a href="http://'+result[i].fld_website+'" target="_blank">'+result[i].fld_website+'</a>'+
                 '<p>'+result[i].fld_address+'</p>'+
                 '<p>'+result[i].fld_shortDesc+'</p>'+
                 '<div class="col l12 center">'+
