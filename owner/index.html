@@ -78,12 +78,12 @@
         <li><a class="subheader grey-text">Main</a></li>
         <li><a href="#dashboard" class="white-text"><i class="fa fa-tachometer" aria-hidden="true"></i>Dashboard</a></li>
         <!-- <li><a href="#!" class="white-text"><i class="fa fa-user" aria-hidden="true"></i>Profile</a></li> -->
-        <li><a href="#viewUsers" class="white-text modal-trigger"><i class="fa fa-users" aria-hidden="true"></i>Users</a></li>
+        <li><a href="#viewUsers" class="white-text modal-trigger" onclick="getUsers();"><i class="fa fa-users" aria-hidden="true"></i>Users</a></li>
         <li><a href="#addPlace" class="white-text modal-trigger" onclick="enewmap();"><i class="fa fa-map-marker" aria-hidden="true"></i>Add Places</a></li>
         <!-- <li><a href="#reviews" class="white-text"><i class="fa fa-pencil" aria-hidden="true"></i>Reviews</a></li> -->
         <li><div class="divider"></div></li>
         <li><a class="subheader grey-text">Option</a></li>
-        <li><a href="#!" class="white-text"><i class="fa fa-user" aria-hidden="true"></i>Profile</a></li>
+        <li><a href="#userProfile" class="white-text modal-trigger"><i class="fa fa-user" aria-hidden="true"></i>Profile</a></li>
         <li><a href="#!" onclick="logout();" class="white-text"><i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a></li>
         <li><div class="divider"></div></li>
     </ul>
@@ -340,7 +340,7 @@
             </div>
         </div>
     </div>
-
+    
     <!-- View Other User MODAL -->
     <div id="viewUsers" class="modal">
         <div class="modal-content">
@@ -358,14 +358,14 @@
                             <th>Action</th>
                         </tr>
                     </thead>
-                    <tbody id="place-list">
+                    <tbody id="user-list">
                         
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
-
+    
     <!-- ADD User MODAL -->
     <div id="addUser" class="modal">
         <div class="modal-content">
@@ -399,7 +399,7 @@
             </div>
         </div>
     </div>
-
+    
     <!-- Edit USER MODAL -->
     <div id="editUser" class="modal">
         <div class="modal-content">
@@ -409,28 +409,69 @@
             <div class="container">
                 <div class="row">
                     <div class="col l6 s12">
-                        <input type="text" name="" id="firstName" placeholder="First Name" />
+                        <input type="text" name="" id="efirstName" placeholder="First Name" />
                     </div>
                     <div class="col l6 s12">
-                        <input type="text" name="" id="lastName" placeholder="Last Name" />
+                        <input type="text" name="" id="elastName" placeholder="Last Name" />
                     </div>
                     <div class="col l6 s12">
-                        <input type="text" name="" id="userEmail" placeholder="Email" />
+                        <input type="text" name="" id="euserEmail" placeholder="Email" />
                     </div>
                     <div class="col s12 l6">
-                        <input type="text" name="" id="userPos" placeholder="Position" />
+                        <input type="text" name="" id="euserPos" placeholder="Position" />
                     </div>
                     <div class="col s12 l6">
-                        <input type="text" name="" id="userPass" placeholder="Password" />
+                        <input type="text" name="" id="euserPass" placeholder="Password" />
                     </div>
                     <div class="col s12 l6">
-                        <input type="text" name="" id="userRePass" placeholder="Retype Password" />
+                        <input type="text" name="" id="euserRePass" placeholder="Retype Password" />
                     </div>
                     <div class="col s12 l12">
                         <a class="btn green" style="width:100%" onclick="">Save</a>
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+    
+    <!-- PROFILE MODAL -->
+    <div id="userProfile" class="modal">
+        <div class="modal-content white">
+            <h5 class="center light grey-text text-darken-4">Profile</h5>
+            <div class="divider"></div>
+            <br>
+            <div class="container">
+                <ul class="collapsible z-depth-0" data-collapsible="accordion">
+                    <li>
+                      <div class="collapsible-header"><i class="material-icons">filter_drama</i>Edit Profile</div>
+                      <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                    </li>
+                    <li>
+                      <div class="collapsible-header"><i class="material-icons">place</i>Edit Bussiness Profile</div>
+                      <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                    </li>
+                    <li>
+                      <div class="collapsible-header"><i class="material-icons">whatshot</i>Account</div>
+                      <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                    </li>
+                  </ul>
+            </div>
+        </div>
+    </div>
+    
+    <!-- DELETE USER MODAL -->
+    <div id="deleteUser" class="modal">
+        <div class="modal-content">
+            <h5 class="center light grey-text text-darken-4">Delete User</h5>
+            <div class="divider"></div>
+            <br>
+            <div class="container">
+                <p class="center">Are you sure you want to delete this user?</p>
+            </div>
+        </div>
+        <div class="modal-footer center">
+            <a href="#!" class="green-text modal-action modal-close waves-effect waves-green btn-flat ">YES</a>
+            <a href="#!" class="red-text modal-action modal-close waves-effect waves-red btn-flat ">NO</a>
         </div>
     </div>
     

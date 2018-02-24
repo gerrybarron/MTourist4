@@ -88,3 +88,12 @@ main{
 .tabs.tabs-fixed-width {
     overflow-x: hidden;
 }
+
+.btn-horizontal{
+    vertical-align: top;
+}
+
+.collapsible{
+    border-right: none;
+    border-left: none;
+}

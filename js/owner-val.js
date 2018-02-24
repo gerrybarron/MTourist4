@@ -160,6 +160,22 @@ function logout(){
 	location.reload();
 }
 
+// VIEW ALL USERS
+function getUsers(){
+    $('#user-list').html('');
+    var validUser = localStorage.getItem("owner_validation");
+    $.getJSON("../server/owner-data.php?parentId="+validUser, function(result){
+        console.log(result);
+        for (i = 0; i < result.length; i++) { 
+            $("#user-list").append('<tr><td>'+result[i].fld_fName+
+            '</td><td>'+result[i].fld_position+
+            '</td><td>'+result[i].fld_email+
+            '</td><td><a href="#editUser" id="'+result[i].fld_id+'" onclick="getId(this.id);" class="blue-text modal-trigger modal-close btn-flat">Edit</a> <a href="#deleteUser" id="'+result[i].fld_id+'" onclick="getId(this.id);" class="red-text modal-trigger modal-close btn-flat">Delete</a></td></tr>');
+        }
+    });
+}
+
+//ADD NEW USER FOR OWNER
 function addUser(){
     var validUser = localStorage.getItem("owner_validation");
 	var fName = $("#firstName").val();
@@ -185,6 +201,7 @@ function addUser(){
 	});
 }
 
+// EDIT USER FOR OWNER
 function editUser(){
     var validUser = localStorage.getItem("owner_validation");
 	var fName = $("#firstName").val();
@@ -198,7 +215,7 @@ function editUser(){
 		type : 'POST',
 		//url  : 'server/name-update.php',
 		url  : '../server/save-place.php',
-		data : "name="+name+"&email="+email+"&position="+position+"&password="+password+"&parentId="+validUser+"&editUser=",
+		data : "name="+name+"&email="+email+"&position="+position+"&password="+password+"&parentId="+validUser+"&editUser=editUser",
 		success :  function(response){						
 			console.log(response);
             Materialize.toast(response, 3000, 'rounded');
