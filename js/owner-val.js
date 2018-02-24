@@ -160,6 +160,54 @@ function logout(){
 	location.reload();
 }
 
+function addUser(){
+    var validUser = localStorage.getItem("owner_validation");
+	var fName = $("#firstName").val();
+    var lName = $("#lastName").val();
+    var name = fName+' '+lName;
+	var email = $("#userEmail").val();
+	var position = $("#userPos").val();
+	var password = $("#userPass").val();
+	var rPassword = $("#userRePass").val();
+	
+	$.ajax({		
+		type : 'POST',
+		//url  : 'server/name-update.php',
+		url  : '../server/signup-owner.php',
+		data : "name="+name+"&email="+email+"&position="+position+"&password="+password+"&parentId="+validUser+"&addUser=addUser",
+		success :  function(response){						
+			console.log(response);
+            Materialize.toast(response, 3000, 'rounded');
+		},
+		error : function(response){
+			console.log(response);
+		}
+	});
+}
+
+function editUser(){
+    var validUser = localStorage.getItem("owner_validation");
+	var fName = $("#firstName").val();
+	var lName = $("#lastName").val();
+	var email = $("#userEmail").val();
+	var position = $("#userPos-input").val();
+	var password = $("#userPass").val();
+	var rPassword = $("#userRePass").val();
+	
+	$.ajax({		
+		type : 'POST',
+		//url  : 'server/name-update.php',
+		url  : '../server/save-place.php',
+		data : "name="+name+"&email="+email+"&position="+position+"&password="+password+"&parentId="+validUser+"&editUser=",
+		success :  function(response){						
+			console.log(response);
+            Materialize.toast(response, 3000, 'rounded');
+		},
+		error : function(response){
+			console.log(response);
+		}
+	});
+}
 // ----------------------------
 // ---TO SAVE PLACE LOCATION---
 // ----------------------------

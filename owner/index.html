@@ -78,12 +78,12 @@
         <li><a class="subheader grey-text">Main</a></li>
         <li><a href="#dashboard" class="white-text"><i class="fa fa-tachometer" aria-hidden="true"></i>Dashboard</a></li>
         <!-- <li><a href="#!" class="white-text"><i class="fa fa-user" aria-hidden="true"></i>Profile</a></li> -->
-        <li><a href="#users" class="white-text"><i class="fa fa-users" aria-hidden="true"></i>Users</a></li>
+        <li><a href="#viewUsers" class="white-text modal-trigger"><i class="fa fa-users" aria-hidden="true"></i>Users</a></li>
         <li><a href="#addPlace" class="white-text modal-trigger" onclick="enewmap();"><i class="fa fa-map-marker" aria-hidden="true"></i>Add Places</a></li>
         <!-- <li><a href="#reviews" class="white-text"><i class="fa fa-pencil" aria-hidden="true"></i>Reviews</a></li> -->
         <li><div class="divider"></div></li>
         <li><a class="subheader grey-text">Option</a></li>
-        <li><a href="#!" class="white-text"><i class="fa fa-warning" aria-hidden="true"></i>Deactivate Account</a></li>
+        <li><a href="#!" class="white-text"><i class="fa fa-user" aria-hidden="true"></i>Profile</a></li>
         <li><a href="#!" onclick="logout();" class="white-text"><i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a></li>
         <li><div class="divider"></div></li>
     </ul>
@@ -335,6 +335,99 @@
                     </div>
                     <div class="col s12 l12">
                         <a id="place-upload-result" class="btn green" style="width:100%" onclick="placeEditForm()">Save</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- View Other User MODAL -->
+    <div id="viewUsers" class="modal">
+        <div class="modal-content">
+            <h5 class="center light grey-text text-darken-4">Users</h5>
+            <div class="divider"></div>
+            <br>
+            <div class="container">
+                <a href="#addUser" class="btn pull-right modal-trigger modal-close">Add User</a>
+                <table class="centered bordered responsive-table" id="uncon-place-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Position</th>
+                            <th>Email</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="place-list">
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- ADD User MODAL -->
+    <div id="addUser" class="modal">
+        <div class="modal-content">
+            <h5 class="center light grey-text text-darken-4">Add User</h5>
+            <div class="divider"></div>
+            <br>
+            <div class="container">
+                <div class="row">
+                    <div class="col l6 s12">
+                        <input type="text" name="" id="firstName" placeholder="First Name" />
+                    </div>
+                    <div class="col l6 s12">
+                        <input type="text" name="" id="lastName" placeholder="Last Name" />
+                    </div>
+                    <div class="col l6 s12">
+                        <input type="text" name="" id="userEmail" placeholder="Email" />
+                    </div>
+                    <div class="col s12 l6">
+                        <input type="text" name="" id="userPos" placeholder="Position" />
+                    </div>
+                    <div class="col s12 l6">
+                        <input type="text" name="" id="userPass" placeholder="Password" />
+                    </div>
+                    <div class="col s12 l6">
+                        <input type="text" name="" id="userRePass" placeholder="Retype Password" />
+                    </div>
+                    <div class="col s12 l12">
+                        <a class="btn green" style="width:100%" onclick="addUser()">Save</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit USER MODAL -->
+    <div id="editUser" class="modal">
+        <div class="modal-content">
+            <h5 class="center light grey-text text-darken-4">Edit User Info</h5>
+            <div class="divider"></div>
+            <br>
+            <div class="container">
+                <div class="row">
+                    <div class="col l6 s12">
+                        <input type="text" name="" id="firstName" placeholder="First Name" />
+                    </div>
+                    <div class="col l6 s12">
+                        <input type="text" name="" id="lastName" placeholder="Last Name" />
+                    </div>
+                    <div class="col l6 s12">
+                        <input type="text" name="" id="userEmail" placeholder="Email" />
+                    </div>
+                    <div class="col s12 l6">
+                        <input type="text" name="" id="userPos" placeholder="Position" />
+                    </div>
+                    <div class="col s12 l6">
+                        <input type="text" name="" id="userPass" placeholder="Password" />
+                    </div>
+                    <div class="col s12 l6">
+                        <input type="text" name="" id="userRePass" placeholder="Retype Password" />
+                    </div>
+                    <div class="col s12 l12">
+                        <a class="btn green" style="width:100%" onclick="">Save</a>
                     </div>
                 </div>
             </div>
