@@ -106,4 +106,17 @@ if(isset($_GET["parentId"])) {
     //echo json_encode($return);
     echo json_encode($data, JSON_NUMERIC_CHECK);
 }
+
+if(isset($_GET["userId"])) {
+    $userId = $_GET["userId"];
+
+    $owner = $dbh->prepare("SELECT * FROM tbl_owner WHERE fld_id = :fld_id");
+    $owner->bindParam(":fld_id", $userId);
+    $owner->execute();
+    $data = $owner->fetch(PDO::FETCH_ASSOC);
+    
+    header('Content-type: application/json');
+    //echo json_encode($return);
+    echo json_encode($data, JSON_NUMERIC_CHECK);
+}
 ?>

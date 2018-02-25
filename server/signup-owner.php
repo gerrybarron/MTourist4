@@ -66,7 +66,7 @@ if(isset($_POST["addUser"])){
     $password = $_POST["password"];
     $parentId = $_POST["parentId"];
     $status = "confirmed";
-
+    
     $compare = $dbh->prepare("SELECT * FROM tbl_owner WHERE fld_email = :email");
     $compare->bindParam(":email", $email);
     $compare->execute();
@@ -82,7 +82,7 @@ if(isset($_POST["addUser"])){
     $count = $sth->fetch(PDO::FETCH_ASSOC);
     // echo $count['MAX(fld_id)'];
     $ownerId = date("Y").'-'.($count["MAX(fld_id)"]+1);
-
+    
     if($email == $data["fld_email"]) {
         // echo "Email address already registered";
         echo "error-code-4";
@@ -103,5 +103,44 @@ if(isset($_POST["addUser"])){
         $ownerInfo->execute();
         echo "Account successfully registered";
     }
+}
+
+// UPDATE INFO OF USER BY OWNER
+if(isset($_POST["editUser"])){
+    $userId = $_POST["userId"];
+    $name = $_POST["name"];
+    $email = $_POST["email"];
+    $position = $_POST["position"];
+    $password = $_POST["password"];
+    $status = "confirmed";
+    
+    // $compare = $dbh->prepare("SELECT * FROM tbl_owner WHERE fld_email = :email");
+    // $compare->bindParam(":email", $email);
+    // $compare->execute();
+    // $data = $compare->fetch(PDO::FETCH_ASSOC);
+    
+    // if($email == $data["fld_email"]) {
+    //     // echo "Email address already registered";
+    //     echo "error-code-4";
+    // }
+    // else{
+        $info = $dbh->prepare("UPDATE tbl_owner SET fld_fName = :fld_fName, fld_email = :fld_email, fld_position = :fld_position, fld_password = :fld_password WHERE fld_id = :fld_id");
+        $info->bindParam(":fld_id", $userId);
+        $info->bindParam(":fld_fName", $name);
+        $info->bindParam(":fld_email", $email);
+        $info->bindParam(":fld_position", $position);
+        $info->bindParam(":fld_password", $password);
+        $info->execute(); 
+        
+    // }
+}
+
+// DELETE USER BY OWNER
+if(isset($_POST["deleteUser"])){
+    $userId = $_POST["userId"];
+    $remove = $dbh->prepare("DELETE FROM tbl_owner WHERE fld_id = :fld_id");
+    $remove->bindParam(":fld_id", $userId);
+    $remove->execute(); 
+    echo "User successfully removed";
 }
 ?>

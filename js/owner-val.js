@@ -170,17 +170,31 @@ function getUsers(){
             $("#user-list").append('<tr><td>'+result[i].fld_fName+
             '</td><td>'+result[i].fld_position+
             '</td><td>'+result[i].fld_email+
-            '</td><td><a href="#editUser" id="'+result[i].fld_id+'" onclick="getId(this.id);" class="blue-text modal-trigger modal-close btn-flat">Edit</a> <a href="#deleteUser" id="'+result[i].fld_id+'" onclick="getId(this.id);" class="red-text modal-trigger modal-close btn-flat">Delete</a></td></tr>');
+            '</td><td><a href="#editUser" id="'+result[i].fld_id+'" onclick="getUserId(this.id);" class="blue-text modal-trigger modal-close btn-flat">Edit</a> <a href="#deleteUser" id="'+result[i].fld_id+'" onclick="getUserId2(this.id);" class="red-text modal-trigger modal-close btn-flat">Delete</a></td></tr>');
         }
     });
+}
+
+function getUserId(item_id){
+    $.getJSON("../server/owner-data.php?userId="+item_id, function(result){
+        $("#efirstName").val(result.fld_fName);
+        $("#euserEmail").val(result.fld_email);
+        $("#euserPos").val(result.fld_position);
+        $("#eUserId").val(result.fld_id);
+        $("#eDefaultPass").val(result.fld_password);
+        localStorage.setItem("editUserId", result.fld_id);
+    });
+}
+
+function getUserId2(item_id){
+    $("#userId").val(item_id);
 }
 
 //ADD NEW USER FOR OWNER
 function addUser(){
     var validUser = localStorage.getItem("owner_validation");
 	var fName = $("#firstName").val();
-    var lName = $("#lastName").val();
-    var name = fName+' '+lName;
+    var name = fName;
 	var email = $("#userEmail").val();
 	var position = $("#userPos").val();
 	var password = $("#userPass").val();
@@ -204,27 +218,75 @@ function addUser(){
 // EDIT USER FOR OWNER
 function editUser(){
     var validUser = localStorage.getItem("owner_validation");
-	var fName = $("#firstName").val();
-	var lName = $("#lastName").val();
-	var email = $("#userEmail").val();
-	var position = $("#userPos-input").val();
-	var password = $("#userPass").val();
-	var rPassword = $("#userRePass").val();
-	
-	$.ajax({		
-		type : 'POST',
-		//url  : 'server/name-update.php',
-		url  : '../server/save-place.php',
-		data : "name="+name+"&email="+email+"&position="+position+"&password="+password+"&parentId="+validUser+"&editUser=editUser",
-		success :  function(response){						
-			console.log(response);
-            Materialize.toast(response, 3000, 'rounded');
-		},
-		error : function(response){
-			console.log(response);
-		}
-	});
+	var userId = $("#eUserId").val();
+	var fName = $("#efirstName").val();
+	var email = $("#euserEmail").val();
+	var position = $("#euserPos").val();
+	var password = $("#euserNewPass").val();
+	var defaultPassword = $("#eDefaultPass").val();
+	var oldPassword = $("#euserOldPass").val();
+	var rPassword = $("#euserRePass").val();
+    
+    if(password == "" && oldPassword == "" ||password == null && oldPassword == null || oldPassword == null){
+        $.ajax({		
+            type : 'POST',
+            //url  : 'server/name-update.php',
+            url  : '../server/signup-owner.php',
+            data : "name="+fName+"&email="+email+"&position="+position+"&password="+defaultPassword+"&userId="+userId+"&editUser=editUser",
+            success :  function(response){						
+                console.log(response);
+                Materialize.toast(response, 3000, 'rounded');
+            },
+            error : function(response){
+                console.log(response);
+            }
+        });
+        // console.log("test1");
+    }
+    else if(password != rPassword){
+        console.log('Password did not match');
+    }
+    else {
+        // console.log("test2");
+        if(oldPassword != defaultPassword){
+            console.log('Old password did not match');
+        }
+        else{
+            $.ajax({		
+                type : 'POST',
+                //url  : 'server/name-update.php',
+                url  : '../server/signup-owner.php',
+                data : "name="+fName+"&email="+email+"&position="+position+"&password="+password+"&userId="+userId+"&editUser=editUser",
+                success :  function(response){						
+                    console.log(response);
+                    Materialize.toast(response, 3000, 'rounded');
+                },
+                error : function(response){
+                    console.log(response);
+                }
+            });
+        }
+    }
 }
+
+function deleteUser(){
+    var userId = $("#userId").val();
+    $.ajax({		
+        type : 'POST',
+        //url  : 'server/name-update.php',
+        url  : '../server/signup-owner.php',
+        data : "userId="+userId+"&deleteUser=deleteUser",
+        success :  function(response){						
+            console.log(response);
+            Materialize.toast(response, 3000, 'rounded');
+        },
+        error : function(response){
+            console.log(response);
+        }
+    });
+}
+
+
 // ----------------------------
 // ---TO SAVE PLACE LOCATION---
 // ----------------------------

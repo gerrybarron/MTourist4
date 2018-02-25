@@ -375,10 +375,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col l6 s12">
-                        <input type="text" name="" id="firstName" placeholder="First Name" />
-                    </div>
-                    <div class="col l6 s12">
-                        <input type="text" name="" id="lastName" placeholder="Last Name" />
+                        <input type="text" name="" id="firstName" placeholder="Full Name" />
                     </div>
                     <div class="col l6 s12">
                         <input type="text" name="" id="userEmail" placeholder="Email" />
@@ -408,11 +405,10 @@
             <br>
             <div class="container">
                 <div class="row">
+                    <input type="hidden" name="" id="eUserId">
+                    <input type="hidden" name="" id="eDefaultPass">
                     <div class="col l6 s12">
-                        <input type="text" name="" id="efirstName" placeholder="First Name" />
-                    </div>
-                    <div class="col l6 s12">
-                        <input type="text" name="" id="elastName" placeholder="Last Name" />
+                        <input type="text" name="" id="efirstName" placeholder="Full Name" />
                     </div>
                     <div class="col l6 s12">
                         <input type="text" name="" id="euserEmail" placeholder="Email" />
@@ -420,14 +416,20 @@
                     <div class="col s12 l6">
                         <input type="text" name="" id="euserPos" placeholder="Position" />
                     </div>
+                    <div class="col s12 l12">
+                        <p class="grey-text">Change Password</p>
+                    </div>
                     <div class="col s12 l6">
-                        <input type="text" name="" id="euserPass" placeholder="Password" />
+                        <input type="text" name="" id="euserOldPass" placeholder="Old Password" />
+                    </div>
+                    <div class="col s12 l6">
+                        <input type="text" name="" id="euserNewPass" placeholder="New Password" />
                     </div>
                     <div class="col s12 l6">
                         <input type="text" name="" id="euserRePass" placeholder="Retype Password" />
                     </div>
                     <div class="col s12 l12">
-                        <a class="btn green" style="width:100%" onclick="">Save</a>
+                        <a class="btn green" style="width:100%" onclick="editUser();">Save</a>
                     </div>
                 </div>
             </div>
@@ -443,18 +445,54 @@
             <div class="container">
                 <ul class="collapsible z-depth-0" data-collapsible="accordion">
                     <li>
-                      <div class="collapsible-header"><i class="material-icons">filter_drama</i>Edit Profile</div>
-                      <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                        <div class="collapsible-header"><i class="fa fa-pencil"></i>Edit Profile</div>
+                        <div class="collapsible-body">
+                            <div class="col l6 s12">
+                                <input type="text" name="" id="uFullName" placeholder="Full Name" />
+                            </div>
+                            <div class="col l6 s12">
+                                <input type="email" name="" id="uEmail" placeholder="Email" />
+                            </div>
+                            <div class="col l6 s12">
+                                <input type="text" name="" id="uCnum" placeholder="Contact No." />
+                            </div>
+                            <div class="col l6 s12">
+                                <input type="password" name="" id="uOldP" placeholder="Old Password" />
+                            </div>
+                            <div class="col l6 s12">
+                                <input type="password" name="" id="uNewP" placeholder="New Password" />
+                            </div>
+                            <div class="col l6 s12">
+                                <input type="password" name="" id="uReP" placeholder="Retype Password" />
+                            </div>
+                            <div class="col s12 l12">
+                                <a class="btn green" style="width:100%" onclick="">Save</a>
+                            </div>
+                        </div>
                     </li>
                     <li>
-                      <div class="collapsible-header"><i class="material-icons">place</i>Edit Bussiness Profile</div>
-                      <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                        <div class="collapsible-header"><i class="fa fa-building"></i>Edit Bussiness Profile</div>
+                        <div class="collapsible-body">
+                            <div class="col l6 s12">
+                                <input type="text" name="" id="uBName" placeholder="Business Name" />
+                            </div>
+                            <div class="col l6 s12">
+                                <input type="text" name="" id="uBAdd" placeholder="Business Address" />
+                            </div>
+                            <div class="col s12 l12">
+                                <a class="btn green" style="width:100%" onclick="">Save</a>
+                            </div>
+                        </div>
                     </li>
                     <li>
-                      <div class="collapsible-header"><i class="material-icons">whatshot</i>Account</div>
-                      <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                        <div class="collapsible-header"><i class="fa fa-cog"></i>Account</div>
+                        <div class="collapsible-body">
+                            <div class="col s12 l12">
+                                <a href="#deactivateOwner" class="btn red modal-trigger modal-close" style="width:100%" onclick="">Deactivate Account</a>
+                            </div>
+                        </div>
                     </li>
-                  </ul>
+                </ul>
             </div>
         </div>
     </div>
@@ -467,11 +505,29 @@
             <br>
             <div class="container">
                 <p class="center">Are you sure you want to delete this user?</p>
+                <input type="hidden" name="" id="userId">
             </div>
         </div>
         <div class="modal-footer center">
-            <a href="#!" class="green-text modal-action modal-close waves-effect waves-green btn-flat ">YES</a>
+            <a href="#!" class="green-text modal-action modal-close waves-effect waves-green btn-flat" onclick="deleteUser();">YES</a>
             <a href="#!" class="red-text modal-action modal-close waves-effect waves-red btn-flat ">NO</a>
+        </div>
+    </div>
+
+    <!-- DEACTIVATE OWNER ACCOUNT MODAL -->
+    <div id="deactivateOwner" class="modal">
+        <div class="modal-content">
+            <h5 class="center light red-text text-darken-4">Deactivate Account</h5>
+            <div class="divider"></div>
+            <br>
+            <div class="container">
+                <p class="center">Are you sure you want to deactivate your account?</p>
+                <input type="hidden" name="" id="userId">
+            </div>
+        </div>
+        <div class="modal-footer center">
+            <a href="#!" class="red-text modal-action modal-close waves-effect waves-red btn-flat" onclick="">YES</a>
+            <a href="#!" class="blue-text modal-action modal-close waves-effect waves-blue btn-flat ">NO</a>
         </div>
     </div>
     
