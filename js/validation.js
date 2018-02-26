@@ -139,7 +139,7 @@ $(document).ready(function(){
 		}
 		
 	}
-
+	
 	/* login submit for owner */
 	function submitForm2(){		
 		var usrnm = $("#owner_email2").val();	
@@ -175,28 +175,20 @@ $(document).ready(function(){
 				success :  function(response)
 				{						
 					//if(response=="ok"){
-					if(response > 0){
-						$("#btn-owner-login").html('&nbsp; Signing in...');
-						if(response == "admin"){
-							// setTimeout(' window.location.href = "adashboard.html?usrID='+response+'"; ',2000);
-							
-						}
-						else {
-							// setTimeout(' window.location.href = "dashboard.html?usrID='+response+'"; ',2000);
-							setTimeout(' window.location.href = "owner/"',2000);
-							localStorage.setItem("owner_validation", response);
-							// location.reload();
-							console.log(response);
-						}
-					}
-					else{
-						
-						$("#err-msg").fadeIn(1000, function(){						
-							$("#err-msg").text(response);
-							$("#btn-login").html('<span class="glyphicon glyphicon-log-in"></span> &nbsp; Log In');
-						});
-						//console.log(response);
-					}
+					// if(response > 0){
+					$("#btn-owner-login").html('&nbsp; Signing in...');
+					// setTimeout(' window.location.href = "dashboard.html?usrID='+response+'"; ',2000);
+					setTimeout(' window.location.href = "owner/"',2000);
+					localStorage.setItem("owner_validation", response);
+					// location.reload();
+					// }
+					console.log(response);
+				},
+				error: function(response){
+					$("#err-msg").fadeIn(1000, function(){						
+						$("#err-msg").text(response);
+						$("#btn-login").html('<span class="glyphicon glyphicon-log-in"></span> &nbsp; Log In');
+					});
 					console.log(response);
 				}
 			});

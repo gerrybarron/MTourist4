@@ -31,6 +31,12 @@ function getOwnerData(){
     $.getJSON("../server/owner-data.php?ownerId="+validUser, function(result){
         console.log(result);
         $("#owner_name").text(result.fld_fName);
+        $("#uFullName").val(result.fld_fName);
+        $("#uEmail").val(result.fld_email);
+        $("#uCnum").val(result.fld_cNum);
+        $("#uBName").val(result.fld_bName);
+        $("#uBAdd").val(result.fld_bAddress);
+        $("#uDefaultP").val(result.fld_password);
     });
 }
 
@@ -286,6 +292,108 @@ function deleteUser(){
     });
 }
 
+// EDIT PROFILE OF OWNER
+function editProfile(){
+    var ownerId = localStorage.getItem("owner_validation");
+	var fName = $("#uFullName").val();
+	var email = $("#uEmail").val();
+	var password = $("#uNewP").val();
+	var defaultPassword = $("#uDefaultP").val();
+	var oldPassword = $("#uOldP").val();
+	var rPassword = $("#uReP").val();
+    
+    if(password == "" && oldPassword == "" ||password == null && oldPassword == null || oldPassword == null){
+        $.ajax({		
+            type : 'POST',
+            //url  : 'server/name-update.php',
+            url  : '../server/signup-owner.php',
+            data : "name="+fName+"&email="+email+"&password="+defaultPassword+"&ownerId="+ownerId+"&editOwner=editOwner",
+            success :  function(response){						
+                console.log(response);
+                Materialize.toast(response, 3000, 'rounded');
+                getOwnerData();
+            },
+            error : function(response){
+                console.log(response);
+            }
+        });
+        // console.log("test1");
+    }
+    else if(password != rPassword){
+        console.log('Password did not match');
+    }
+    else {
+        // console.log("test2");
+        if(oldPassword != defaultPassword){
+            console.log('Old password did not match');
+        }
+        else{
+            $.ajax({		
+                type : 'POST',
+                //url  : 'server/name-update.php',
+                url  : '../server/signup-owner.php',
+                data : "name="+fName+"&email="+email+"&password="+password+"&ownerId="+ownerId+"&editOwner=editOwner",
+                success :  function(response){						
+                    console.log(response);
+                    Materialize.toast(response, 3000, 'rounded');
+                    getOwnerData();
+                },
+                error : function(response){
+                    console.log(response);
+                }
+            });
+        }
+    }
+}
+
+// EDIT BUSINESS PROFILE OF OWNER
+function editBProfile(){
+    var ownerId = localStorage.getItem("owner_validation");
+	var bName = $("#uBName").val();
+    var bAdd = $("#uBAdd").val();
+    if(bName == "" || bName == null){
+        alert("Business name should not be empty!");
+    }
+    else if(bAdd == "" || bAdd == null){
+        alert("Business address should not be empty!");
+    }
+    else{
+        $.ajax({		
+            type : 'POST',
+            //url  : 'server/name-update.php',
+            url  : '../server/signup-owner.php',
+            data : "name="+bName+"&address="+bAdd+"&ownerId="+ownerId+"&editBInfo=editBInfo",
+            success :  function(response){						
+                console.log(response);
+                Materialize.toast(response, 3000, 'rounded');
+                getOwnerData();
+            },
+            error : function(response){
+                console.log(response);
+            }
+        });
+    }
+}
+
+function deactivation(){
+    var ownerId = localStorage.getItem("owner_validation");
+    $.ajax({		
+        type : 'POST',
+        //url  : 'server/name-update.php',
+        url  : '../server/signup-owner.php',
+        data : "ownerId="+ownerId+"&deactivation=deactivation",
+        success :  function(response){						
+            console.log(response);
+            Materialize.toast(response, 3000, 'rounded');
+            localStorage.removeItem("owner_validation");
+            location.reload();
+        },
+        error : function(response){
+            console.log(response);
+        }
+    });
+    
+}
 
 // ----------------------------
 // ---TO SAVE PLACE LOCATION---
@@ -414,7 +522,7 @@ function locmap(){
         center: zambales,
         mapTypeId: 'terrain'
     });
-
+    
     //SET CURRENT LOCATION
     var infoWindow = new google.maps.InfoWindow;
     if (navigator.geolocation) {
@@ -460,14 +568,14 @@ function getPlaceDirection(clicked_id){
 function calculateAndDisplayRoute(directionsService, directionsDisplay, placeMarker) {
     console.log(pos2);
     directionsService.route({
-      origin: pos2,
-      destination: placeMarker,
-      travelMode: 'DRIVING'
+        origin: pos2,
+        destination: placeMarker,
+        travelMode: 'DRIVING'
     }, function(response, status) {
-      if (status === 'OK') {
-        directionsDisplay.setDirections(response);
-      } else {
-        window.alert('Directions request failed due to ' + status);
-      }
+        if (status === 'OK') {
+            directionsDisplay.setDirections(response);
+        } else {
+            window.alert('Directions request failed due to ' + status);
+        }
     });
-  }
+}

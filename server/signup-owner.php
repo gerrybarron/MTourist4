@@ -114,25 +114,13 @@ if(isset($_POST["editUser"])){
     $password = $_POST["password"];
     $status = "confirmed";
     
-    // $compare = $dbh->prepare("SELECT * FROM tbl_owner WHERE fld_email = :email");
-    // $compare->bindParam(":email", $email);
-    // $compare->execute();
-    // $data = $compare->fetch(PDO::FETCH_ASSOC);
-    
-    // if($email == $data["fld_email"]) {
-    //     // echo "Email address already registered";
-    //     echo "error-code-4";
-    // }
-    // else{
-        $info = $dbh->prepare("UPDATE tbl_owner SET fld_fName = :fld_fName, fld_email = :fld_email, fld_position = :fld_position, fld_password = :fld_password WHERE fld_id = :fld_id");
-        $info->bindParam(":fld_id", $userId);
-        $info->bindParam(":fld_fName", $name);
-        $info->bindParam(":fld_email", $email);
-        $info->bindParam(":fld_position", $position);
-        $info->bindParam(":fld_password", $password);
-        $info->execute(); 
-        
-    // }
+    $info = $dbh->prepare("UPDATE tbl_owner SET fld_fName = :fld_fName, fld_email = :fld_email, fld_position = :fld_position, fld_password = :fld_password WHERE fld_id = :fld_id");
+    $info->bindParam(":fld_id", $userId);
+    $info->bindParam(":fld_fName", $name);
+    $info->bindParam(":fld_email", $email);
+    $info->bindParam(":fld_position", $position);
+    $info->bindParam(":fld_password", $password);
+    $info->execute(); 
 }
 
 // DELETE USER BY OWNER
@@ -142,5 +130,53 @@ if(isset($_POST["deleteUser"])){
     $remove->bindParam(":fld_id", $userId);
     $remove->execute(); 
     echo "User successfully removed";
+}
+
+// UPDATE INFO OF OWNER
+if(isset($_POST["editOwner"])){
+    $ownerId = $_POST["ownerId"];
+    $name = $_POST["name"];
+    $email = $_POST["email"];
+    $password = $_POST["password"];
+    
+    $info = $dbh->prepare("UPDATE tbl_owner SET fld_fName = :fld_fName, fld_email = :fld_email, fld_password = :fld_password WHERE fld_ownerId = :fld_ownerId");
+    $info->bindParam(":fld_ownerId", $ownerId);
+    $info->bindParam(":fld_fName", $name);
+    $info->bindParam(":fld_email", $email);
+    $info->bindParam(":fld_password", $password);
+    $info->execute(); 
+    echo "Successfully Updated!";
+}
+
+// UPDATE INFO OF OWNER
+if(isset($_POST["editBInfo"])){
+    $ownerId = $_POST["ownerId"];
+    $name = $_POST["name"];
+    $address = $_POST["address"];
+    
+    $info = $dbh->prepare("UPDATE tbl_owner SET fld_bName = :fld_bName, fld_bAddress = :fld_bAddress WHERE fld_ownerId = :fld_ownerId");
+    $info->bindParam(":fld_ownerId", $ownerId);
+    $info->bindParam(":fld_bName", $name);
+    $info->bindParam(":fld_bAddress", $address);
+    $info->execute(); 
+    echo "Successfully Updated!";
+}
+
+// DEACTIVATE OWNER ACCOUNT
+if(isset($_POST["deactivation"])){
+    $ownerId = $_POST["ownerId"];
+    $status = "deactivated";
+    
+    $info = $dbh->prepare("UPDATE tbl_owner SET fld_status = :fld_status WHERE fld_ownerId = :fld_ownerId");
+    $info->bindParam(":fld_ownerId", $ownerId);
+    $info->bindParam(":fld_status", $status);
+    $info->execute(); 
+
+    $place = $dbh->prepare("UPDATE tbl_place SET fld_status = :fld_status WHERE fld_owner = :fld_owner");
+    $place->bindParam(":fld_owner", $ownerId);
+    $place->bindParam(":fld_status", $status);
+    $place->execute(); 
+
+    echo "Deactivation successful!";
 }
 ?>

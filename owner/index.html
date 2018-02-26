@@ -83,7 +83,7 @@
         <!-- <li><a href="#reviews" class="white-text"><i class="fa fa-pencil" aria-hidden="true"></i>Reviews</a></li> -->
         <li><div class="divider"></div></li>
         <li><a class="subheader grey-text">Option</a></li>
-        <li><a href="#userProfile" class="white-text modal-trigger"><i class="fa fa-user" aria-hidden="true"></i>Profile</a></li>
+        <li><a href="#userProfile" class="white-text modal-trigger" onclick="getOwnerData();"><i class="fa fa-user" aria-hidden="true"></i>Profile</a></li>
         <li><a href="#!" onclick="logout();" class="white-text"><i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a></li>
         <li><div class="divider"></div></li>
     </ul>
@@ -458,6 +458,7 @@
                             </div>
                             <div class="col l6 s12">
                                 <input type="password" name="" id="uOldP" placeholder="Old Password" />
+                                <input type="hidden" name="" id="uDefaultP">
                             </div>
                             <div class="col l6 s12">
                                 <input type="password" name="" id="uNewP" placeholder="New Password" />
@@ -466,7 +467,7 @@
                                 <input type="password" name="" id="uReP" placeholder="Retype Password" />
                             </div>
                             <div class="col s12 l12">
-                                <a class="btn green" style="width:100%" onclick="">Save</a>
+                                <a class="btn green" style="width:100%" onclick="editProfile();">Save</a>
                             </div>
                         </div>
                     </li>
@@ -480,7 +481,7 @@
                                 <input type="text" name="" id="uBAdd" placeholder="Business Address" />
                             </div>
                             <div class="col s12 l12">
-                                <a class="btn green" style="width:100%" onclick="">Save</a>
+                                <a class="btn green" style="width:100%" onclick="editBProfile();">Save</a>
                             </div>
                         </div>
                     </li>
@@ -521,12 +522,11 @@
             <div class="divider"></div>
             <br>
             <div class="container">
-                <p class="center">Are you sure you want to deactivate your account?</p>
-                <input type="hidden" name="" id="userId">
+                <p class="center">Are you sure you want to deactivate your account? Please note that this process is undoable.</p>
             </div>
         </div>
         <div class="modal-footer center">
-            <a href="#!" class="red-text modal-action modal-close waves-effect waves-red btn-flat" onclick="">YES</a>
+            <a href="#!" class="red-text modal-action modal-close waves-effect waves-red btn-flat" onclick="deactivation();">YES</a>
             <a href="#!" class="blue-text modal-action modal-close waves-effect waves-blue btn-flat ">NO</a>
         </div>
     </div>
@@ -565,7 +565,7 @@
     <script type="text/javascript">
         var validUser = localStorage.getItem("owner_validation");
         if(validUser == null || validUser == ""){
-            setTimeout(' window.location.href = "index.html"; ',100);
+            setTimeout(' window.location.href = "../index.html"; ',100);
         }
         Demo.init();
     </script>
