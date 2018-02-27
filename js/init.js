@@ -3,7 +3,7 @@
     
     // Plugin initialization
     $('.carousel.carousel-slider').carousel({
-      fullWidth: false
+      fullWidth: true
     });
     $('ul.tabs').tabs('select_tab', 'tCon');
     $('.carousel').carousel();

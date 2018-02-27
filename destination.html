@@ -16,8 +16,6 @@
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     
-    <!--Import materialize.css-->
-    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
     
     <!-- Import rate css -->
     <link type="text/css" rel="stylesheet" href="css/jquery.rateyo.css"  media="screen,projection"/>
@@ -27,6 +25,8 @@
     
     <!-- Import fontawesome css -->
     <link type="text/css" rel="stylesheet" href="css/font-awesome.min.css"  media="screen,projection"/>
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
     
     <!-- Import Custom css -->
     <link type="text/css" rel="stylesheet" href="css/style.css"  media="screen,projection"/>
@@ -240,101 +240,225 @@
             </div>
         </div>
     </footer>
+
     <!-- loginModal Structure -->
     <div id="loginModal" class="modal">
-        <div class="modal-content container">
-            <form id="login_form" method="post" name="login_form">
-                <!-- <br> -->
-                <h4 class="center light">Welcome back!</h4>
-                <p class="center thin">Please login your account.</p>
-                <p id="err-msg" class="red-text center thin"></p>
-                <div class="">
-                    <div class="input-field">
-                        <i class="fa fa-user prefix"></i>
-                        <input id="usrnm" type="email" class="validate" name="username" placeholder="Email">
+        <div class="modal-content white">
+            <div class="card z-depth-0">
+                <div class="card-content">
+                    <!-- <br> -->
+                    <h4 class="center light">Welcome back!</h4>
+                    <p class="center thin">Please login your account.</p>
+                    <p id="err-msg" class="red-text center thin"></p>
+                </div>
+                <div class="card-tabs container">
+                    <ul class="tabs tabs-fixed-width">
+                        <li class="tab"><a class="active" href="#tabTourist2">Tourist</a></li>
+                        <li class="tab"><a href="#tabOwner2">Owner</a></li>
+                    </ul>
+                </div>
+                <div class="card-content container">
+                    <div id="tabTourist2">
+                        <form id="login_form" method="post" name="login_form">
+                            <div class="">
+                                <div class="input-field">
+                                    <i class="fa fa-user prefix"></i>
+                                    <input id="usrnm" type="email" class="validate" name="username" placeholder="Email">
+                                </div>
+                                <div class="input-field">
+                                    <i class="fa fa-key prefix"></i>
+                                    <input id="psswrd" type="password" class="validate" name="password" placeholder="Password">
+                                </div>
+                            </div>
+                            <button id="btn-login" type="submit" name="login" value="log in" class="waves-effect waves-light btn block light-blue darken-4">Log in</button>
+                        </form>
                     </div>
-                    <div class="input-field">
-                        <i class="fa fa-key prefix"></i>
-                        <input id="psswrd" type="password" class="validate" name="password" placeholder="Password">
+                    <div id="tabOwner2">
+                        <form id="login_form2" method="post" name="login_form2">
+                            <div class="">
+                                <div class="input-field">
+                                    <i class="fa fa-user prefix"></i>
+                                    <input id="owner_email2" type="email" class="validate" name="owner_email2" placeholder="Email">
+                                </div>
+                                <div class="input-field">
+                                    <i class="fa fa-key prefix"></i>
+                                    <input id="owner_password3" type="password" class="validate" name="owner_password3" placeholder="Password">
+                                </div>
+                            </div>
+                            <button id="btn-owner-login" type="submit" name="owner-login" value="log in" class="waves-effect waves-light btn block light-blue darken-4">Log in</button>
+                        </form>
                     </div>
                 </div>
-                <button id="btn-login" type="submit" name="login" value="log in" class="waves-effect waves-light btn block light-blue darken-4">Log in</button>
-                <br>
-                <br>
-                
-                <br>
-            </form>  
+            </div>
         </div>
     </div>
     
     <!-- regModal Structure -->
     <div id="regModal" class="modal">
-        <div class="modal-content container">
-            <form id="reg_form" method="post" name="reg_form">
-                <!-- <br> -->
-                <h4 class="center thin">Create an account!</h4>
-                <p id="err-msg2" class="red-text center thin"></p>
-                <p id="scc-msg" class="green-text center thin"></p>
-                <div class="">
-                    <div class="input-field">
-                        <i class="fa fa-user prefix"></i>
-                        <input id="usrnm2" type="email" class="validate" name="username2" placeholder="Email">
+            <div class="modal-content white">
+                <div class="card z-depth-0">
+                    <div class="card-content">
+                        <!-- <br> -->
+                        <h4 class="center thin">Create an account!</h4>
+                        <hr>
+                        <p id="err-msg2" class="red-text center thin"></p>
+                        <p id="scc-msg" class="green-text center thin"></p>
                     </div>
-                    <div class="input-field">
-                        <i class="fa fa-key prefix"></i>
-                        <input id="psswrd2" type="password" class="validate" name="password2" placeholder="Password">
+                    <div class="card-tabs">
+                        <ul class="tabs tabs-fixed-width">
+                            <li class="tab"><a class="active" href="#tabTourist">Tourist</a></li>
+                            <li class="tab"><a href="#tabOwner">Owner</a></li>
+                        </ul>
                     </div>
-                    <div class="input-field">
-                        <i class="fa fa-key prefix"></i>
-                        <input id="psswrd3" type="password" class="validate" name="password3" placeholder="Repeat password">
+                    <div class="card-content">
+                        <div id="tabTourist">
+                            <form id="reg_form" method="post" name="reg_form">
+                                <div class="row">
+                                    <div class="input-field col l6 s12">
+                                        <i class="fa fa-user prefix"></i>
+                                        <input id="fname2" type="text" class="validate" name="fname2" placeholder="First name">
+                                    </div>
+                                    <div class="input-field col l6 s12">
+                                        <i class="fa fa-user prefix"></i>
+                                        <input id="lname2" type="text" class="validate" name="lname2" placeholder="Last name">
+                                    </div>
+                                    <div class="input-field col l6 s12">
+                                        <i class="fa fa-envelope prefix"></i>
+                                        <input id="usrnm2" type="email" class="validate" name="username2" placeholder="Email">
+                                    </div>
+                                    <div class="input-field col l6 s12">
+                                        <i class="fa fa-phone prefix"></i>
+                                        <input id="cnum2" type="text" class="validate" name="cnum2" placeholder="Contact No.">
+                                    </div>
+                                    <div class="input-field col l6 s12">
+                                        <i class="fa fa-key prefix"></i>
+                                        <input id="psswrd2" type="password" class="validate" name="password2" placeholder="Password">
+                                    </div>
+                                    <div class="input-field col l6 s12">
+                                        <i class="fa fa-key prefix"></i>
+                                        <input id="psswrd3" type="password" class="validate" name="password3" placeholder="Repeat password">
+                                    </div>
+                                </div>
+                                
+                                <button id="btn-register" type="submit" name="register" class="waves-effect waves-light btn block light-blue darken-4">Sign up</button>
+                            </form>
+                        </div>
+                        <div id="tabOwner">
+                            <form id="reg_form_owner" method="post" name="reg_form_owner">
+                                <div class="row">
+                                    <div class="input-field col l6 s12">
+                                        <i class="fa fa-user prefix"></i>
+                                        <input id="owner_username" type="text" class="validate" name="owner_username" placeholder="Username">
+                                    </div>
+                                    <div class="input-field col l6 s12">
+                                        <i class="fa fa-envelope prefix"></i>
+                                        <input id="owner_email" type="email" class="validate" name="owner_email" placeholder="Email">
+                                    </div>
+                                    <div class="input-field col l6 s12">
+                                        <i class="fa fa-user prefix"></i>
+                                        <input id="owner_name" type="text" class="validate" name="owner_name" placeholder="Full name">
+                                    </div>
+                                    <div class="input-field col l6 s12">
+                                        <i class="fa fa-phone prefix"></i>
+                                        <input id="owner_contact" type="text" class="validate" name="owner_contact" placeholder="Contact No.">
+                                    </div>
+                                    <div class="input-field col l6 s12">
+                                        <i class="fa fa-building prefix"></i>
+                                        <input id="owner_bName" type="text" class="validate" name="owner_bName" placeholder="Business Name">
+                                    </div>
+                                    <div class="input-field col l6 s12">
+                                        <i class="fa fa-building prefix"></i>
+                                        <input id="owner_bAddress" type="text" class="validate" name="owner_bAddress" placeholder="Business Address">
+                                    </div>
+                                    <div class="input-field col l6 s12">
+                                        <i class="fa fa-key prefix"></i>
+                                        <input id="owner_password" type="password" class="validate" name="owner_password" placeholder="Password">
+                                    </div>
+                                    <div class="input-field col l6 s12">
+                                        <i class="fa fa-key prefix"></i>
+                                        <input id="owner_password2" type="password" class="validate" name="owner_password2" placeholder="Repeat password">
+                                    </div>
+                                </div>
+                                
+                                <button id="owner_btn_register" type="submit" name="register" class="waves-effect waves-light btn block light-blue darken-4">Sign up</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
-                <a id="btn-register" name="register" class="waves-effect waves-light btn block light-blue darken-4"  onclick="signupform()">Sign up</a>
-                
-            </form>  
+            </div>
         </div>
-    </div>
     
     <!-- Place Detail Structure -->
     <div id="placeDetails" class="modal">
         <div class="modal-content">
             <div class="card">
                 <div class="card-image waves-effect waves-block waves-light">
-                    <img id="imgplace" class="" src="img/default.jpeg">
+                    <img id="imgplace" class="" src="img/img-295-218.png">
                     <h4 class="card-title center light text-shadow-1" id="pDTitle">Title</h4>
                 </div>
                 <div class="card-content center">
                     <div class="row">
-                        <div class="col l6">
+                        <div class="col l6 s6">
                             <label for="pDCategory">Category</label>
                             <p id="pDCategory"></p>
                         </div>
-                        <div class="col l6">
+                        <div class="col l6 s6">
                             <label for="pDPrice">Starting Price</label>
                             <p id="pDPrice" class=""></p>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col l6">
+                        <div class="col l6 s12">
                             <label for="pDWebsite">Website</label>
                             <p id="pDWebsite" class="">Website</p>
                         </div>
-                        <div class="col l6">
+                        <div class="col l6 s12">
                             <label for="pDCnum">Contact No.</label>
                             <p id="pDCnum" class="">Contact No</p>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col l12">
+                        <div class="col l12 s12">
                             <label for="pDAddress">Address</label>
                             <p id="pDAddress">Address</p>
                             <p id="toAppend" class=""></p>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col l12">
+                        <div class="col l12 s12">
                             <label for="pDLongDesc">Overview</label>
                             <p id="pDLongDesc">I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col l12 s12">
+                            <div class="slideshow-container">
+                                
+                                <div class="mySlides fade">
+                                    <div class="numbertext">1 / 3</div>
+                                    <img src="img/anawangin.jpg" style="width:100%">
+                                    <div class="text-slide">Caption Text</div>
+                                </div>
+                                
+                                <div class="mySlides fade">
+                                    <div class="numbertext">2 / 3</div>
+                                    <img src="img/crystal-beach.jpg" style="width:100%">
+                                    <div class="text-slide">Caption Two</div>
+                                </div>
+                                
+                                <div class="mySlides fade">
+                                    <div class="numbertext">3 / 3</div>
+                                    <img src="img/whiterock-beach.jpg" style="width:100%">
+                                    <div class="text-slide">Caption Three</div>
+                                </div>
+                                
+                            </div>
+                            
+                            <div style="text-align:center">
+                                <span class="dot"></span> 
+                                <span class="dot"></span> 
+                                <span class="dot"></span> 
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -346,20 +470,20 @@
                 <div class="card-content">
                     <div id="pReviews">
                         <div class="row">
-                            <div class="col l6">
-                                <div class="col l12">
+                            <div class="col l6 s12">
+                                <div class="col l12 s12">
                                     <h5 class="center">Users Rating</h5>
                                     <br>
                                 </div>
-                                <div class="col l12">
+                                <div class="col l12 s12">
                                     <p class="center">
                                         <div id="rateYo" data-rateyo-rating="0" data-rateyo-num-stars="5"></div>
                                     </p>
                                     <h5 class='result center'></h5>
                                 </div>
-                                <div class="col l12 center">
+                                <div class="col l12 s12 center">
                                     <br>
-                                    <a href="#addReviews" class="center bold modal-trigger modal-close" onclick="passData();">
+                                    <a href="#addReviews" class="center bold modal-trigger modal-close add-reviews" onclick="passData();">
                                         <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                                         WRITE A REVIEW
                                     </a>
@@ -367,7 +491,7 @@
                                     <input type="hidden" name="" id="pRUId">
                                 </div>
                             </div>
-                            <div class="col l6">
+                            <div class="col l6 s12">
                                 <div class="rrow">
                                     <div class="side">
                                         <div>5</div>
@@ -527,6 +651,38 @@
                 // $(this).parent().find('.score').text('score :'+ $(this).attr('data-rateyo-score'));
                 $(this).parent().find('#result').val(rating);
             });
+        });
+    </script>
+    <script>
+        // FOR CUSTOM CAROUSEL SCRIPT
+        var slideIndex = 0;
+        showSlides();
+        
+        function showSlides() {
+            var i;
+            var slides = document.getElementsByClassName("mySlides");
+            var dots = document.getElementsByClassName("dot");
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";  
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) {slideIndex = 1}    
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active-slide", "");
+            }
+            slides[slideIndex-1].style.display = "block";  
+            dots[slideIndex-1].className += " active-slide";
+            setTimeout(showSlides, 5000); // Change image every 5 seconds
+        }
+    </script>
+    <script>
+        $(function () {
+         var validUser = localStorage.getItem("validation");
+         console.log(validUser);
+        if(validUser == null || validUser == ""){
+            $(".add-reviews").addClass("hide");
+            console.log('No data');
+        }
         });
     </script>
 </body>
