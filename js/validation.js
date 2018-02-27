@@ -174,14 +174,47 @@ $(document).ready(function(){
 				},
 				success :  function(response)
 				{						
-					//if(response=="ok"){
-					// if(response > 0){
-					$("#btn-owner-login").html('&nbsp; Signing in...');
-					// setTimeout(' window.location.href = "dashboard.html?usrID='+response+'"; ',2000);
-					setTimeout(' window.location.href = "owner/"',2000);
-					localStorage.setItem("owner_validation", response);
-					// location.reload();
-					// }
+					// console.log(response);
+					if(response == "error-code-1"){
+						console.log("Email or password is incorrect.");
+						$(".err-msg").fadeIn();
+						$(".err-msg").text("Email or password is incorrect.");
+						
+						setTimeout(function(){
+							$(".err-msg").fadeOut();
+						}, 3000);
+					}
+					else if (response == "error-code-2") {
+						console.log("This account has not been confirmed yet.");
+						$(".err-msg").fadeIn();
+						$(".err-msg").text("This account has not been confirmed yet.");
+						
+						setTimeout(function(){
+							$(".err-msg").fadeOut();
+						}, 3000);
+					}
+					else if (response == "error-code-3"){
+						console.log("This account is deactivated. Please contact the administrator to recover your account.");
+						$(".err-msg").fadeIn();
+						$(".err-msg").text("This account is deactivated. Please contact the administrator to recover your account.");
+						
+						setTimeout(function(){
+							$(".err-msg").fadeOut();
+						}, 3000);
+					}
+					else if(response == "" || response == null){
+						$(".err-msg").fadeIn();
+						$(".err-msg").text("Unexpected error.");
+						
+						setTimeout(function(){
+							$(".err-msg").fadeOut();
+						}, 3000);
+					}
+					else {
+						$("#btn-owner-login").html('&nbsp; Signing in...');
+						setTimeout(' window.location.href = "owner/"',2000);
+						localStorage.setItem("owner_validation", response);
+					}
 					console.log(response);
 				},
 				error: function(response){
