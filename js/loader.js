@@ -511,6 +511,7 @@ function getFilterPlaceDataByCat(searchValue){
 
 function getClickedId(item_id){
     $("#reviewData").html("");
+    $("#toAppend").html("");
     $.getJSON("server/view.php?placeId="+item_id, function(result){
         $("#pDTitle").text(result.fld_name);
         $("#pDCategory").text(result.fld_category);
