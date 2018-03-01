@@ -261,80 +261,171 @@
             <h5 class="center light grey-text text-darken-4">Edit Place</h5>
             <div class="divider"></div>
             <br>
-            <div class="container">
+            <div class="">
                 <div class="row">
-                    <div id="upload-place" class="col l12 upload-demo">
-                        <div class="col l12">
-                            <div class="upload-msg">
-                                Upload a file to start cropping
-                            </div>
-                            <div class="upload-demo-wrap">
-                                <div id="upload-place2"></div>
-                            </div>
-                        </div>
-                        <div class="col l12">
-                            <div class="actions center">
-                                <a class="btn file-btn light-blue darken-4">
-                                    <span>Upload</span>
-                                    <input type="file" id="upload2" value="Choose a file" accept="image/*" />
-                                </a>
-                                <button id="upload-place-result" class="btn">Save</button>
-                            </div>
-                        </div>
-                        <br>
-                        <br>
-                        <br>
-                    </div>
-                    <div class="col l6 s12">
-                        <input type="hidden" name="" id="eplaceId">
-                        <input type="text" name="" id="eplaceName" placeholder="Name" />
-                    </div>
-                    <div class="col l6 s12">
-                        <input type="text" id="autocomplete-input2" class="autocomplete" placeholder="Category">
-                    </div>
-                    <div class="col s12 l6">
-                        <input type="text" name="" id="eplaceMun" class="autocomplete" placeholder="Municipality" />
-                    </div>
-                    <div class="col s12 l6 currencySymbol">
-                        <span class="">₱</span>
-                        <input type="text" name="" id="eplacePrice" placeholder="Starting Price" />
-                    </div>
-                    <div class="col s12 l12">
-                        <input type="text" name="" id="eplaceAdd" placeholder="Address" />
-                    </div>
-                    <div class="col s12 l6">
-                        <input type="text" name="" id="epLat" placeholder="Latitude" disabled />
-                    </div>
-                    <div class="col s12 l6">
-                        <input type="text" name="" id="epLng" placeholder="Longitude" disabled />
-                    </div>
-                    <div class="col s12 l12">
-                        <div id="floating-panel2">
-                            <input onclick="showMarkers3();" type=button value="Show All Markers">
-                            <input onclick="deleteMarkers3();" type=button value="Delete Markers">
-                        </div>
-                        <p class="center grey-text text-darken-1">Please toggle the fullscreen to get the exact location.</p>
-                        <div id="dmap"></div>
-                    </div>
-                    <div class="col l6 s12">
-                        <input type="text" name="" id="eplaceCnum" placeholder="Contact No" />
-                    </div>
-                    <div class="col l6 s12">
-                        <input type="text" name="" id="eplaceWeb" placeholder="Website" />
-                    </div>
-                    <div class="col l12 s12">
-                        <!-- <input type="text" name="" id="eplaceShort" placeholder="Short Description" /> -->
-                        <textarea id="eplaceShort" placeholder="Short Description" class="materialize-textarea" data-length="120"></textarea>
-                    </div>
-                    <div class="col l12 s12">
-                        <!-- <input type="text" name="" id="eplaceLong" placeholder="Long Description" /> -->
-                        <textarea id="eplaceLong" placeholder="Long Description" class="materialize-textarea" data-length="450"></textarea>
-                    </div>
-                    <div class="col l12 s12">
-                        <input type="text" name="" id="eplacePax" placeholder="Other Details" />
-                    </div>
-                    <div class="col s12 l12">
-                        <a id="place-upload-result" class="btn green" style="width:100%" onclick="placeEditForm()">Save</a>
+                    <div class="col l12">
+                        <ul class="collapsible" data-collapsible="accordion">
+                            <li>
+                                <div class="collapsible-header">Gallery</div>
+                                <div class="collapsible-body">
+                                    <div class="row">
+                                        <div id="upload-place-binder1" class="col l6 upload-demo">
+                                            <div class="col l12">
+                                                <div class="upload-msg">
+                                                    Upload a file to start cropping
+                                                </div>
+                                                <div class="upload-demo-wrap">
+                                                    <div id="upload-place-wrapper1"></div>
+                                                </div>
+                                            </div>
+                                            <div class="col l12">
+                                                <div class="actions center">
+                                                    <a class="btn file-btn light-blue darken-4">
+                                                        <span>Upload</span>
+                                                        <input type="file" id="upload-img-data1" value="Choose a file" accept="image/*" />
+                                                    </a>
+                                                   
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="upload-place-binder2" class="col l6 upload-demo">
+                                            <div class="col l12">
+                                                <div class="upload-msg">
+                                                    Upload a file to start cropping
+                                                </div>
+                                                <div class="upload-demo-wrap">
+                                                    <div id="upload-place-wrapper2"></div>
+                                                </div>
+                                            </div>
+                                            <div class="col l12">
+                                                <div class="actions center">
+                                                    <a class="btn file-btn light-blue darken-4">
+                                                        <span>Upload</span>
+                                                        <input type="file" id="upload-img-data2" value="Choose a file" accept="image/*" />
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="upload-place-binder3" class="col l6 upload-demo">
+                                            <div class="col l12">
+                                                <div class="upload-msg">
+                                                    Upload a file to start cropping
+                                                </div>
+                                                <div class="upload-demo-wrap">
+                                                    <div id="upload-place-wrapper3"></div>
+                                                </div>
+                                            </div>
+                                            <div class="col l12">
+                                                <div class="actions center">
+                                                    <a class="btn file-btn light-blue darken-4">
+                                                        <span>Upload</span>
+                                                        <input type="file" id="upload-img-data3" value="Choose a file" accept="image/*" />
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="upload-place-binder4" class="col l6 upload-demo">
+                                            <div class="col l12">
+                                                <div class="upload-msg">
+                                                    Upload a file to start cropping
+                                                </div>
+                                                <div class="upload-demo-wrap">
+                                                    <div id="upload-place-wrapper4"></div>
+                                                </div>
+                                            </div>
+                                            <div class="col l12">
+                                                <div class="actions center">
+                                                    <a class="btn file-btn light-blue darken-4">
+                                                        <span>Upload</span>
+                                                        <input type="file" id="upload-img-data4" value="Choose a file" accept="image/*" />
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="upload-place-binder5" class="col l6 upload-demo">
+                                            <div class="col l12">
+                                                <div class="upload-msg">
+                                                    Upload a file to start cropping
+                                                </div>
+                                                <div class="upload-demo-wrap">
+                                                    <div id="upload-place-wrapper5"></div>
+                                                </div>
+                                            </div>
+                                            <div class="col l12">
+                                                <div class="actions center">
+                                                    <a class="btn file-btn light-blue darken-4">
+                                                        <span>Upload</span>
+                                                        <input type="file" id="upload-img-data5" value="Choose a file" accept="image/*" />
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col l12 center">
+                                            <br>
+                                            <button id="upload-place-result" class="btn">Save</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="collapsible-header">Update Place Info</div>
+                                <div class="collapsible-body">
+                                    <div class="row">
+                                        <div class="col l6 s12">
+                                            <input type="hidden" name="" id="eplaceId">
+                                            <input type="text" name="" id="eplaceName" placeholder="Name" />
+                                        </div>
+                                        <div class="col l6 s12">
+                                            <input type="text" id="autocomplete-input2" class="autocomplete" placeholder="Category">
+                                        </div>
+                                        <div class="col s12 l6">
+                                            <input type="text" name="" id="eplaceMun" class="autocomplete" placeholder="Municipality" />
+                                        </div>
+                                        <div class="col s12 l6 currencySymbol">
+                                            <span class="">₱</span>
+                                            <input type="text" name="" id="eplacePrice" placeholder="Starting Price" />
+                                        </div>
+                                        <div class="col s12 l12">
+                                            <input type="text" name="" id="eplaceAdd" placeholder="Address" />
+                                        </div>
+                                        <div class="col s12 l6">
+                                            <input type="text" name="" id="epLat" placeholder="Latitude" disabled />
+                                        </div>
+                                        <div class="col s12 l6">
+                                            <input type="text" name="" id="epLng" placeholder="Longitude" disabled />
+                                        </div>
+                                        <div class="col s12 l12">
+                                            <div id="floating-panel2">
+                                                <input onclick="showMarkers3();" type=button value="Show All Markers">
+                                                <input onclick="deleteMarkers3();" type=button value="Delete Markers">
+                                            </div>
+                                            <p class="center grey-text text-darken-1">Please toggle the fullscreen to get the exact location.</p>
+                                            <div id="dmap"></div>
+                                        </div>
+                                        <div class="col l6 s12">
+                                            <input type="text" name="" id="eplaceCnum" placeholder="Contact No" />
+                                        </div>
+                                        <div class="col l6 s12">
+                                            <input type="text" name="" id="eplaceWeb" placeholder="Website" />
+                                        </div>
+                                        <div class="col l12 s12">
+                                            <!-- <input type="text" name="" id="eplaceShort" placeholder="Short Description" /> -->
+                                            <textarea id="eplaceShort" placeholder="Short Description" class="materialize-textarea" data-length="120"></textarea>
+                                        </div>
+                                        <div class="col l12 s12">
+                                            <!-- <input type="text" name="" id="eplaceLong" placeholder="Long Description" /> -->
+                                            <textarea id="eplaceLong" placeholder="Long Description" class="materialize-textarea" data-length="450"></textarea>
+                                        </div>
+                                        <div class="col l12 s12">
+                                            <input type="text" name="" id="eplacePax" placeholder="Other Details" />
+                                        </div>
+                                        <div class="col s12 l12">
+                                            <a id="place-upload-result" class="btn green" style="width:100%" onclick="placeEditForm()">Save</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -514,7 +605,7 @@
             <a href="#!" class="red-text modal-action modal-close waves-effect waves-red btn-flat ">NO</a>
         </div>
     </div>
-
+    
     <!-- DEACTIVATE OWNER ACCOUNT MODAL -->
     <div id="deactivateOwner" class="modal">
         <div class="modal-content">

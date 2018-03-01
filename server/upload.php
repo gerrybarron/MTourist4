@@ -13,10 +13,18 @@ if(isset($_POST["imgdata"])) {
 
 if(isset($_POST["imgdata2"])) {
     $imgData = $_POST["imgdata2"];
+    $img2 = $_POST["img2"];
+    $img3 = $_POST["img3"];
+    $img4 = $_POST["img4"];
+    $img5 = $_POST["img5"];
     $placeId = $_POST["placeId"];
     
-    $upload = $dbh->prepare("UPDATE tbl_place SET fld_img1 = :fld_img1 WHERE fld_placeId = :fld_placeId");
+    $upload = $dbh->prepare("UPDATE tbl_place SET fld_img1 = :fld_img1, fld_img2 = :fld_img2, fld_img3 = :fld_img3,fld_img4 = :fld_img4, fld_img5 = :fld_img5 WHERE fld_placeId = :fld_placeId");
     $upload->bindParam(":fld_img1", $imgData);
+    $upload->bindParam(":fld_img2", $img2);
+    $upload->bindParam(":fld_img3", $img3);
+    $upload->bindParam(":fld_img4", $img4);
+    $upload->bindParam(":fld_img5", $img5);
     $upload->bindParam(":fld_placeId", $placeId);
     $upload->execute(); 
 }

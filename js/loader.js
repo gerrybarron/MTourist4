@@ -259,22 +259,12 @@ function getSearchPlaceData(searchValue){
                 '<div class="card-content">'+
                 '<span class="card-title activator grey-text text-darken-4">'+result[i].fld_name+'<i class="fa fa-bars right"></i></span>'+
                 '<p>'+
-                '<i class="fa fa-star checked"></i>'+
-                '<i class="fa fa-star checked"></i>'+
-                '<i class="fa fa-star checked"></i>'+
-                '<i class="fa fa-star checked"></i>'+
-                '<i class="fa fa-star checked"></i>'+
                 '<span class="pull-right">₱'+result[i].fld_startPrice+'</span>'+
                 '</p>'+
                 '</div>'+
                 '<div class="card-reveal">'+
                 '<span class="card-title grey-text text-darken-4">'+result[i].fld_name+'<i class="fa fa-times right"></i></span>'+
                 '<p>'+
-                '<i class="fa fa-star checked"></i>'+
-                '<i class="fa fa-star checked"></i>'+
-                '<i class="fa fa-star checked"></i>'+
-                '<i class="fa fa-star checked"></i>'+
-                '<i class="fa fa-star checked"></i>'+
                 '<span class="pull-right">'+result[i].fld_category+'</span>'+
                 '</p>'+
                 '<p>'+result[i].fld_contact+'</p>'+
@@ -299,22 +289,12 @@ function getSearchPlaceData(searchValue){
                 '<div class="card-content">'+
                 '<span class="card-title activator grey-text text-darken-4">'+result[i].fld_name+'<i class="fa fa-bars right"></i></span>'+
                 '<p>'+
-                '<i class="fa fa-star checked"></i>'+
-                '<i class="fa fa-star checked"></i>'+
-                '<i class="fa fa-star checked"></i>'+
-                '<i class="fa fa-star checked"></i>'+
-                '<i class="fa fa-star checked"></i>'+
                 '<span class="pull-right">₱'+result[i].fld_startPrice+'</span>'+
                 '</p>'+
                 '</div>'+
                 '<div class="card-reveal">'+
                 '<span class="card-title grey-text text-darken-4">'+result[i].fld_name+'<i class="fa fa-times right"></i></span>'+
                 '<p>'+
-                '<i class="fa fa-star checked"></i>'+
-                '<i class="fa fa-star checked"></i>'+
-                '<i class="fa fa-star checked"></i>'+
-                '<i class="fa fa-star checked"></i>'+
-                '<i class="fa fa-star checked"></i>'+
                 '<span class="pull-right">'+result[i].fld_category+'</span>'+
                 '</p>'+
                 '<p>'+result[i].fld_contact+'</p>'+
@@ -348,22 +328,12 @@ function getSearchPriceData(searchValue){
                 '<div class="card-content">'+
                 '<span class="card-title activator grey-text text-darken-4">'+result[i].fld_name+'<i class="fa fa-bars right"></i></span>'+
                 '<p>'+
-                '<i class="fa fa-star checked"></i>'+
-                '<i class="fa fa-star checked"></i>'+
-                '<i class="fa fa-star checked"></i>'+
-                '<i class="fa fa-star checked"></i>'+
-                '<i class="fa fa-star checked"></i>'+
                 '<span class="pull-right">₱'+result[i].fld_startPrice+'</span>'+
                 '</p>'+
                 '</div>'+
                 '<div class="card-reveal">'+
                 '<span class="card-title grey-text text-darken-4">'+result[i].fld_name+'<i class="fa fa-times right"></i></span>'+
                 '<p>'+
-                '<i class="fa fa-star checked"></i>'+
-                '<i class="fa fa-star checked"></i>'+
-                '<i class="fa fa-star checked"></i>'+
-                '<i class="fa fa-star checked"></i>'+
-                '<i class="fa fa-star checked"></i>'+
                 '<span class="pull-right">'+result[i].fld_category+'</span>'+
                 '</p>'+
                 '<p>'+result[i].fld_contact+'</p>'+
@@ -387,22 +357,12 @@ function getSearchPriceData(searchValue){
                 '<div class="card-content">'+
                 '<span class="card-title activator grey-text text-darken-4">'+result[i].fld_name+'<i class="fa fa-bars right"></i></span>'+
                 '<p>'+
-                '<i class="fa fa-star checked"></i>'+
-                '<i class="fa fa-star checked"></i>'+
-                '<i class="fa fa-star checked"></i>'+
-                '<i class="fa fa-star checked"></i>'+
-                '<i class="fa fa-star checked"></i>'+
                 '<span class="pull-right">₱'+result[i].fld_startPrice+'</span>'+
                 '</p>'+
                 '</div>'+
                 '<div class="card-reveal">'+
                 '<span class="card-title grey-text text-darken-4">'+result[i].fld_name+'<i class="fa fa-times right"></i></span>'+
                 '<p>'+
-                '<i class="fa fa-star checked"></i>'+
-                '<i class="fa fa-star checked"></i>'+
-                '<i class="fa fa-star checked"></i>'+
-                '<i class="fa fa-star checked"></i>'+
-                '<i class="fa fa-star checked"></i>'+
                 '<span class="pull-right">'+result[i].fld_category+'</span>'+
                 '</p>'+
                 '<p>'+result[i].fld_contact+'</p>'+
@@ -436,22 +396,12 @@ function getFilterPlaceDataByCat(searchValue){
                 '<div class="card-content">'+
                 '<span class="card-title activator grey-text text-darken-4">'+result[i].fld_name+'<i class="fa fa-bars right"></i></span>'+
                 '<p>'+
-                '<i class="fa fa-star checked"></i>'+
-                '<i class="fa fa-star checked"></i>'+
-                '<i class="fa fa-star checked"></i>'+
-                '<i class="fa fa-star checked"></i>'+
-                '<i class="fa fa-star checked"></i>'+
                 '<span class="pull-right">₱'+result[i].fld_startPrice+'</span>'+
                 '</p>'+
                 '</div>'+
                 '<div class="card-reveal">'+
                 '<span class="card-title grey-text text-darken-4">'+result[i].fld_name+'<i class="fa fa-times right"></i></span>'+
                 '<p>'+
-                '<i class="fa fa-star checked"></i>'+
-                '<i class="fa fa-star checked"></i>'+
-                '<i class="fa fa-star checked"></i>'+
-                '<i class="fa fa-star checked"></i>'+
-                '<i class="fa fa-star checked"></i>'+
                 '<span class="pull-right">'+result[i].fld_category+'</span>'+
                 '</p>'+
                 '<p>'+result[i].fld_contact+'</p>'+
@@ -530,6 +480,36 @@ function getClickedId(item_id){
             propic = result.fld_img1;
             trimpic = propic.split(' ').join('+');
             $("#imgplace").attr("src",trimpic);
+
+            // FOR FIRST WIDE IMG AND THUMBNAIL
+            propic1 = result.fld_img1;
+            trimpic1 = propic1.split(' ').join('+');
+            $("#img-wide1").attr("src",trimpic1);
+            $("#img-thumb1").attr("src",trimpic1);
+
+            // FOR SECOND WIDE IMG AND THUMBNAIL
+            propic2 = result.fld_img2;
+            trimpic2 = propic2.split(' ').join('+');
+            $("#img-wide2").attr("src",trimpic2);
+            $("#img-thumb2").attr("src",trimpic2);
+
+            // FOR THIRD WIDE IMG AND THUMBNAIL
+            propic3 = result.fld_img3;
+            trimpic3 = propic3.split(' ').join('+');
+            $("#img-wide3").attr("src",trimpic3);
+            $("#img-thumb3").attr("src",trimpic3);
+
+            // FOR FOURTH WIDE IMG AND THUMBNAIL
+            propic4 = result.fld_img4;
+            trimpic4 = propic4.split(' ').join('+');
+            $("#img-wide4").attr("src",trimpic4);
+            $("#img-thumb4").attr("src",trimpic4);
+
+            // FOR FIFTH WIDE IMG AND THUMBNAIL
+            propic5 = result.fld_img5;
+            trimpic5 = propic5.split(' ').join('+');
+            $("#img-wide5").attr("src",trimpic5);
+            $("#img-thumb5").attr("src",trimpic5);
         }
         $("#toAppend").append(
             '<a class="modal-trigger" id="'+result.fld_placeId+'" href="#directionModal" onclick="getPlaceDirection(this.id);locmap();">'+
