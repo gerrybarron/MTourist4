@@ -24,6 +24,7 @@ $(document).ready(function(){
 		$('#nav-item').html('');
 		$("#nav-item").append(
 			'<li><a href="index.html">Home</a></li>'+
+			'<li><a href="blogs.html">Blogs</a></li>'+
 			'<li id="li-reg"><a href="#regModal" class="modal-trigger">Sign up</a></li>'+
 			'<li id="li-log"><a href="#loginModal" class="modal-trigger">Log in</a></li>'
 		);
@@ -32,6 +33,7 @@ $(document).ready(function(){
 		$("#nav-mobile").append(
 			'<li><h1><a href="#" class="center blue-text">Zambales Tour</a></h1></li>'+
 			'<li><a href="index.html"><i class="fa fa-home"></i>Home</a></li>'+
+			'<li><a href="blogs.html"><i class="fa fa-rss-square"></i>Blogs</a></li>'+
 			'<li><a href="#regModal" class="modal-trigger"><i class="fa fa-user-plus" aria-hidden="true"></i>Sign up</a></li>'+
 			'<li><a href="#loginModal" class="modal-trigger"><i class="fa fa-sign-in" aria-hidden="true"></i>Log in</a></li>'
 		);
@@ -40,6 +42,7 @@ $(document).ready(function(){
 		$('#nav-item').html('');
 		$("#nav-item").append(
 			'<li><a href="index.html">Home</a></li>'+
+			'<li><a href="blogs.html">Blogs</a></li>'+
 			'<li id="li-profile"><a href="profile.html" class="">Profile</a></li>'+
 			'<li id="li-logout"><a href="" onclick="logout();" class="">Logout</a></li>'
 		);
@@ -48,6 +51,7 @@ $(document).ready(function(){
 		$("#nav-mobile").append(
 			'<li><h1><a href="#" class="center blue-text">Zambales Tour</a></h1></li>'+
 			'<li><a href="index.html"><i class="fa fa-home"></i>Home</a></li>'+
+			'<li><a href="blogs.html"><i class="fa fa-rss-square"></i>Blogs</a></li>'+
 			'<li><a href="profile.html" class="modal-trigger"><i class="fa fa-user" aria-hidden="true"></i>Profile</a></li>'+
 			'<li><a href="" onclick="logout();" class="modal-trigger"><i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a></li>'
 		);

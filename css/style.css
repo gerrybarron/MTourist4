@@ -777,3 +777,23 @@ img {
 .hide{
     display: none;
 }
+
+.card.small .card-image+.card-content, .card.medium .card-image+.card-content, .card.large .card-image+.card-content{
+    max-height: 100%;
+    overflow: auto;
+    height: 200px;
+}
+
+.small-text {
+    font-size: 12px;
+}
+
+.author{
+    font-weight: 900;
+    font-size: 18px;
+}
+
+.justify{
+    text-align: justify;
+    letter-spacing: 1px;
+}

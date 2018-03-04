@@ -141,4 +141,12 @@ if(isset($_GET["postUserId"])){
 	$data = $post->fetchAll(PDO::FETCH_ASSOC); 
 	echo json_encode($data, JSON_NUMERIC_CHECK);
 }
+
+// Get all post
+if(isset($_GET["post"])){
+	$post = $dbh->prepare("SELECT tbl_users.fld_fName, tbl_users.fld_lName, tbl_post.fld_placeName, tbl_post.fld_desId,tbl_post.fld_post, tbl_post.fld_image, tbl_post.fld_date FROM tbl_post INNER JOIN tbl_users ON tbl_post.fld_userId=tbl_users.fld_userId");
+	$post->execute();
+	$data = $post->fetchAll(PDO::FETCH_ASSOC); 
+	echo json_encode($data, JSON_NUMERIC_CHECK);
+}
 ?>

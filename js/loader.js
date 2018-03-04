@@ -19,25 +19,26 @@ var dest = getUrlParameter('dest');
 
 $(document).ready(function(){
     // if(window.location.pathname == "/MTourist4/destination.html"){
-        getDestPlaceData();
-        $("#search").change(function(){
-            var searched = $("#search").val();
-            getSearchPlaceData(searched);
-        });
-        
-        $("#filterPrice").change(function(){
-            var searched = $("#filterPrice").val();
-            getSearchPriceData(searched);
-        });
-        
-        $("#autocomplete-input").change(function(){
-            var searched = $("#autocomplete-input").val();
-            getFilterPlaceDataByCat(searched);
-        });
+    getDestPlaceData();
+    $("#search").change(function(){
+        var searched = $("#search").val();
+        getSearchPlaceData(searched);
+    });
+    
+    $("#filterPrice").change(function(){
+        var searched = $("#filterPrice").val();
+        getSearchPriceData(searched);
+    });
+    
+    $("#autocomplete-input").change(function(){
+        var searched = $("#autocomplete-input").val();
+        getFilterPlaceDataByCat(searched);
+    });
     // }
     // else{
-        getPromoData();
-        getMunicipalityData();
+    getPromoData();
+    getMunicipalityData();
+    getAllPost()
     // }
     
 });
@@ -480,31 +481,31 @@ function getClickedId(item_id){
             propic = result.fld_img1;
             trimpic = propic.split(' ').join('+');
             $("#imgplace").attr("src",trimpic);
-
+            
             // FOR FIRST WIDE IMG AND THUMBNAIL
             propic1 = result.fld_img1;
             trimpic1 = propic1.split(' ').join('+');
             $("#img-wide1").attr("src",trimpic1);
             $("#img-thumb1").attr("src",trimpic1);
-
+            
             // FOR SECOND WIDE IMG AND THUMBNAIL
             propic2 = result.fld_img2;
             trimpic2 = propic2.split(' ').join('+');
             $("#img-wide2").attr("src",trimpic2);
             $("#img-thumb2").attr("src",trimpic2);
-
+            
             // FOR THIRD WIDE IMG AND THUMBNAIL
             propic3 = result.fld_img3;
             trimpic3 = propic3.split(' ').join('+');
             $("#img-wide3").attr("src",trimpic3);
             $("#img-thumb3").attr("src",trimpic3);
-
+            
             // FOR FOURTH WIDE IMG AND THUMBNAIL
             propic4 = result.fld_img4;
             trimpic4 = propic4.split(' ').join('+');
             $("#img-wide4").attr("src",trimpic4);
             $("#img-thumb4").attr("src",trimpic4);
-
+            
             // FOR FIFTH WIDE IMG AND THUMBNAIL
             propic5 = result.fld_img5;
             trimpic5 = propic5.split(' ').join('+');
@@ -620,4 +621,36 @@ function passData(){
     $("#rTitle").text($("#pDTitle").text());
     $("#rPId").val($("#pRId").val());
     $("#rUId").val($("#pRUId").val());
+}
+
+function getAllPost(){
+    $('#postList').html('');
+    $.getJSON("server/view.php?post=all", function(result){
+        console.log(result);
+        var propic;
+        var trimpic;
+        for(i=0; i<result.length; i++){
+            propic = result[i].fld_image;
+            trimpic = propic.split(' ').join('+');
+            $("#postList").append(
+                '<div class="col s12 l6">'+
+                '<div class="card large">'+
+                '<div class="card-image">'+
+                '<img class="img-responsive" src="'+trimpic+'">'+
+                '<span class="card-title">'+result[i].fld_placeName+'</span>'+
+                '</div>'+
+                '<div class="card-content">'+
+                '<p class="author">'+result[i].fld_fName+' '+result[i].fld_lName+'</p>'+
+                '<span class="light small-text">'+result[i].fld_date+'</span>'+
+                '<hr>'+
+                '<p class="justify">'+result[i].fld_post+'</p>'+
+                '</div>'+
+                '<div class="card-action">'+
+                '<a href="destination.html?dest='+result[i].fld_desId+'">'+result[i].fld_desId+'</a>'+
+                '</div>'+
+                '</div>'+
+                '</div>'
+            );
+        }
+    });
 }
