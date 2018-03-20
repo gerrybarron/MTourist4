@@ -626,7 +626,7 @@ function passData(){
 function getAllPost(){
     $('#postList').html('');
     $.getJSON("server/view.php?post=all", function(result){
-        console.log(result);
+        // console.log(result);
         var propic;
         var trimpic;
         for(i=0; i<result.length; i++){
