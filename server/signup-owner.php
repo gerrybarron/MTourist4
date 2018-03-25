@@ -4,9 +4,10 @@ include "connection.php";
 
 if(isset($_POST["owner_email"])){
     $email = $_POST["owner_email"];
-    $username = $_POST["owner_username"];
+    $fname = $_POST["owner_fname"];
+    $lname = $_POST["owner_lname"];
+    $username = $fname.$lname;
     $password = $_POST["owner_password"];
-    $name = $_POST["owner_name"];
     $contact = $_POST["owner_contact"];
     $bName = $_POST["owner_bName"];
     $bAddress = $_POST["owner_bAddress"];
@@ -19,8 +20,8 @@ if(isset($_POST["owner_email"])){
     $data = $login->fetch(PDO::FETCH_ASSOC);
     
     // echo json_encode($data);
-    // $sth = $dbh->prepare("SELECT fld_id FROM tbl_owner  ORDER BY fld_id DESC LIMIT 1");
-    $sth = $dbh->prepare("SELECT MAX(fld_id) FROM tbl_owner");
+    $sth = $dbh->prepare("SELECT fld_id FROM tbl_owner  ORDER BY fld_id DESC LIMIT 1");
+    // $sth = $dbh->prepare("SELECT MAX(fld_id) FROM tbl_owner");
     $sth->execute();
     $count = $sth->fetch(PDO::FETCH_ASSOC);
     $ownerId = date("Y").'-'.($count["fld_id"]+1);
@@ -42,12 +43,13 @@ if(isset($_POST["owner_email"])){
             echo "error-code-4";
         }
         else{
-            $home = $dbh->prepare("INSERT INTO tbl_owner (fld_ownerId, fld_username, fld_email, fld_password, fld_fName, fld_cNum, fld_bName, fld_bAddress, fld_position, fld_status) VALUES (:fld_ownerId, :fld_username, :fld_email, :fld_password, :fld_fName, :fld_cNum, :fld_bName, :fld_bAddress, :fld_position, :fld_status)");
+            $home = $dbh->prepare("INSERT INTO tbl_owner (fld_ownerId, fld_username, fld_email, fld_password, fld_fName, fld_lName, fld_cNum, fld_bName, fld_bAddress, fld_position, fld_status) VALUES (:fld_ownerId, :fld_username, :fld_email, :fld_password, :fld_fName, :fld_lName, :fld_cNum, :fld_bName, :fld_bAddress, :fld_position, :fld_status)");
             $home->bindParam(":fld_ownerId", $ownerId);
             $home->bindParam(":fld_username", $username);
             $home->bindParam(":fld_email", $email);
             $home->bindParam(":fld_password", $password);
-            $home->bindParam(":fld_fName", $name);
+            $home->bindParam(":fld_fName", $fname);
+            $home->bindParam(":fld_lName", $lname);
             $home->bindParam(":fld_cNum", $contact);
             $home->bindParam(":fld_bName", $bName);
             $home->bindParam(":fld_bAddress", $bAddress);

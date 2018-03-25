@@ -137,6 +137,8 @@ $(document).ready(function(){
 						});
 						//console.log(response);
 					}
+					usrnm = "";
+					psswrd = "";
 				}
 			});
 			return false;
@@ -218,6 +220,8 @@ $(document).ready(function(){
 						$("#btn-owner-login").html('&nbsp; Signing in...');
 						setTimeout(' window.location.href = "owner/"',2000);
 						localStorage.setItem("owner_validation", response);
+						usrnm = "";
+						psswrd = "";
 					}
 					console.log(response);
 				},
@@ -274,6 +278,8 @@ $(document).ready(function(){
 						localStorage.setItem("validation", response);
 						setTimeout(' window.location.href = "dashboard.html"',2000);
 						// location.reload();
+						usrnm = "";
+						psswrd = "";
 					}
 					else{
 						$("#err-msg").fadeIn(1000, function(){						
@@ -345,6 +351,12 @@ $(document).ready(function(){
 								$('#regModal').modal('close');
 								$('#loginModal').modal('open');
 							}, 3000);
+							$("#fname2").val("");
+							$("#lname2").val("");
+							$("#usrnm2").val("");
+							$("#cnum2").val("");
+							$("#psswrd2").val("");
+							$("#psswrd3").val("");
 						}
 						//console.log(response);
 					}
@@ -371,11 +383,11 @@ $(document).ready(function(){
 			$("#err-msg2").fadeIn();
 			$("#err-msg2").fadeOut(5000);
 		}
-		else if(owner_username==null | owner_username==""){
-			$("#err-msg2").text("Please enter your username.");
-			$("#err-msg2").fadeIn();
-			$("#err-msg2").fadeOut(5000);
-		}
+		// else if(owner_username==null | owner_username==""){
+		// 	$("#err-msg2").text("Please enter your username.");
+		// 	$("#err-msg2").fadeIn();
+		// 	$("#err-msg2").fadeOut(5000);
+		// }
 		else if(owner_pass == null || owner_pass == ""){
 			$("#err-msg2").text("Please enter your password.");
 			$("#err-msg2").fadeIn();
@@ -415,6 +427,16 @@ $(document).ready(function(){
 								$('#regModal').modal('close');
 								$('#loginModal').modal('open');
 							}, 3000);
+
+							// FOR RESETTING FIELDS
+							$("#owner_fname").val("");
+							$("#owner_lname").val("");
+							$("#owner_email").val("");
+							$("#owner_contact").val("");
+							$("#owner_bName").val("");
+							$("#owner_bAddress").val("");
+							$("#owner_password").val("");
+							$("#owner_password2").val("");
 						}
 						//console.log(response);
 					}

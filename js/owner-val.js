@@ -110,7 +110,8 @@ function placeForm(){
 	var pCnum = $("#placeCnum").val();
 	var pWeb = $("#placeWeb").val();
 	var pShort = $("#placeShort").val();
-	var pLong = $("#placeLong").val();
+	// var pLong = $("#placeLong").val();
+	var pLong = "";
 	var pPax = $("#placePax").val();
 	
 	$.ajax({		
@@ -142,7 +143,8 @@ function placeEditForm(){
 	var pCnum = $("#eplaceCnum").val();
 	var pWeb = $("#eplaceWeb").val();
 	var pShort = $("#eplaceShort").val();
-	var pLong = $("#eplaceLong").val();
+	// var pLong = $("#eplaceLong").val();
+	var pLong = "";
 	var pPax = $("#eplacePax").val();
 	
 	$.ajax({		

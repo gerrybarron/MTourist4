@@ -7,7 +7,7 @@ if(isset($_GET["status"])) {
     $status = $_GET["status"];
     $owner = $_GET["owner"];
 
-    $place = $dbh->prepare("SELECT * FROM tbl_place WHERE fld_status = :fld_status AND fld_owner = :fld_owner");
+    $place = $dbh->prepare("SELECT * FROM tbl_place WHERE fld_status = :fld_status AND fld_owner = :fld_owner  ORDER BY fld_id DESC");
     $place->bindParam(":fld_status", $status);
     $place->bindParam(":fld_owner", $owner);
     $place->execute();
@@ -46,7 +46,7 @@ if(isset($_GET["status1"])) {
     $status = $_GET["status1"];
     $owner = $_GET["owner"];
 
-    $place = $dbh->prepare("SELECT * FROM tbl_place WHERE fld_status = :fld_status AND fld_owner = :fld_owner");
+    $place = $dbh->prepare("SELECT * FROM tbl_place WHERE fld_status = :fld_status AND fld_owner = :fld_owner ORDER BY fld_id DESC");
     $place->bindParam(":fld_status", $status);
     $place->bindParam(":fld_owner", $owner);
     $place->execute();

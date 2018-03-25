@@ -201,20 +201,20 @@
             <div class="container">
                 <div class="row">
                     <div class="col l6 s12">
-                        <input type="text" name="" id="placeName" placeholder="Name" />
+                        <input type="text" name="" id="placeName" placeholder="Name *" />
                     </div>
                     <div class="col l6 s12">
-                        <input type="text" id="autocomplete-input" class="autocomplete" placeholder="Category">
+                        <input type="text" id="autocomplete-input" class="autocomplete" placeholder="Category *">
                     </div>
                     <div class="col s12 l6">
-                        <input type="text" name="" id="placeMun" class="autocomplete" placeholder="Municipality" />
+                        <input type="text" name="" id="placeMun" class="autocomplete" placeholder="Municipality *" />
                     </div>
                     <div class="col s12 l6 currencySymbol">
                         <span class="">₱</span>
-                        <input type="text" name="" id="placePrice" placeholder="Starting Price" />
+                        <input type="number" name="" id="placePrice" placeholder="Starting Price" value="0" />
                     </div>
                     <div class="col s12 l12">
-                        <input type="text" name="" id="placeAdd" placeholder="Address" />
+                        <input type="text" name="" id="placeAdd" placeholder="Address *" />
                     </div>
                     <div class="col s12 l6">
                         <input type="text" name="" id="pLat" placeholder="Latitude" disabled />
@@ -231,19 +231,17 @@
                         <div id="emap"></div>
                     </div>
                     <div class="col l6 s12">
-                        <input type="text" name="" id="placeCnum" placeholder="Contact No" />
+                        <input type="text" name="" id="placeCnum" placeholder="Contact No *" />
                     </div>
                     <div class="col l6 s12">
                         <input type="text" name="" id="placeWeb" placeholder="Website" />
                     </div>
                     <div class="col l12 s12">
-                        <!-- <input type="text" name="" id="placeShort" placeholder="Short Description" /> -->
-                        <textarea id="placeShort" placeholder="Short Description" class="materialize-textarea" data-length="120"></textarea>
+                        <textarea id="placeShort" placeholder="Description" class="materialize-textarea" data-length="120"></textarea>
                     </div>
-                    <div class="col l12 s12">
-                        <!-- <input type="text" name="" id="placeLong" placeholder="Long Description" /> -->
+                    <!-- <div class="col l12 s12">
                         <textarea id="placeLong" placeholder="Long Description" class="materialize-textarea" data-length="450"></textarea>
-                    </div>
+                    </div> -->
                     <div class="col l12 s12">
                         <input type="text" name="" id="placePax" placeholder="Other Details" />
                     </div>
@@ -373,20 +371,20 @@
                                     <div class="row">
                                         <div class="col l6 s12">
                                             <input type="hidden" name="" id="eplaceId">
-                                            <input type="text" name="" id="eplaceName" placeholder="Name" />
+                                            <input type="text" name="" id="eplaceName" placeholder="Name *" />
                                         </div>
                                         <div class="col l6 s12">
-                                            <input type="text" id="autocomplete-input2" class="autocomplete" placeholder="Category">
+                                            <input type="text" id="autocomplete-input2" class="autocomplete" placeholder="Category *">
                                         </div>
                                         <div class="col s12 l6">
-                                            <input type="text" name="" id="eplaceMun" class="autocomplete" placeholder="Municipality" />
+                                            <input type="text" name="" id="eplaceMun" class="autocomplete" placeholder="Municipality *" />
                                         </div>
                                         <div class="col s12 l6 currencySymbol">
                                             <span class="">₱</span>
-                                            <input type="text" name="" id="eplacePrice" placeholder="Starting Price" />
+                                            <input type="number" name="" id="eplacePrice" placeholder="Starting Price" value="0" />
                                         </div>
                                         <div class="col s12 l12">
-                                            <input type="text" name="" id="eplaceAdd" placeholder="Address" />
+                                            <input type="text" name="" id="eplaceAdd" placeholder="Address *" />
                                         </div>
                                         <div class="col s12 l6">
                                             <input type="text" name="" id="epLat" placeholder="Latitude" disabled />
@@ -403,19 +401,17 @@
                                             <div id="dmap"></div>
                                         </div>
                                         <div class="col l6 s12">
-                                            <input type="text" name="" id="eplaceCnum" placeholder="Contact No" />
+                                            <input type="text" name="" id="eplaceCnum" placeholder="Contact No *" />
                                         </div>
                                         <div class="col l6 s12">
                                             <input type="text" name="" id="eplaceWeb" placeholder="Website" />
                                         </div>
                                         <div class="col l12 s12">
-                                            <!-- <input type="text" name="" id="eplaceShort" placeholder="Short Description" /> -->
-                                            <textarea id="eplaceShort" placeholder="Short Description" class="materialize-textarea" data-length="120"></textarea>
+                                            <textarea id="eplaceShort" placeholder="Short Description *" class="materialize-textarea" data-length="120"></textarea>
                                         </div>
-                                        <div class="col l12 s12">
-                                            <!-- <input type="text" name="" id="eplaceLong" placeholder="Long Description" /> -->
+                                        <!-- <div class="col l12 s12">
                                             <textarea id="eplaceLong" placeholder="Long Description" class="materialize-textarea" data-length="450"></textarea>
-                                        </div>
+                                        </div> -->
                                         <div class="col l12 s12">
                                             <input type="text" name="" id="eplacePax" placeholder="Other Details" />
                                         </div>

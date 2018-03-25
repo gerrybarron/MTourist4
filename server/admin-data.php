@@ -63,7 +63,7 @@ if(isset($_GET["status"])) {
 if(isset($_GET["status2"])) {
     $status = $_GET["status2"];
     // $level = $_GET["level"];
-    $users = $dbh->prepare("SELECT * FROM tbl_owner WHERE fld_status = :fld_status");
+    $users = $dbh->prepare("SELECT * FROM tbl_owner WHERE fld_status = :fld_status ORDER BY fld_id DESC");
     // $users = $dbh->prepare("SELECT * FROM tbl_owner WHERE fld_confirm = :fld_confirm AND fld_level = :fld_level");
     $users->bindParam(":fld_status", $status);
     // $users->bindParam(":fld_level", $level);
@@ -79,7 +79,7 @@ if(isset($_GET["status2"])) {
 if(isset($_GET["status3"])) {
     $status = $_GET["status3"];
     // $level = $_GET["level"];
-    $users = $dbh->prepare("SELECT * FROM tbl_owner WHERE fld_status = :fld_status");
+    $users = $dbh->prepare("SELECT * FROM tbl_owner WHERE fld_status = :fld_status ORDER BY fld_id DESC");
     // $users = $dbh->prepare("SELECT * FROM tbl_owner WHERE fld_confirm = :fld_confirm AND fld_level = :fld_level");
     $users->bindParam(":fld_status", $status);
     // $users->bindParam(":fld_level", $level);
@@ -94,7 +94,7 @@ if(isset($_GET["status3"])) {
 //list of unconfirmed place
 if(isset($_GET["status4"])) {
     $status = $_GET["status4"];
-    $place = $dbh->prepare("SELECT * FROM tbl_place WHERE fld_status = :fld_status");
+    $place = $dbh->prepare("SELECT * FROM tbl_place WHERE fld_status = :fld_status ORDER BY fld_id DESC");
     $place->bindParam(":fld_status", $status);
     $place->execute();
     $data = $place->fetchAll(PDO::FETCH_ASSOC);
@@ -107,7 +107,7 @@ if(isset($_GET["status4"])) {
 //list of confirmed place
 if(isset($_GET["status5"])) {
     $status = $_GET["status5"];
-    $place = $dbh->prepare("SELECT * FROM tbl_place WHERE fld_status = :fld_status");
+    $place = $dbh->prepare("SELECT * FROM tbl_place WHERE fld_status = :fld_status ORDER BY fld_id DESC");
     $place->bindParam(":fld_status", $status);
     $place->execute();
     $data = $place->fetchAll(PDO::FETCH_ASSOC);
