@@ -80,7 +80,7 @@
       minLength: 0,
       // limit: 2,
     });
-    $('#placeMun2').autocomplete({
+    $('#eplaceMun').autocomplete({
       data: {
         "Botolan": null,
         "Cabangan": null,
