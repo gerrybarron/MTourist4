@@ -1,5 +1,7 @@
 <?php
-// header("Access-Control-Allow-Origin:*");
+header("Access-Control-Allow-Origin:*");
+header('Access-Control-Allow-Methods: GET, PUT, POST, DELETE, OPTIONS');
+
 include "connection.php";
 // $id = $_POST["uid"];
 $pId = $_POST["pId"];

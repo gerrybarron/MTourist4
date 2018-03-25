@@ -1,5 +1,6 @@
 <?php
-// header("Access-Control-Allow-Origin:*");
+header("Access-Control-Allow-Origin:*");
+header('Access-Control-Allow-Methods: GET, PUT, POST, DELETE, OPTIONS');
 include "connection.php";
 $username = $_POST["username2"];
 $password = $_POST["password2"];
