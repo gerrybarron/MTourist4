@@ -54,27 +54,54 @@ if(isset($_GET["destName2"])){
 if(isset($_GET["destName3"])){
 	$id = $_GET["destName3"];
 	$category = $_GET["category"];
+	$priceFilter = $_GET["priceFilter"];
 	$status = "confirmed";
-	$dest = $dbh->prepare("SELECT * FROM tbl_place WHERE fld_desId = :fld_desId AND fld_status = :fld_status AND fld_category = :fld_category");
-	$dest->bindParam(":fld_desId", $id);
-	$dest->bindParam(":fld_category", $category);
-	$dest->bindParam(":fld_status", $status);
-	$dest->execute();
-	$data = $dest->fetchAll(PDO::FETCH_ASSOC); 
-	echo json_encode($data);
+	if($priceFilter == null || $priceFilter == ""){
+		$dest = $dbh->prepare("SELECT * FROM tbl_place WHERE fld_desId = :fld_desId AND fld_status = :fld_status AND fld_category = :fld_category");
+		$dest->bindParam(":fld_desId", $id);
+		$dest->bindParam(":fld_category", $category);
+		$dest->bindParam(":fld_status", $status);
+		$dest->execute();
+		$data = $dest->fetchAll(PDO::FETCH_ASSOC); 
+		echo json_encode($data);
+	}else{
+		$dest = $dbh->prepare("SELECT * FROM tbl_place WHERE fld_desId = :fld_desId AND fld_status = :fld_status AND fld_category = :fld_category AND fld_startPrice <= :fld_startPrice");
+		$dest->bindParam(":fld_desId", $id);
+		$dest->bindParam(":fld_category", $category);
+		$dest->bindParam(":fld_startPrice", $priceFilter);
+		$dest->bindParam(":fld_status", $status);
+		$dest->execute();
+		$data = $dest->fetchAll(PDO::FETCH_ASSOC); 
+		echo json_encode($data);
+	}
+	
 }
 
 if(isset($_GET["destName4"])){
 	$id = $_GET["destName4"];
-	$price = $_GET["name"];
+	$catFilter = $_GET["catFilter"];
+	$price = $_GET["price"];
 	$status = "confirmed";
-	$dest = $dbh->prepare("SELECT * FROM tbl_place WHERE fld_desId = :fld_desId AND fld_status = :fld_status AND fld_startPrice >= :fld_startPrice");
-	$dest->bindParam(":fld_desId", $id);
-	$dest->bindValue(":fld_startPrice", $price);
-	$dest->bindParam(":fld_status", $status);
-	$dest->execute();
-	$data = $dest->fetchAll(PDO::FETCH_ASSOC); 
-	echo json_encode($data);
+	if($catFilter == null || $catFilter == ""){
+		$dest = $dbh->prepare("SELECT * FROM tbl_place WHERE fld_desId = :fld_desId AND fld_status = :fld_status AND fld_startPrice >= :fld_startPrice");
+		$dest->bindParam(":fld_desId", $id);
+		$dest->bindValue(":fld_startPrice", $price);
+		$dest->bindParam(":fld_status", $status);
+		$dest->execute();
+		$data = $dest->fetchAll(PDO::FETCH_ASSOC); 
+		echo json_encode($data);
+	}
+	else{
+		$dest = $dbh->prepare("SELECT * FROM tbl_place WHERE fld_desId = :fld_desId AND fld_status = :fld_status AND fld_startPrice >= :fld_startPrice AND fld_category = :fld_category");
+		$dest->bindParam(":fld_desId", $id);
+		$dest->bindValue(":fld_startPrice", $price);
+		$dest->bindValue(":fld_category", $catFilter);
+		$dest->bindParam(":fld_status", $status);
+		$dest->execute();
+		$data = $dest->fetchAll(PDO::FETCH_ASSOC); 
+		echo json_encode($data);
+	}
+	
 }
 
 if(isset($_GET["placeId"])){

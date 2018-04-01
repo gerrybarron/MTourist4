@@ -316,7 +316,8 @@ function getSearchPlaceData(searchValue){
 
 function getSearchPriceData(searchValue){
     $("#destPlaceList").html("");
-    $.getJSON("server/view.php?destName4="+dest+"&name="+searchValue, function(result){
+    var catFilter = $("#autocomplete-input").val();
+    $.getJSON("server/view.php?destName4="+dest+"&price="+searchValue+"&catFilter="+catFilter, function(result){
         for (i = 0; i < result.length; i++) {
             var propic;
             var trimpic;
@@ -384,7 +385,8 @@ function getSearchPriceData(searchValue){
 
 function getFilterPlaceDataByCat(searchValue){
     $("#destPlaceList").html("");
-    $.getJSON("server/view.php?destName3="+dest+"&category="+searchValue, function(result){
+    var priceFilter = $("#filterPrice").val();
+    $.getJSON("server/view.php?destName3="+dest+"&category="+searchValue+"&priceFilter="+priceFilter, function(result){
         for (i = 0; i < result.length; i++) {
             var propic;
             var trimpic;
@@ -426,22 +428,22 @@ function getFilterPlaceDataByCat(searchValue){
                 '<div class="card-content">'+
                 '<span class="card-title activator grey-text text-darken-4">'+result[i].fld_name+'<i class="fa fa-bars right"></i></span>'+
                 '<p>'+
-                '<i class="fa fa-star checked"></i>'+
-                '<i class="fa fa-star checked"></i>'+
-                '<i class="fa fa-star checked"></i>'+
-                '<i class="fa fa-star checked"></i>'+
-                '<i class="fa fa-star checked"></i>'+
+                // '<i class="fa fa-star checked"></i>'+
+                // '<i class="fa fa-star checked"></i>'+
+                // '<i class="fa fa-star checked"></i>'+
+                // '<i class="fa fa-star checked"></i>'+
+                // '<i class="fa fa-star checked"></i>'+
                 '<span class="pull-right">₱'+result[i].fld_startPrice+'</span>'+
                 '</p>'+
                 '</div>'+
                 '<div class="card-reveal">'+
                 '<span class="card-title grey-text text-darken-4">'+result[i].fld_name+'<i class="fa fa-times right"></i></span>'+
                 '<p>'+
-                '<i class="fa fa-star checked"></i>'+
-                '<i class="fa fa-star checked"></i>'+
-                '<i class="fa fa-star checked"></i>'+
-                '<i class="fa fa-star checked"></i>'+
-                '<i class="fa fa-star checked"></i>'+
+                // '<i class="fa fa-star checked"></i>'+
+                // '<i class="fa fa-star checked"></i>'+
+                // '<i class="fa fa-star checked"></i>'+
+                // '<i class="fa fa-star checked"></i>'+
+                // '<i class="fa fa-star checked"></i>'+
                 '<span class="pull-right">'+result[i].fld_category+'</span>'+
                 '</p>'+
                 '<p>'+result[i].fld_contact+'</p>'+

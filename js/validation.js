@@ -321,7 +321,7 @@ $(document).ready(function(){
 			$.ajax({		
 				type : 'POST',
 				url  : 'server/signup.php',
-				//url  : 'server/signup.php',
+				// url  : 'http://zambalestour.com/server/signup.php',
 				data : data,
 				beforeSend: function()
 				{	
