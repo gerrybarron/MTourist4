@@ -121,7 +121,7 @@ if(isset($_GET["placeId2"])){
 	$review->bindParam(":fld_status", $status);
 	$review->execute();
 	$data = $review->fetchAll(PDO::FETCH_ASSOC); 
-	echo json_encode($data);
+	echo json_encode($data, JSON_NUMERIC_CHECK);
 }
 
 if(isset($_GET["placeId3"])){

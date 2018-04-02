@@ -527,7 +527,7 @@ function getClickedId(item_id){
         var stars;
         var totalrating = 0;
         var count = 0;
-        var compute;
+        var compute3;
         var fivecompute;
         var fourcompute;
         var threecompute;
@@ -546,7 +546,7 @@ function getClickedId(item_id){
                 '<span class="fa fa-star checked"></span>'+
                 '<span class="fa fa-star checked"></span>'+
                 '<span class="fa fa-star checked"></span>';
-                totalrating = totalrating + result2[i].fld_rating;
+                totalrating = (totalrating + result2[i].fld_rating);
                 count++;
                 fiveStar++;
             }
@@ -556,7 +556,7 @@ function getClickedId(item_id){
                 '<span class="fa fa-star checked"></span>'+
                 '<span class="fa fa-star checked"></span>'+
                 '<span class="fa fa-star"></span>';
-                totalrating = totalrating + result2[i].fld_rating;
+                totalrating = (totalrating + result2[i].fld_rating);
                 count++;
                 fourStar++;
             }
@@ -566,7 +566,7 @@ function getClickedId(item_id){
                 '<span class="fa fa-star checked"></span>'+
                 '<span class="fa fa-star"></span>'+
                 '<span class="fa fa-star"></span>';
-                totalrating = totalrating + result2[i].fld_rating;
+                totalrating = (totalrating + result2[i].fld_rating);
                 count++;
                 threeStar++;
             }
@@ -576,7 +576,7 @@ function getClickedId(item_id){
                 '<span class="fa fa-star"></span>'+
                 '<span class="fa fa-star"></span>'+
                 '<span class="fa fa-star"></span>';
-                totalrating = totalrating + result2[i].fld_rating;
+                totalrating = (totalrating + result2[i].fld_rating);
                 count++;
                 twoStar++;
             }
@@ -586,7 +586,7 @@ function getClickedId(item_id){
                 '<span class="fa fa-star"></span>'+
                 '<span class="fa fa-star"></span>'+
                 '<span class="fa fa-star"></span>';
-                totalrating = totalrating + result2[i].fld_rating;
+                totalrating = (totalrating + result2[i].fld_rating);
                 count++;
                 oneStar++;
             }
@@ -598,7 +598,9 @@ function getClickedId(item_id){
                 '<p>'+result2[i].fld_review+'</p>'+
                 '</li>'
             );
-            compute = totalrating/count;
+            
+            
+        }
             fivecompute = (fiveStar/count)*100;
             fourcompute = (fourStar/count)*100;
             threecompute = (threeStar/count)*100;
@@ -614,8 +616,12 @@ function getClickedId(item_id){
             $(".bar-2").css("width", twocompute+'%');
             $("#one-total").text(oneStar);
             $(".bar-1").css("width", onecompute+'%');
-            $("#rateYo").rateYo("option", "rating", compute);
-        }
+            compute3 = totalrating/count;
+            console.log(totalrating);
+            console.log(count);
+            console.log(compute3);
+            // $("#rateYo").rateYo("rating", 4.5);
+        $("#rateYo").rateYo("rating", compute3);
     });
 }
 

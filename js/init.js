@@ -80,6 +80,25 @@
       minLength: 0,
       // limit: 2,
     });
+    $('#placeMun2').autocomplete({
+      data: {
+        "Botolan": null,
+        "Cabangan": null,
+        "Candelaria": null,
+        "Castillejos": null,
+        "Iba": null,
+        "Masinloc": null,
+        "Palauig": null,
+        "San Antonio": null,
+        "San Felipe": null,
+        "San Marcelino": null,
+        "San Narciso": null,
+        "Santa Cruz": null,
+        "Subic": null,
+      },
+      minLength: 0,
+      // limit: 2,
+    });
     $('#eplaceMun').autocomplete({
       data: {
         "Botolan": null,

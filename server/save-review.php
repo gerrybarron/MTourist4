@@ -8,7 +8,7 @@ $pId = $_POST["pId"];
 $uId = $_POST["uId"];
 $pReview = $_POST["pReview"];
 $pRating = $_POST["pRating"];
-$status = "unconfirmed";
+$status = "confirmed";
 $status2 = "unconfirmed";
 
 $sth = $dbh->prepare("SELECT fld_id FROM tbl_reviews  ORDER BY fld_id DESC LIMIT 1");
