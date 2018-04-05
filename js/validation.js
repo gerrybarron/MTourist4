@@ -19,6 +19,7 @@ var userID = getUrlParameter('usrID');
 $(document).ready(function(){
 	//check if the user is login or not
 	var validUser = localStorage.getItem("validation");
+	var validUserName;
 	console.log(validUser)
 	if (validUser == null){
 		$('#nav-item').html('');
@@ -39,22 +40,28 @@ $(document).ready(function(){
 		);
 	}
 	else {
-		$('#nav-item').html('');
-		$("#nav-item").append(
-			'<li><a href="index.html">Home</a></li>'+
-			'<li><a href="blogs.html">Blogs</a></li>'+
-			'<li id="li-profile"><a href="profile.html" class="">Profile</a></li>'+
-			'<li id="li-logout"><a href="" onclick="logout();" class="">Logout</a></li>'
-		);
-		// FOR MOBILE
-		$('#nav-mobile').html('');
-		$("#nav-mobile").append(
-			'<li><h1><a href="#" class="center blue-text">Zambales Tour</a></h1></li>'+
-			'<li><a href="index.html"><i class="fa fa-home"></i>Home</a></li>'+
-			'<li><a href="blogs.html"><i class="fa fa-rss-square"></i>Blogs</a></li>'+
-			'<li><a href="profile.html" class="modal-trigger"><i class="fa fa-user" aria-hidden="true"></i>Profile</a></li>'+
-			'<li><a href="" onclick="logout();" class="modal-trigger"><i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a></li>'
-		);
+		$.getJSON("server/view.php?uID="+validUser, function(result){
+			console.log(result.fld_fName);
+			validUserName = result.fld_fName;
+			$('#nav-item').html('');
+			$("#nav-item").append(
+				'<li><a href="index.html">Home</a></li>'+
+				'<li><a href="blogs.html">Blogs</a></li>'+
+				'<li id="li-profile"><a href="profile.html" class="">'+validUserName+'</a></li>'+
+				'<li id="li-logout"><a href="" onclick="logout();" class="">Logout</a></li>'
+			);
+			// FOR MOBILE
+			$('#nav-mobile').html('');
+			$("#nav-mobile").append(
+				'<li><h1><a href="#" class="center blue-text">Zambales Tour</a></h1></li>'+
+				'<li><a href="index.html"><i class="fa fa-home"></i>Home</a></li>'+
+				'<li><a href="blogs.html"><i class="fa fa-rss-square"></i>Blogs</a></li>'+
+				'<li><a href="profile.html" class="modal-trigger"><i class="fa fa-user" aria-hidden="true"></i>'+validUserName+'</a></li>'+
+				'<li><a href="" onclick="logout();" class="modal-trigger"><i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a></li>'
+			);
+		});
+
+		
 	}
 	
 	/* validation for Login */
@@ -202,10 +209,12 @@ $(document).ready(function(){
 					else if (response == "error-code-3"){
 						console.log("This account is deactivated. Please contact the administrator to recover your account.");
 						$(".err-msg").fadeIn();
-						$(".err-msg").text("This account is deactivated. Please contact the administrator to recover your account.");
+						$(".err-msg").text("This account is deactivated.");
 						
 						setTimeout(function(){
 							$(".err-msg").fadeOut();
+							$("#loginModal").modal("close");
+							$("#reActivateQ").modal("open");
 						}, 3000);
 					}
 					else if(response == "" || response == null){
@@ -610,3 +619,37 @@ function placeEditForm(){
 // 		}
 // 	});
 // }
+
+// Reactivate Account
+// FOR ADD REVIEW
+function reactivateAccount(){
+	var email = $("#owner_reAcEmail").val();
+	var password = $("#owner_reAcPassword").val();
+	if(email == "" || email == null){
+		$('#err-msg3').text("Please enter your email!");
+	}
+	if(password == "" || password == null) {
+		$('#err-msg3').text("Please enter your password!");
+	}
+	$.ajax({		
+		type : 'POST',
+		url  : 'server/signup-owner.php',
+		data : "email="+email+"&password="+password+"&reactivation=reactivate",
+		success :  function(response){						
+			console.log(response);
+			Materialize.toast('Account Reactivated.', 3000, 'rounded');
+			setTimeout(function(){
+				$('#reactivate').modal('close');
+				$("#owner_reAcEmail").val("");
+				$("#owner_reAcPassword").val("");
+				$("#owner_email2").val("");
+				$("#owner_password3").val("");
+				$('#loginModal').modal('open');
+			}, 3000);
+		},
+		error : function(response){
+			console.log(response);
+			$('#err-msg3').text(response);
+		}
+	});
+}

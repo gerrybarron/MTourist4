@@ -478,6 +478,58 @@
         </div>
     </div>
     
+    <!-- Reactivate question modal Structure -->
+    <div id="reActivateQ" class="modal">
+        <div class="modal-content white">
+            <div class="card z-depth-0">
+                <div class="card-content">
+                    <!-- <br> -->
+                    <h4 class="center thin">Reactivate Account</h4>
+                    <hr>
+                    
+                    <p id="err-msg2" class="red-text center thin"></p>
+                    <p id="scc-msg" class="green-text center thin"></p>
+                    <h5 class="center thin">Do you want to reactivate your account?</h5>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer white">
+            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat blue-text ">Cancel</a>
+            <a href="#reactivate" class="modal-trigger modal-action modal-close waves-effect waves-green btn-flat blue-text" onclick="">Yes</a>
+        </div>
+    </div>
+    
+    <!-- Reactivate question modal Structure -->
+    <div id="reactivate" class="modal">
+        <div class="modal-content white">
+            <div class="card z-depth-0">
+                <div class="card-content">
+                    <!-- <br> -->
+                    <h4 class="center thin">Reactivate Account</h4>
+                    <hr>
+                    
+                    <p id="err-msg3" class="red-text center thin"></p>
+                    <p id="scc-msg" class="green-text center thin"></p>
+                    <div class="container">
+                        <form id="reactivate_form" method="post" name="reactivate_form">
+                            <div class="">
+                                <div class="input-field">
+                                    <i class="fa fa-user prefix"></i>
+                                    <input id="owner_reAcEmail" type="email" class="validate" name="owner_reAcEmail" placeholder="Email" required>
+                                </div>
+                                <div class="input-field">
+                                    <i class="fa fa-key prefix"></i>
+                                    <input id="owner_reAcPassword" type="password" class="validate" name="owner_reAcPassword" placeholder="Password" required>
+                                </div>
+                            </div>
+                            <a id="btn-owner-login" name="owner-login" class="waves-effect waves-light btn block light-blue darken-4" onclick="reactivateAccount()">Activate</a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
     
     <!--Import jQuery before materialize.js-->
     <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>

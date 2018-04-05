@@ -174,12 +174,54 @@ if(isset($_POST["deactivation"])){
     $info->bindParam(":fld_ownerId", $ownerId);
     $info->bindParam(":fld_status", $status);
     $info->execute(); 
-
+    
     $place = $dbh->prepare("UPDATE tbl_place SET fld_status = :fld_status WHERE fld_owner = :fld_owner");
     $place->bindParam(":fld_owner", $ownerId);
     $place->bindParam(":fld_status", $status);
     $place->execute(); 
-
+    
     echo "Deactivation successful!";
+}
+
+// REACTIVATE OWNER ACCOUNT
+if(isset($_POST["reactivation"])){
+    $email = $_POST["email"];
+    $password = $_POST["password"];
+    $status = "confirmed";
+    $status2 = "unconfirmed";
+    
+    $login = $dbh->prepare("SELECT * FROM tbl_owner WHERE fld_email = :fld_email AND fld_password = :fld_password");
+    $login->bindParam(":fld_email", $email);
+    $login->bindParam(":fld_password", $password);
+    $login->execute();
+    $data = $login->fetch(PDO::FETCH_ASSOC);
+    
+    if($email == $data["fld_email"] && $password == $data["fld_password"]) {
+        $ownerId = $data["fld_ownerId"];
+		$info = $dbh->prepare("UPDATE tbl_owner SET fld_status = :fld_status WHERE fld_ownerId = :fld_ownerId");
+        $info->bindParam(":fld_ownerId", $ownerId);
+        $info->bindParam(":fld_status", $status);
+        $info->execute(); 
+        
+        $place = $dbh->prepare("UPDATE tbl_place SET fld_status = :fld_status WHERE fld_owner = :fld_owner");
+        $place->bindParam(":fld_owner", $ownerId);
+        $place->bindParam(":fld_status", $status2);
+        $place->execute();
+
+        echo $data["fld_userId"];
+        echo "Reactivation successful!";
+	}
+	else if(empty($email)){
+		echo "Please enter a valid email address";
+	}
+	else if(empty($email) and empty($password)){
+		echo "Please enter your email and password"; 
+	}
+	else if(empty($password)){
+		echo "Please enter your password";
+	}
+	else{
+		echo "Email or password is incorrect";
+	}
 }
 ?>
